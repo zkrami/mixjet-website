@@ -4,11 +4,104 @@
     <title>MixJet</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
 </head>
 
 <body>
+    <svg id="svg-converter" class="test-svg"
+        style="position: fixed ; display: none;  z-index:5; top :0 ; left : 0 ; width:100vw; height:100vh; "
+        viewBox="0 0 1366 656">
+
+        <style>
+            .st0 {
+                fill: none;
+                stroke: #000000;
+                stroke-miterlimit: 10;
+            }
+        </style>
+        <path class="st0" id="airplane-path"
+            d="M1077.9,128.9C1054.1,271.1,927.8,361,883.1,361c-415.7,0-534.4,7.8-534.4,7.8c-50.9,0-195.6,102.7-195.6,224.3" />
+
+    </svg>
+    <section class="section services">
+        <div class="service-info">
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <h1>We fullfill your gallon </h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                            ut aliquip
+                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu
+                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia
+                            deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="service-info">
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <h1>We fullfill your gallon </h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                            ut aliquip
+                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu
+                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia
+                            deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
     <section class="section header" id="header">
-        <div class="clouds-scene ">
+
+        <div class="clouds-wrapper clouds-viewport " id="clouds-viewport">
+            <div class="clouds-world" id="clouds-world">
+
+                <div class="airport">
+                    <div class="airport-backgroun-wrapper">
+                        <img class="airport-background" src="assets/imgs/airport222.jpg" />
+                    </div>
+                </div>
+                <div class="clouds-container">
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="clouds-scene ">
 
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1365 656"
@@ -26,82 +119,148 @@
                 </g>
                 <g class="cloud-size-5">
 
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(1.9045 0 0 1.9045 796 110)">
                     </image>
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(1.9045 0 0 1.9045 58 421)">
                     </image>
                 </g>
                 <g class="cloud-size-4">
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(1.1644 0 0 1.1644 500 28)">
                     </image>
 
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(1.1644 0 0 1.1644 285 252)">
                     </image>
 
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(1.1644 0 0 1.1644 617 478)">
                     </image>
 
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(1.1644 0 0 1.1644 1007 430)">
                     </image>
                 </g>
                 <g class="cloud-size-1">
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(0.3503 0 0 0.3503 369 31)">
                     </image>
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(0.3503 0 0 0.3503 840 57)">
                     </image>
 
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(0.3503 0 0 0.3503 411 179)">
                     </image>
 
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(0.3503 0 0 0.3503 857 413)">
                     </image>
 
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(0.3503 0 0 0.3503 929 581)">
                     </image>
                 </g>
                 <g class="cloud-size-3">
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(0.7908 0 0 0.7908 610 328)">
                     </image>
-                    <image style="overflow:visible;" width="500"  xlink:href="assets/imgs/cloud.png"
+                    <image style="overflow:visible;" width="500" xlink:href="assets/imgs/cloud.png"
                         transform="matrix(0.7908 0 0 0.7908 45 146)">
                     </image>
                 </g>
             </svg>
 
-
             <img class="window" style="display: none" src="assets/imgs/window3.png" />
-        </div>
-        <div class="header-info">
-            <div class="header-logo"></div>
-            <h1 class="header-title">MixJet
-                Flight Support</h1>
-            <h3 class="header-description">
-                inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards.
-            </h3>
-        </div>
+        </div> -->
 
-        <div class="airport">
-            <div class="airport-backgroun-wrapper">
-                <img class="airport-background" src="assets/imgs/airport222.jpg" />
-            </div>
-        </div>
+
+
 
 
 
     </section>
+
+    <div class="airplane-wrapper" id="airplane">
+        <img src="assets/imgs/airplane.png" />
+    </div>
     <script src="assets/js/entry.bundle.js"></script>
+
+    <script>
+
+        let world = document.getElementById("clouds-world");
+
+        let perspective = 2000;
+
+        function createCloud(div, imageFactor) {
+
+
+            for (var j = 0; j < 7 + Math.round(Math.random() * 8); j++) {
+
+                let cloud = document.createElement('div');
+                cloud.className = 'cloud-layer';
+
+
+                var x = -50 + Math.random() * 100;
+                var y = -50 + Math.random() * 100;
+                var a = Math.random() * 360;
+                var z = 300 + Math.random() * 500;
+                var s = .5 + Math.random();
+                var ss = 1 - (z / perspective);
+
+
+                var speed = 20 + 30 * Math.random();
+
+                cloud.data = {
+                    x, y, a, s
+                };
+                var t = 'translateX( ' + x + '% ) \
+                translateY( ' + y + '% ) \
+                translateZ( ' + z + 'px ) \
+                rotateZ( ' + a + 'deg ) \
+                scale( ' + ss + ' ) \
+                scale( ' + s + ' )';
+                cloud.style.transform = t;
+                // choose image randomly based on biases 
+                let selectedImage = 0;                
+                imageFactor = imageFactor.map(e => Math.random() * e); 
+                selectedImage = imageFactor.indexOf(Math.max(...imageFactor)); 
+
+                let image = `url("assets/imgs/cloud-base-${selectedImage + 1}.png")`;
+
+                cloud.style.backgroundSize = 'cover';
+                cloud.style.backgroundImage = image;
+
+                let cloudLayerWrapper = document.createElement("div");
+                cloudLayerWrapper.className = 'cloud-layer-wrapper';
+                cloudLayerWrapper.style.animationDuration = speed + 's';
+                cloudLayerWrapper.appendChild(cloud);
+
+                div.appendChild(cloudLayerWrapper);
+            }
+
+            return div;
+        }
+        let surrounding = [0 , 4, 8 , 9 , 10 , 11]; 
+        let centers = [1 , 2 , 5 , 6 ]; 
+        let clouds =  document.getElementsByClassName("cloud-base"); 
+        for (let index  of  surrounding) {
+            let cloud = clouds[index]; 
+            createCloud(cloud, [2, 0, 0, 1]);
+        }
+
+        for (let index  of  centers) {
+            let cloud = clouds[index]; 
+            createCloud(cloud, [1, 1, 1, 0]);
+        }
+
+
+
+
+
+    </script>
 </body>
 
 </html>

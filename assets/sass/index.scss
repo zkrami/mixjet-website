@@ -1,11 +1,107 @@
 @import "reset";
 
+
+/*clouds wrapper*/
+
+
+.clouds-wrapper {
+    position:  relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    display: block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+
+.clouds-viewport {
+    perspective: 2000px;
+}
+
+.clouds-world {
+    transform-style: preserve-3d;
+    background: skyblue;
+
+    div {
+        transform-style: preserve-3d;
+    }
+
+    width: 100%;
+    height: 100%;
+}
+
+.clouds-container{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%; 
+        height: 100%; 
+        display: flex;
+        flex-wrap: wrap;
+
+}
+.cloud-base {
+  
+    position: relative; 
+    width: 25%;
+    
+    overflow: visible;
+    z-index: 10;
+    //background: rgba(255 , 0 , 0 , .4);
+}
+
+
+
+
+
+
+
+@keyframes cloudRotation {
+
+    0% {
+        transform: translateX(0) translateY(20px);
+    }
+
+    50% {
+        transform: translateX(50px) translateY(0px);
+    }
+
+    100% {
+        transform: translateX(100px) translateY(-20px);
+    }
+}
+
+.cloud-layer-wrapper {
+    //animation: cloudRotation 1s infinite alternate-reverse linear;
+}
+
+.cloud-layer {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 100%;
+    //background: blue; 
+    //border:solid 2px white; 
+
+    //background-image: url("../imgs/cloud-base-1.png");
+    background-size: cover;
+    transform-origin: 50% 50%; 
+
+}
+
+
+/*Landing Page*/
 .airport {
     width: 100%;
     min-height: 100vh;
     position: relative;
     z-index: 1;
-
+    transform:scale(0.924) translateZ(100px);
+    display: none;
     .airport-backgroun-wrapper {
         position: absolute;
         top: 0;
@@ -17,12 +113,9 @@
 
     .airport-background {
         position: absolute;
-
         @extend .centered-absolute;
         width: 100%;
         height: 100%;
-
-
     }
 }
 
@@ -34,8 +127,9 @@
     overflow: hidden;
     top: 0;
     left: 0;
-    svg{
-        width:100%;
+
+    svg {
+        width: 100%;
         height: 100%;
     }
 
@@ -43,55 +137,12 @@
         position: absolute;
     }
 
-    .cloud {
-        opacity: 1;
-    }
-    #cloud-0 {
-        width: 40%;
-        right: 20%;
-        top: 0%;
-        z-index: 20;
-    }
-
-    #cloud-1 {
-        width: 20%;
-        right: 10%;
-        top:3%;
-        z-index: 19;
-    }
-    #cloud-2 {
-        width: 10%;
-        top: 2%;
-        left:10%;
-        z-index: 18;
-    }
-    // top 
-    #cloud-3 {
-        width: 0%;
-        top: -10%;
-        right: 15%; 
-
-    }
-
-    #cloud-4 {
-        width: 0%;
-        right: -10%;
-        top:-2%;
-    }
-
-    #cloud-5 {
-        width: 0%;
-        top: -10%;
-        right: 50%;
-    }
     .window {
         min-height: 100%;
         min-width: 100%;
         width: 100%;
         @extend .centered-absolute;
-
     }
-
 }
 
 .header-info {
@@ -99,3 +150,23 @@
     top: 0;
     left: 0;
 }
+
+/* Airplane */
+.airplane-wrapper {
+
+    position: absolute;
+    left: 11.3%;
+    top: 75.3%;
+    width: 10%;
+
+    img {
+        width: 100%;
+
+    }
+
+    z-index: 3;
+}
+
+
+
+/* Services */
