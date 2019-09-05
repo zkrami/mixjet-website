@@ -36,6 +36,13 @@ function makeCloudsTimeLine() {
         ease: Power3.easeOut
     }, 5);
 
+    tl.set("#airport-airplane", {
+        "display": "none"
+    });
+    tl.set("#airplane", {
+        "display": "block"
+    });
+
     return tl;
 
 }
@@ -84,7 +91,7 @@ class Airplane {
     makePath() {
 
         let values = [];
-        let frames = 60;
+        let frames = 30;
         for (let i = 0; i <= frames; i++) {
             let precent = i * 100 / frames;
             let p = this.getPointAtScreen(precent);
@@ -92,31 +99,14 @@ class Airplane {
         }
         return values;
     }
-    makeScrollScene() {
 
-
-
-        let airplanePath = this.makePath();
-        let airplanePathScenes = [];
-
-
-        let values = airplanePath.map(e => XYtoTopLeftPercent(e));
-
-        let tl = new TimelineMax({});
-
-        tl.to({
-            beizer: {
-                values,
-                autoRotate: ["top", "left", "rotation", 90, false]
-            }
-        });
-    }
     makeScene() {
 
 
 
         let airplanePath = this.makePath();
         let airplanePathScenes = [];
+        let hidden = true;
 
         for (let i = 1; i < airplanePath.length; i++) {
 
@@ -133,17 +123,58 @@ class Airplane {
             let scene = new ScrollMagic.Scene({ offset: - 220 + start.y, reverse: true, loglevel: 2 })
                 .addTo(this.controller)
                 .on("start", (e) => {
-                    if (e.scrollDirection === "FORWARD") {
-                        TweenMax.to(this.airplane, 0.7, {
-                            ...XYtoTopLeftPercent(end),
-                            rotation: angle
-                        });
-                    } else {
+                    if (e.scrollDirection === "FORWARD") { // down 
 
-                        TweenMax.to(this.airplane, 0.7, {
-                            ...XYtoTopLeftPercent(start),
-                            rotation: angle
-                        });
+                        if (i == airplanePath.length - 1) {
+
+                            hidden = true;
+
+                            TweenMax.to(this.airplane, 0.7, {
+                                ...XYtoTopLeftPercent(end),
+                                rotation: angle,
+                                onComplete: () => {
+/*
+                                    TweenMax.set(this.airplaneReplacement, {
+                                        "display": "block"
+                                    });
+                                    TweenMax.set(this.airplane, {
+                                        "display": "none"
+                                    });*/
+                                }
+                            });
+
+                        } else {
+
+                            TweenMax.to(this.airplane, 0.7, {
+                                ...XYtoTopLeftPercent(end),
+                                rotation: angle
+                            });
+                        }
+
+                    } else { // up 
+                        hidden = false;
+                        if (i == airplanePath.length - 1) {
+
+                         /*   TweenMax.set(this.airplaneReplacement, {
+                                "display": "none"
+                            });
+                            TweenMax.set(this.airplane, {
+                                "display": "block"
+                            });*/
+
+                            TweenMax.to(this.airplane, 0.7, {
+                                ...XYtoTopLeftPercent(start),
+                                rotation: angle,
+                            });
+
+                        } else {
+
+                            TweenMax.to(this.airplane, 0.7, {
+                                ...XYtoTopLeftPercent(start),
+                                rotation: angle,
+                            });
+
+                        }
                     }
                 });
 
@@ -160,9 +191,9 @@ $(function () {
     let cloudsTimeLine = makeCloudsTimeLine();
     let controller = new ScrollMagic.Controller();
 
-    let airplane = new Airplane({ airplane: $("#airplane"), path: document.getElementById("airplane-path"), controller });
+    let airplane = new Airplane({ airplane: $("#airplane"), path: document.getElementById("airplane-path"), controller, airplaneReplacement: $("#airport-airplane") });
 
-    new ScrollMagic.Scene({ offset: 50332, duration: 2000 })
+    new ScrollMagic.Scene({ offset: 432, duration: 2000 })
         .setPin("#header")
         .setTween(cloudsTimeLine.reverse())
         .addTo(controller);
@@ -172,10 +203,6 @@ $(function () {
 
 
 
-
-    $(window).click((e) => {
-        console.log(e.pageY);
-    });
 
 });
 

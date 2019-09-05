@@ -17,7 +17,8 @@
     "jquery": "^3.4.1",
     "scrollmagic": "^2.0.7",
     "scrollmagic-plugin-gsap": "^1.0.3",
-    "shallow-clone": "^3.0.1"
+    "shallow-clone": "^3.0.1",
+    "smooth-scrollbar": "^8.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

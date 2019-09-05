@@ -140,13 +140,8 @@ section {
   .airport-airplane img {
     width: 100%; }
 
-#indicator {
-  position: absolute;
-  top: 300px;
-  left: 0;
-  height: 100vh;
-  background: red;
-  width: 100%; }
+#airplane {
+  display: none; }
 
 .airplane-wrapper {
   position: absolute;
