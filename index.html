@@ -7,23 +7,26 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
 </head>
 
-<body>
-    <svg id="svg-converter" class="test-svg"
-        style="position: fixed ; display: none;  z-index:5; top :0 ; left : 0 ; width:100vw; height:100vh; "
-        viewBox="0 0 1366 656">
+<body style="padding-top: 5000px">
+    <div class="indicator" id="indicator">
 
-        <style>
+    </div>
+    <svg id="svg-converter" class="test-svg"
+        style="position: absolute ;   z-index:15; top :0 ; left : 0 ; width:100%; height:100%; " viewBox="0 0 100 200">
+
+        <style type="text/css">
             .st0 {
                 fill: none;
                 stroke: #000000;
                 stroke-miterlimit: 10;
+                transform: translateY(-89%);
+                
             }
         </style>
-        <path class="st0" id="airplane-path"
-            d="M1077.9,128.9C1054.1,271.1,927.8,361,883.1,361c-415.7,0-534.4,7.8-534.4,7.8c-50.9,0-195.6,102.7-195.6,224.3" />
-
+        <path id="airplane-path" class="st0" d="M77.1,0.1c14.3,79.5-55,52.5-72.7,112.7c-24.3,82.7,72.1,46,74.9,102.1" />
     </svg>
-    <section class="section services">
+
+    <section class="section services" >
         <div class="service-info">
             <div class="container-fluid">
 
@@ -75,10 +78,936 @@
 
         </div>
     </section>
+    <div class="airplane-wrapper" id="airplane">
+        <img src="assets/imgs/airplane.png" />
+    </div>
+    <div class="airplane-wrapper" id="airplane2">
+        <img src="assets/imgs/airplane.png" />
+    </div>
+
     <section class="section header" id="header">
 
         <div class="clouds-wrapper clouds-viewport " id="clouds-viewport">
             <div class="clouds-world" id="clouds-world">
+
+                <div class="airport-airplane" id="airport-airplane">
+                    <img src="assets/imgs/airplane.png" />
+                </div>
+            
+                
+                <div class="airport">
+
+
+                    <div class="airport-backgroun-wrapper">
+                        <img class="airport-background" src="assets/imgs/airport222.jpg"
+                            style="transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+                    </div>
+                </div>
+                <div class="clouds-container">
+                    <div class="cloud-base">
+                        <div class="cloud-layer-wrapper" style="animation-duration: 45.7581s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-14.2642%) translateY(44.7807%) translateZ(840.369px) rotateZ(163.475deg) scale(0.579816) scale(1.34592); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 39.0281s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-27.4754%) translateY(-7.5569%) translateZ(555.14px) rotateZ(269.659deg) scale(0.72243) scale(1.22144); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 36.4118s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-41.466%) translateY(-7.97261%) translateZ(908.023px) rotateZ(86.7691deg) scale(0.545988) scale(1.4343); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 37.774s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-28.7123%) translateY(-3.33263%) translateZ(930.499px) rotateZ(201.109deg) scale(0.534751) scale(1.14698); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 32.3198s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-30.0224%) translateY(28.9647%) translateZ(608.655px) rotateZ(93.6014deg) scale(0.695673) scale(1.0773); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 38.64s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-35.7055%) translateY(5.42623%) translateZ(779.297px) rotateZ(339.193deg) scale(0.610352) scale(1.06423); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 33.4129s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(0.600974%) translateY(-42.1311%) translateZ(799.236px) rotateZ(279.361deg) scale(0.600382) scale(0.62192); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 35.4541s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(16.2752%) translateY(33.3663%) translateZ(326.042px) rotateZ(177.769deg) scale(0.836979) scale(1.01909); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 20.0267s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-15.7176%) translateY(14.043%) translateZ(1085.14px) rotateZ(261deg) scale(0.457429) scale(1.47336); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 36.3262s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(31.9808%) translateY(6.40367%) translateZ(367.502px) rotateZ(39.3948deg) scale(0.816249) scale(1.2876); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 22.2567s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(21.682%) translateY(-8.17232%) translateZ(631.48px) rotateZ(159.388deg) scale(0.68426) scale(0.600435); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 25.4395s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(19.732%) translateY(4.41571%) translateZ(1002.69px) rotateZ(345.634deg) scale(0.498653) scale(1.41833); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 25.1481s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-11.628%) translateY(8.50609%) translateZ(695.391px) rotateZ(19.9445deg) scale(0.652305) scale(0.593943); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 34.7948s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(5.15591%) translateY(-8.92258%) translateZ(515.407px) rotateZ(326.973deg) scale(0.742297) scale(0.8136); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 31.6925s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-26.3423%) translateY(37.0138%) translateZ(343.99px) rotateZ(219.426deg) scale(0.828005) scale(0.786231); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 45.5471s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(5.97431%) translateY(-17.0255%) translateZ(544.209px) rotateZ(310.409deg) scale(0.727896) scale(1.46193); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cloud-base">
+                        <div class="cloud-layer-wrapper" style="animation-duration: 30.8157s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-45.5049%) translateY(-20.63%) translateZ(688.2px) rotateZ(99.691deg) scale(0.6559) scale(0.61682); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 27.1883s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-14.8386%) translateY(25.3655%) translateZ(335.751px) rotateZ(116.072deg) scale(0.832125) scale(0.764861); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 39.175s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-30.1073%) translateY(-12.8257%) translateZ(1060.28px) rotateZ(210.03deg) scale(0.469861) scale(1.08858); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 30.6547s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(15.7388%) translateY(45.5894%) translateZ(402.174px) rotateZ(106.176deg) scale(0.798913) scale(0.640937); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 42.4577s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(11.9577%) translateY(-28.3447%) translateZ(610.981px) rotateZ(205.933deg) scale(0.69451) scale(0.84506); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 33.3422s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(5.24475%) translateY(-22.0616%) translateZ(845.871px) rotateZ(287.826deg) scale(0.577065) scale(0.819074); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 48.0022s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(48.8118%) translateY(-21.6656%) translateZ(945.396px) rotateZ(129.765deg) scale(0.527302) scale(1.02438); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 49.8685s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(39.3693%) translateY(29.6538%) translateZ(644.044px) rotateZ(252.243deg) scale(0.677978) scale(0.772934); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 33.0615s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-31.0229%) translateY(-18.5942%) translateZ(875.076px) rotateZ(262.583deg) scale(0.562462) scale(1.41113); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 22.2415s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-39.6439%) translateY(-23.6388%) translateZ(512.675px) rotateZ(212.073deg) scale(0.743663) scale(0.985592); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 29.831s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-35.5124%) translateY(-24.6277%) translateZ(739.332px) rotateZ(348.884deg) scale(0.630334) scale(1.41397); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 32.4822s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-37.4984%) translateY(-49.7323%) translateZ(924.33px) rotateZ(15.9821deg) scale(0.537835) scale(0.953518); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 45.4473s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(39.0082%) translateY(48.1059%) translateZ(910.607px) rotateZ(173.157deg) scale(0.544697) scale(1.09071); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 28.6199s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(37.9591%) translateY(-18.9473%) translateZ(677.05px) rotateZ(354.506deg) scale(0.661475) scale(0.682239); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 27.0105s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-36.9218%) translateY(-11.3753%) translateZ(316.998px) rotateZ(303.996deg) scale(0.841501) scale(1.39108); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 42.0784s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(25.2851%) translateY(-11.2617%) translateZ(1065.33px) rotateZ(108.404deg) scale(0.467333) scale(0.633113); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cloud-base">
+                        <div class="cloud-layer-wrapper" style="animation-duration: 39.9155s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(17.7494%) translateY(-29.2004%) translateZ(875.316px) rotateZ(15.195deg) scale(0.562342) scale(0.605153); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 46.0293s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-25.6809%) translateY(13.7323%) translateZ(453.169px) rotateZ(158.117deg) scale(0.773415) scale(1.16932); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 40.9335s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(34.7643%) translateY(44.6655%) translateZ(830.454px) rotateZ(278.67deg) scale(0.584773) scale(0.817032); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 25.4885s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(29.0642%) translateY(-33.9921%) translateZ(639.379px) rotateZ(99.1859deg) scale(0.68031) scale(1.48242); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 26.0183s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(12.1086%) translateY(0.281414%) translateZ(694.454px) rotateZ(327.083deg) scale(0.652773) scale(0.889988); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 47.2158s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(13.8472%) translateY(-10.7187%) translateZ(607.836px) rotateZ(18.0586deg) scale(0.696082) scale(0.823619); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 39.1764s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-8.23361%) translateY(-5.81911%) translateZ(820.24px) rotateZ(64.3559deg) scale(0.58988) scale(0.67996); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 36.757s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(18.242%) translateY(30.6883%) translateZ(534.732px) rotateZ(227.901deg) scale(0.732634) scale(1.03821); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 26.6224s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-3.39099%) translateY(45.6748%) translateZ(518.536px) rotateZ(15.1657deg) scale(0.740732) scale(0.921407); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 22.4572s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-4.60759%) translateY(-33.0619%) translateZ(855.288px) rotateZ(169.068deg) scale(0.572356) scale(0.662591); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 39.4064s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(43.5509%) translateY(-11.9818%) translateZ(708.225px) rotateZ(136.324deg) scale(0.645887) scale(0.575081); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 36.4976s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-6.51018%) translateY(5.27107%) translateZ(738.607px) rotateZ(231.71deg) scale(0.630697) scale(0.921702); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 48.3801s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(25.5654%) translateY(49.9894%) translateZ(430.71px) rotateZ(292.064deg) scale(0.784645) scale(0.859358); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 33.747s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-19.3211%) translateY(8.83763%) translateZ(637.97px) rotateZ(318.028deg) scale(0.681015) scale(1.31945); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 34.7127s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(20.8341%) translateY(-4.3263%) translateZ(853.885px) rotateZ(15.493deg) scale(0.573058) scale(0.533153); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 20.7077s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-33.774%) translateY(47.6368%) translateZ(643.66px) rotateZ(292.567deg) scale(0.67817) scale(1.46016); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base">
+                        <div class="cloud-layer-wrapper" style="animation-duration: 41.7009s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(8.50918%) translateY(33.7672%) translateZ(757.125px) rotateZ(183.807deg) scale(0.621438) scale(0.928301); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 44.8357s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(43.889%) translateY(39.0445%) translateZ(393.249px) rotateZ(305.616deg) scale(0.803376) scale(0.737372); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 38.869s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-30.2672%) translateY(-34.1287%) translateZ(783.117px) rotateZ(36.5471deg) scale(0.608441) scale(1.17533); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 35.1457s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-0.607823%) translateY(5.98089%) translateZ(891.434px) rotateZ(76.3854deg) scale(0.554283) scale(1.09715); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 37.498s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-44.1091%) translateY(3.71824%) translateZ(970.091px) rotateZ(221.313deg) scale(0.514955) scale(0.585456); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 27.0528s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-40.0844%) translateY(17.4027%) translateZ(436.165px) rotateZ(102.983deg) scale(0.781918) scale(1.11364); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 38.9721s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(0.604158%) translateY(-19.3165%) translateZ(738.444px) rotateZ(109.708deg) scale(0.630778) scale(0.935061); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 42.9308s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-7.64471%) translateY(-12.9935%) translateZ(600.186px) rotateZ(353.666deg) scale(0.699907) scale(1.11419); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 26.6225s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-3.47363%) translateY(9.40853%) translateZ(303.689px) rotateZ(93.7615deg) scale(0.848155) scale(0.522552); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 28.3123s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-2.04814%) translateY(38.7644%) translateZ(921.359px) rotateZ(170.512deg) scale(0.539321) scale(1.16228); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 29.8874s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(40.4147%) translateY(-41.3635%) translateZ(468.39px) rotateZ(118.466deg) scale(0.765805) scale(0.69323); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 35.6369s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-39.2854%) translateY(49.1126%) translateZ(665.587px) rotateZ(295.178deg) scale(0.667207) scale(1.33097); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 21.1218s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-43.6393%) translateY(44.3302%) translateZ(358.45px) rotateZ(245.86deg) scale(0.820775) scale(0.620917); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 45.5877s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(4.90526%) translateY(14.2017%) translateZ(868.535px) rotateZ(218.48deg) scale(0.565733) scale(1.32867); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 35.3104s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(23.6453%) translateY(-43.605%) translateZ(741.451px) rotateZ(96.9774deg) scale(0.629275) scale(0.747152); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 49.524s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-2.664%) translateY(-23.57%) translateZ(533.128px) rotateZ(102.221deg) scale(0.733436) scale(0.554816); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 31.2501s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(27.0142%) translateY(-10.5015%) translateZ(317.074px) rotateZ(33.6679deg) scale(0.841463) scale(0.601151); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 46.1758s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(5.84209%) translateY(12.3505%) translateZ(983.404px) rotateZ(169.43deg) scale(0.508298) scale(0.876488); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 44.8875s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-32.3164%) translateY(-31.4507%) translateZ(564.503px) rotateZ(249.212deg) scale(0.717748) scale(0.612895); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cloud-base">
+                        <div class="cloud-layer-wrapper" style="animation-duration: 28.885s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(44.0833%) translateY(-32.2895%) translateZ(703.707px) rotateZ(313.018deg) scale(0.648146) scale(0.851598); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 23.8118s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(30.7993%) translateY(-39.9502%) translateZ(604.884px) rotateZ(138.469deg) scale(0.697558) scale(0.841252); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 26.394s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(14.0993%) translateY(39.8976%) translateZ(659.133px) rotateZ(331.443deg) scale(0.670434) scale(1.03103); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 20.2919s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(35.8851%) translateY(2.9263%) translateZ(395.273px) rotateZ(169.248deg) scale(0.802363) scale(0.773435); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 21.6384s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-38.3238%) translateY(23.627%) translateZ(401.673px) rotateZ(138.646deg) scale(0.799163) scale(0.739317); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 34.0787s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(34.4362%) translateY(6.38825%) translateZ(745.583px) rotateZ(220.724deg) scale(0.627208) scale(0.536824); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 24.6123s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(25.559%) translateY(8.19495%) translateZ(547.243px) rotateZ(240.911deg) scale(0.726379) scale(0.786658); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 46.8613s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(41.3084%) translateY(5.35365%) translateZ(518.029px) rotateZ(169.397deg) scale(0.740986) scale(0.526067); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 44.1014s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-5.46226%) translateY(-28.4196%) translateZ(662.364px) rotateZ(230.504deg) scale(0.668818) scale(1.1694); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 24.1074s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(31.8133%) translateY(-2.17038%) translateZ(1041.66px) rotateZ(179.786deg) scale(0.479169) scale(0.900116); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 23.2503s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(5.94514%) translateY(-20.2812%) translateZ(559.216px) rotateZ(193.503deg) scale(0.720392) scale(1.23267); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 22.0554s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-41.1691%) translateY(-19.0169%) translateZ(474.482px) rotateZ(325.447deg) scale(0.762759) scale(0.81164); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 49.2223s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-35.1903%) translateY(13.6269%) translateZ(345.341px) rotateZ(108.413deg) scale(0.827329) scale(1.27024); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 26.2964s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(30.5338%) translateY(-33.6088%) translateZ(1067.02px) rotateZ(284.341deg) scale(0.466492) scale(0.871751); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 48.2837s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(6.06618%) translateY(-19.1285%) translateZ(617.78px) rotateZ(31.9083deg) scale(0.69111) scale(0.883443); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 27.5226s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-1.64394%) translateY(-27.3977%) translateZ(1071.78px) rotateZ(346.201deg) scale(0.464112) scale(1.05019); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 34.9694s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-14.4961%) translateY(1.03158%) translateZ(950.697px) rotateZ(184.323deg) scale(0.524652) scale(0.956461); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 23.4721s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-20.9893%) translateY(-48.3708%) translateZ(462.667px) rotateZ(84.6764deg) scale(0.768666) scale(0.53919); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cloud-base">
+                        <div class="cloud-layer-wrapper" style="animation-duration: 36.3928s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(36.1331%) translateY(-14.9457%) translateZ(692.298px) rotateZ(183.668deg) scale(0.653851) scale(0.937159); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 27.2134s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(10.2312%) translateY(-45.7878%) translateZ(860.513px) rotateZ(320.401deg) scale(0.569744) scale(1.36822); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 22.3007s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(20.5514%) translateY(-16.3761%) translateZ(740.528px) rotateZ(70.6395deg) scale(0.629736) scale(1.42955); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 32.1363s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(33.517%) translateY(-26.2153%) translateZ(722.108px) rotateZ(185deg) scale(0.638946) scale(1.03242); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 27.6399s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(34.3785%) translateY(6.35033%) translateZ(705.159px) rotateZ(140.773deg) scale(0.647421) scale(1.23364); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 28.6928s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-28.7668%) translateY(-36.5681%) translateZ(528.819px) rotateZ(332.729deg) scale(0.73559) scale(1.459); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 46.2889s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-6.47482%) translateY(-48.8936%) translateZ(679.663px) rotateZ(101.225deg) scale(0.660168) scale(1.07142); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 21.101s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(7.01058%) translateY(-6.15437%) translateZ(922.295px) rotateZ(3.20008deg) scale(0.538852) scale(1.21073); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 32.1295s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-25.4816%) translateY(-41.837%) translateZ(477.567px) rotateZ(61.9367deg) scale(0.761216) scale(1.20236); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 45.8673s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-24.5661%) translateY(18.5485%) translateZ(667.257px) rotateZ(356.653deg) scale(0.666372) scale(0.916013); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 23.2029s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(26.1915%) translateY(-25.9278%) translateZ(1088.12px) rotateZ(144.433deg) scale(0.455942) scale(1.13743); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 43.5416s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-25.9212%) translateY(49.2234%) translateZ(715.308px) rotateZ(36.1431deg) scale(0.642346) scale(1.20712); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 24.4839s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(19.5326%) translateY(-30.277%) translateZ(327.365px) rotateZ(264.543deg) scale(0.836317) scale(1.46127); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 35.5675s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(49.7069%) translateY(22.8924%) translateZ(824.767px) rotateZ(122.49deg) scale(0.587617) scale(1.17291); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 38.763s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-40.6335%) translateY(-49.0962%) translateZ(527.172px) rotateZ(345.887deg) scale(0.736414) scale(1.16949); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 35.7768s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-13.47%) translateY(16.2684%) translateZ(680.161px) rotateZ(38.3253deg) scale(0.65992) scale(0.806337); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 25.9148s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-20.9566%) translateY(-13.0101%) translateZ(501.182px) rotateZ(110.874deg) scale(0.749409) scale(1.28323); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 45.6556s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-41.0444%) translateY(7.08545%) translateZ(923.358px) rotateZ(151.837deg) scale(0.538321) scale(1.37772); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 47.7015s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-25.0763%) translateY(-40.0974%) translateZ(602.447px) rotateZ(194.155deg) scale(0.698777) scale(1.40138); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base">
+                        <div class="cloud-layer-wrapper" style="animation-duration: 42.6269s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-31.896%) translateY(5.89399%) translateZ(430.678px) rotateZ(178.037deg) scale(0.784661) scale(1.28698); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 23.492s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(39.8523%) translateY(17.1064%) translateZ(522.65px) rotateZ(237.459deg) scale(0.738675) scale(1.30151); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 28.2879s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(49.5712%) translateY(15.1808%) translateZ(939.914px) rotateZ(324.689deg) scale(0.530043) scale(1.45475); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 44.805s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-11.3903%) translateY(35.9952%) translateZ(328.584px) rotateZ(23.2713deg) scale(0.835708) scale(0.708327); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 29.6303s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(1.26312%) translateY(37.8163%) translateZ(709.289px) rotateZ(81.0484deg) scale(0.645356) scale(0.855096); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 25.783s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(25.9818%) translateY(-44.3811%) translateZ(741.953px) rotateZ(9.46278deg) scale(0.629024) scale(1.34686); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 41.9024s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-0.239872%) translateY(-17.1951%) translateZ(544.939px) rotateZ(5.43558deg) scale(0.727531) scale(1.02068); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 34.1725s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(48.5924%) translateY(-23.2974%) translateZ(1025.28px) rotateZ(272.728deg) scale(0.487362) scale(1.03118); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 49.0806s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-48.3409%) translateY(-8.04137%) translateZ(894.832px) rotateZ(342.241deg) scale(0.552584) scale(1.0507); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 42.1808s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-45.4895%) translateY(6.62479%) translateZ(1073.28px) rotateZ(177.782deg) scale(0.463361) scale(0.582844); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 46.268s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-40.8582%) translateY(36.0001%) translateZ(591.46px) rotateZ(219.749deg) scale(0.70427) scale(0.824017); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-2.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 34.8116s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-0.502727%) translateY(8.70567%) translateZ(771.981px) rotateZ(89.9011deg) scale(0.61401) scale(1.28781); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 46.1986s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(2.79943%) translateY(11.2116%) translateZ(555.687px) rotateZ(320.726deg) scale(0.722157) scale(0.679486); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 37.0718s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-41.5589%) translateY(8.2962%) translateZ(1010.5px) rotateZ(55.7569deg) scale(0.494751) scale(1.32436); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 28.422s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-48.7155%) translateY(-7.43641%) translateZ(895.098px) rotateZ(318.62deg) scale(0.552451) scale(0.947034); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 43.0103s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(12.2426%) translateY(28.0339%) translateZ(917.264px) rotateZ(227.104deg) scale(0.541368) scale(0.512646); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 46.0758s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(32.6563%) translateY(-4.59526%) translateZ(536.767px) rotateZ(65.3516deg) scale(0.731617) scale(1.32458); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 35.8063s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(49.2769%) translateY(-8.33167%) translateZ(484.731px) rotateZ(83.8255deg) scale(0.757635) scale(1.18446); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cloud-base">
+                        <div class="cloud-layer-wrapper" style="animation-duration: 38.7199s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(18.6512%) translateY(12.9522%) translateZ(955.587px) rotateZ(316.339deg) scale(0.522207) scale(0.672174); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 22.6148s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-19.3443%) translateY(24.6924%) translateZ(625.206px) rotateZ(165.996deg) scale(0.687397) scale(0.936701); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 37.7568s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-8.38129%) translateY(21.7088%) translateZ(566.326px) rotateZ(22.7522deg) scale(0.716837) scale(0.574777); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 34.7491s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-32.6138%) translateY(33.5476%) translateZ(483.752px) rotateZ(208.275deg) scale(0.758124) scale(0.502027); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 20.2068s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-23.0854%) translateY(-20.5535%) translateZ(989.817px) rotateZ(254.919deg) scale(0.505091) scale(0.861952); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 30.8763s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(47.1757%) translateY(-18.3141%) translateZ(335.084px) rotateZ(212.12deg) scale(0.832458) scale(1.05562); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 37.1644s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(4.9178%) translateY(15.4695%) translateZ(442.901px) rotateZ(353.006deg) scale(0.77855) scale(0.569155); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 44.833s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-46.3458%) translateY(40.8489%) translateZ(632.465px) rotateZ(188.388deg) scale(0.683768) scale(0.96786); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 36.085s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-29.4104%) translateY(2.43281%) translateZ(833.246px) rotateZ(74.4806deg) scale(0.583377) scale(0.512809); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 37.8237s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(25.4134%) translateY(8.48065%) translateZ(823.936px) rotateZ(322.463deg) scale(0.588032) scale(0.611018); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 34.1766s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-6.19927%) translateY(21.6504%) translateZ(718.062px) rotateZ(222.247deg) scale(0.640969) scale(1.16225); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 37.9788s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(11.9817%) translateY(5.01974%) translateZ(663.049px) rotateZ(117.457deg) scale(0.668476) scale(1.0444); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 45.4113s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(5.96554%) translateY(25.3495%) translateZ(773.665px) rotateZ(172.744deg) scale(0.613167) scale(0.981208); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 22.8613s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(9.91665%) translateY(36.4805%) translateZ(1065.13px) rotateZ(227.471deg) scale(0.467434) scale(1.33065); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 21.6426s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-13.1787%) translateY(25.9234%) translateZ(725.201px) rotateZ(261.271deg) scale(0.6374) scale(0.994243); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 33.7177s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-35.609%) translateY(-5.12225%) translateZ(792.708px) rotateZ(163.671deg) scale(0.603646) scale(1.2245); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 43.9205s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(26.9256%) translateY(-23.3777%) translateZ(502.142px) rotateZ(236.477deg) scale(0.748929) scale(0.619325); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 23.5236s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-32.3829%) translateY(27.6247%) translateZ(689.925px) rotateZ(189.947deg) scale(0.655038) scale(0.712836); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 46.5059s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-39.4505%) translateY(-38.8345%) translateZ(540.333px) rotateZ(91.6444deg) scale(0.729833) scale(1.44741); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cloud-base">
+                        <div class="cloud-layer-wrapper" style="animation-duration: 40.6606s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-30.0734%) translateY(47.4853%) translateZ(485.014px) rotateZ(297.461deg) scale(0.757493) scale(0.574369); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 47.86s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(28.4172%) translateY(38.4794%) translateZ(753.474px) rotateZ(119.737deg) scale(0.623263) scale(1.31882); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-2.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 37.4547s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-0.248377%) translateY(-33.3799%) translateZ(528.343px) rotateZ(282.902deg) scale(0.735829) scale(0.743897); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 24.9365s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-24.7591%) translateY(44.0171%) translateZ(692.501px) rotateZ(339.157deg) scale(0.65375) scale(0.847096); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 49.2134s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-8.85459%) translateY(-34.3944%) translateZ(825.188px) rotateZ(182.717deg) scale(0.587406) scale(1.49591); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 33.0603s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(37.269%) translateY(-1.02575%) translateZ(667.27px) rotateZ(286.228deg) scale(0.666365) scale(1.3881); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 25.3337s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(10.0395%) translateY(48.3318%) translateZ(1051.59px) rotateZ(19.7965deg) scale(0.474207) scale(1.09907); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 29.5735s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-36.7501%) translateY(-31.0429%) translateZ(566.044px) rotateZ(165.721deg) scale(0.716978) scale(1.26836); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-2.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 48.235s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(49.4165%) translateY(-35.6534%) translateZ(433.446px) rotateZ(68.4776deg) scale(0.783277) scale(0.927297); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-2.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 49.6307s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-20.3058%) translateY(0.347857%) translateZ(702.406px) rotateZ(40.0379deg) scale(0.648797) scale(1.17626); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-2.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 20.9119s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(8.06831%) translateY(43.7031%) translateZ(609.465px) rotateZ(230deg) scale(0.695268) scale(1.24665); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 30.677s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-46.9937%) translateY(-38.5183%) translateZ(659.829px) rotateZ(236.146deg) scale(0.670085) scale(1.066); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 46.9741s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(14.0353%) translateY(-2.06751%) translateZ(357.285px) rotateZ(205.4deg) scale(0.821358) scale(0.782548); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 23.3675s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(49.955%) translateY(-21.7641%) translateZ(421.264px) rotateZ(134.198deg) scale(0.789368) scale(1.37768); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-1.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 41.7779s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(38.8304%) translateY(-0.846691%) translateZ(695.756px) rotateZ(297.525deg) scale(0.652122) scale(1.09839); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 43.8599s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(17.221%) translateY(39.4907%) translateZ(446.323px) rotateZ(250.119deg) scale(0.776838) scale(0.933113); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 21.0476s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(7.55893%) translateY(-38.8579%) translateZ(691.448px) rotateZ(83.0103deg) scale(0.654276) scale(1.31041); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-3.png&quot;);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cloud-base">
+                        <div class="cloud-layer-wrapper" style="animation-duration: 26.2671s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-24.7238%) translateY(-3.78259%) translateZ(1091.3px) rotateZ(23.4399deg) scale(0.454351) scale(1.35501); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 23.6736s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(37.5764%) translateY(-13.6743%) translateZ(311.208px) rotateZ(342.038deg) scale(0.844396) scale(0.529523); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 49.4408s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-30.7526%) translateY(-42.2288%) translateZ(432.199px) rotateZ(195.772deg) scale(0.783901) scale(0.782183); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 35.347s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-27.9757%) translateY(16.4027%) translateZ(774.66px) rotateZ(128.126deg) scale(0.61267) scale(0.613386); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 48.562s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-23.6442%) translateY(-10.6495%) translateZ(473.725px) rotateZ(291.692deg) scale(0.763138) scale(1.12712); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 30.1446s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-10.7095%) translateY(3.62255%) translateZ(998.129px) rotateZ(254.065deg) scale(0.500936) scale(0.882998); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 46.5867s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(36.2924%) translateY(-19.765%) translateZ(469.804px) rotateZ(144.329deg) scale(0.765098) scale(1.40453); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 22.2779s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-38.2356%) translateY(7.7585%) translateZ(574.249px) rotateZ(344.723deg) scale(0.712876) scale(0.908538); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 45.8322s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(45.7154%) translateY(-30.0975%) translateZ(402.758px) rotateZ(20.5022deg) scale(0.798621) scale(0.950821); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-4.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 45.1053s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(26.9631%) translateY(-38.7861%) translateZ(880.562px) rotateZ(143.572deg) scale(0.559719) scale(0.708346); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-2.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 31.5337s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-21.5035%) translateY(-16.0758%) translateZ(606.479px) rotateZ(246.781deg) scale(0.696761) scale(1.24531); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-2.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 27.3004s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(-12.7271%) translateY(27.4192%) translateZ(572.445px) rotateZ(180.576deg) scale(0.713778) scale(1.06293); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-2.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 47.6338s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(13.3147%) translateY(32.732%) translateZ(1005.54px) rotateZ(278.812deg) scale(0.497231) scale(1.16397); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 29.0932s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(15.7433%) translateY(13.0086%) translateZ(668.42px) rotateZ(201.369deg) scale(0.66579) scale(0.51873); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 49.573s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(46.6063%) translateY(30.1257%) translateZ(922.836px) rotateZ(16.7823deg) scale(0.538582) scale(0.727039); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 33.7764s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(27.7019%) translateY(35.548%) translateZ(928.29px) rotateZ(339.747deg) scale(0.535855) scale(0.5914); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                        <div class="cloud-layer-wrapper" style="animation-duration: 30.4324s;">
+                            <div class="cloud-layer"
+                                style="transform: translateX(34.5399%) translateY(-23.22%) translateZ(799.355px) rotateZ(297.174deg) scale(0.600323) scale(1.42807); background-size: cover; background-image: url(&quot;assets/imgs/cloud-base-5.png&quot;);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="logo-wrapper cloud-logo-wrapper">
+                <img src="assets/imgs/logo-primary.png" />
+            </div>
+    
+            <!-- <div class="clouds-world" id="clouds-world">
 
                 <div class="airport">
                     <div class="airport-backgroun-wrapper">
@@ -99,7 +1028,7 @@
                     <div class="cloud-base"></div>
                     <div class="cloud-base"></div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- <div class="clouds-scene ">
 
@@ -177,15 +1106,11 @@
         </div> -->
 
 
-
-
+     
 
 
     </section>
 
-    <div class="airplane-wrapper" id="airplane">
-        <img src="assets/imgs/airplane.png" />
-    </div>
     <script src="assets/js/entry.bundle.js"></script>
 
     <script>
@@ -196,8 +1121,8 @@
 
         function createCloud(div, imageFactor) {
 
-
-            for (var j = 0; j < 7 + Math.round(Math.random() * 8); j++) {
+            return;
+            for (var j = 0; j < 15 + Math.round(Math.random() * 8); j++) {
 
                 let cloud = document.createElement('div');
                 cloud.className = 'cloud-layer';
@@ -206,7 +1131,7 @@
                 var x = -50 + Math.random() * 100;
                 var y = -50 + Math.random() * 100;
                 var a = Math.random() * 360;
-                var z = 300 + Math.random() * 500;
+                var z = 300 + Math.random() * 800;
                 var s = .5 + Math.random();
                 var ss = 1 - (z / perspective);
 
@@ -224,9 +1149,9 @@
                 scale( ' + s + ' )';
                 cloud.style.transform = t;
                 // choose image randomly based on biases 
-                let selectedImage = 0;                
-                imageFactor = imageFactor.map(e => Math.random() * e); 
-                selectedImage = imageFactor.indexOf(Math.max(...imageFactor)); 
+                let selectedImage = 0;
+                imageFactor = imageFactor.map(e => Math.random() * e);
+                selectedImage = imageFactor.indexOf(Math.max(...imageFactor));
 
                 let image = `url("assets/imgs/cloud-base-${selectedImage + 1}.png")`;
 
@@ -243,17 +1168,17 @@
 
             return div;
         }
-        let surrounding = [0 , 4, 8 , 9 , 10 , 11]; 
-        let centers = [1 , 2 , 5 , 6 ]; 
-        let clouds =  document.getElementsByClassName("cloud-base"); 
-        for (let index  of  surrounding) {
-            let cloud = clouds[index]; 
-            createCloud(cloud, [2, 0, 0, 1]);
+        let surrounding = [0, 4, 8, 9, 10, 11];
+        let centers = [1, 2, 5, 6];
+        let clouds = document.getElementsByClassName("cloud-base");
+        for (let index of surrounding) {
+            let cloud = clouds[index];
+            createCloud(cloud, [2, 1, 1, 4, 1]);
         }
 
-        for (let index  of  centers) {
-            let cloud = clouds[index]; 
-            createCloud(cloud, [1, 1, 1, 0]);
+        for (let index of centers) {
+            let cloud = clouds[index];
+            createCloud(cloud, [2, 0, 1, 0, 1]);
         }
 
 

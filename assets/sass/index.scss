@@ -5,7 +5,7 @@
 
 
 .clouds-wrapper {
-    position:  relative;
+    position: relative;
     width: 100%;
     height: 100vh;
     z-index: 10;
@@ -13,16 +13,18 @@
     top: 0;
     left: 0;
     overflow: hidden;
+
 }
 
 
 .clouds-viewport {
+
     perspective: 2000px;
 }
 
 .clouds-world {
     transform-style: preserve-3d;
-    background: skyblue;
+
 
     div {
         transform-style: preserve-3d;
@@ -32,26 +34,45 @@
     height: 100%;
 }
 
-.clouds-container{
-        position: absolute;
-        top:0;
-        left:0;
-        width:100%; 
-        height: 100%; 
-        display: flex;
-        flex-wrap: wrap;
+.clouds-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    overflow: hidden;
 
 }
+
 .cloud-base {
-  
-    position: relative; 
+
+    position: relative;
     width: 25%;
-    
+
     overflow: visible;
     z-index: 10;
     //background: rgba(255 , 0 , 0 , .4);
 }
 
+.logo-wrapper {
+    position: absolute;
+    top: 22%;
+    left: 15%;
+    z-index: 10;
+    height: auto;
+    width: 25%;
+
+    img {
+        width: 100%;
+    }
+}
+
+.cloud-logo-wrapper {
+    transform: translateZ(500px) scale(0.75);
+}
 
 
 
@@ -65,43 +86,42 @@
     }
 
     50% {
-        transform: translateX(50px) translateY(0px);
+        transform: translateX(100px) translateY(0px);
     }
 
     100% {
-        transform: translateX(100px) translateY(-20px);
+        transform: translateX(200px) translateY(-20px);
     }
 }
 
 .cloud-layer-wrapper {
-    //animation: cloudRotation 1s infinite alternate-reverse linear;
+    animation: cloudRotation 1s infinite alternate-reverse linear;
 }
 
 .cloud-layer {
+
     opacity: 1;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     padding-bottom: 100%;
-    //background: blue; 
-    //border:solid 2px white; 
-
-    //background-image: url("../imgs/cloud-base-1.png");
     background-size: cover;
-    transform-origin: 50% 50%; 
+    transform-origin: 0% 50%;
 
 }
 
 
 /*Landing Page*/
 .airport {
+
     width: 100%;
     min-height: 100vh;
     position: relative;
     z-index: 1;
-    transform:scale(0.924) translateZ(100px);
-    display: none;
+    transform-origin: 50% 50%;
+    transform: scale(0.95) translateZ(100px);
+
     .airport-backgroun-wrapper {
         position: absolute;
         top: 0;
@@ -152,11 +172,12 @@
 }
 
 /* Airplane */
-.airplane-wrapper {
+.airport-airplane {
+
 
     position: absolute;
-    left: 11.3%;
-    top: 75.3%;
+    left: 65.56%;
+    top: 39.1%;
     width: 10%;
 
     img {
@@ -164,7 +185,36 @@
 
     }
 
-    z-index: 3;
+    //transform: translateZ(100px) scale(0.75);
+    z-index: 150;
+    
+    transform:scale(0.6) translateZ(100px);
+}
+
+#indicator{
+    position: absolute;
+    top:300px; 
+    left:0;
+    height:100vh; 
+    background: red;
+    width:100%;
+
+}
+.airplane-wrapper {
+    position: absolute;
+   
+    left:1040.07px;
+    top: 295.44px;
+    width: 10%;
+    display: block;
+
+    img {
+        width: 100%;
+
+    }
+
+    //transform: translateZ(100px) scale(0.75);
+    z-index: 150;
 }
 
 

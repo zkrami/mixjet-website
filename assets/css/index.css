@@ -31,7 +31,6 @@ section {
 
 .clouds-world {
   transform-style: preserve-3d;
-  background: skyblue;
   width: 100%;
   height: 100%; }
   .clouds-world div {
@@ -44,7 +43,9 @@ section {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  overflow: hidden; }
 
 .cloud-base {
   position: relative;
@@ -52,13 +53,29 @@ section {
   overflow: visible;
   z-index: 10; }
 
+.logo-wrapper {
+  position: absolute;
+  top: 22%;
+  left: 15%;
+  z-index: 10;
+  height: auto;
+  width: 25%; }
+  .logo-wrapper img {
+    width: 100%; }
+
+.cloud-logo-wrapper {
+  transform: translateZ(500px) scale(0.75); }
+
 @keyframes cloudRotation {
   0% {
     transform: translateX(0) translateY(20px); }
   50% {
-    transform: translateX(50px) translateY(0px); }
+    transform: translateX(100px) translateY(0px); }
   100% {
-    transform: translateX(100px) translateY(-20px); } }
+    transform: translateX(200px) translateY(-20px); } }
+.cloud-layer-wrapper {
+  animation: cloudRotation 1s infinite alternate-reverse linear; }
+
 .cloud-layer {
   opacity: 1;
   position: absolute;
@@ -67,7 +84,7 @@ section {
   width: 100%;
   padding-bottom: 100%;
   background-size: cover;
-  transform-origin: 50% 50%; }
+  transform-origin: 0% 50%; }
 
 /*Landing Page*/
 .airport {
@@ -75,8 +92,8 @@ section {
   min-height: 100vh;
   position: relative;
   z-index: 1;
-  transform: scale(0.924) translateZ(100px);
-  display: none; }
+  transform-origin: 50% 50%;
+  transform: scale(0.95) translateZ(100px); }
   .airport .airport-backgroun-wrapper {
     position: absolute;
     top: 0;
@@ -113,12 +130,31 @@ section {
   left: 0; }
 
 /* Airplane */
+.airport-airplane {
+  position: absolute;
+  left: 65.56%;
+  top: 39.1%;
+  width: 10%;
+  z-index: 150;
+  transform: scale(0.6) translateZ(100px); }
+  .airport-airplane img {
+    width: 100%; }
+
+#indicator {
+  position: absolute;
+  top: 300px;
+  left: 0;
+  height: 100vh;
+  background: red;
+  width: 100%; }
+
 .airplane-wrapper {
   position: absolute;
-  left: 11.3%;
-  top: 75.3%;
+  left: 1040.07px;
+  top: 295.44px;
   width: 10%;
-  z-index: 3; }
+  display: block;
+  z-index: 150; }
   .airplane-wrapper img {
     width: 100%; }
 
