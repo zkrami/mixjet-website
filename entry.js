@@ -19,7 +19,6 @@ function makeCloudsTimeLine() {
     let xLocation = (i, e) => {
         let { left } = $(e).position();
         left = Math.round(left * 100 / $(window).width()); // percentage left 
-        console.log(left);
         return left < 50 ? "-=70%" : "+=70%";
     };
 
@@ -34,7 +33,7 @@ function makeCloudsTimeLine() {
     tl.to("#clouds-viewport", 7, {
         perspective: 250,
         ease: Power3.easeOut
-    }, 5);
+    } );
 
     tl.set("#airport-airplane", {
         "display": "none"
@@ -107,7 +106,8 @@ class Airplane {
         let airplanePath = this.makePath();
         let airplanePathScenes = [];
         let hidden = true;
-
+        airplanePath = airplanePath.splice(22);
+        console.log(airplanePath);
         for (let i = 1; i < airplanePath.length; i++) {
 
             let start = airplanePath[i - 1];
@@ -120,7 +120,7 @@ class Airplane {
             }
             angle = `${angle}rad`;
 
-            let scene = new ScrollMagic.Scene({ offset: - 220 + start.y, reverse: true, loglevel: 2 })
+            let scene = new ScrollMagic.Scene({ offset: - 230 + start.y, reverse: true, loglevel: 2 })
                 .addTo(this.controller)
                 .on("start", (e) => {
                     if (e.scrollDirection === "FORWARD") { // down 
@@ -133,13 +133,13 @@ class Airplane {
                                 ...XYtoTopLeftPercent(end),
                                 rotation: angle,
                                 onComplete: () => {
-/*
-                                    TweenMax.set(this.airplaneReplacement, {
-                                        "display": "block"
-                                    });
-                                    TweenMax.set(this.airplane, {
-                                        "display": "none"
-                                    });*/
+                                    /*
+                                                                        TweenMax.set(this.airplaneReplacement, {
+                                                                            "display": "block"
+                                                                        });
+                                                                        TweenMax.set(this.airplane, {
+                                                                            "display": "none"
+                                                                        });*/
                                 }
                             });
 
@@ -155,12 +155,12 @@ class Airplane {
                         hidden = false;
                         if (i == airplanePath.length - 1) {
 
-                         /*   TweenMax.set(this.airplaneReplacement, {
-                                "display": "none"
-                            });
-                            TweenMax.set(this.airplane, {
-                                "display": "block"
-                            });*/
+                            /*   TweenMax.set(this.airplaneReplacement, {
+                                   "display": "none"
+                               });
+                               TweenMax.set(this.airplane, {
+                                   "display": "block"
+                               });*/
 
                             TweenMax.to(this.airplane, 0.7, {
                                 ...XYtoTopLeftPercent(start),
@@ -186,6 +186,17 @@ class Airplane {
     }
 
 }
+
+
+function makeTruckTimeLine() {
+
+    let truck = $("#truck");
+    let tl = new TimelineMax();
+    tl.to(truck, 1, {
+        left: "20%",
+    });
+    return tl;
+}
 $(function () {
 
     let cloudsTimeLine = makeCloudsTimeLine();
@@ -193,15 +204,23 @@ $(function () {
 
     let airplane = new Airplane({ airplane: $("#airplane"), path: document.getElementById("airplane-path"), controller, airplaneReplacement: $("#airport-airplane") });
 
-    new ScrollMagic.Scene({ offset: 432, duration: 2000 })
+
+    let truckTimeLine = makeTruckTimeLine();
+
+    
+    let truckScene = new ScrollMagic.Scene({ offset: $("#truck-scene").position().top , duration: 2000 })
+        .setPin("#truck-scene")
+        .setTween(truckTimeLine.reverse())
+        .addTo(controller);
+
+
+    let cloudScene = new ScrollMagic.Scene({ offset: $("#header").position().top, duration: 2000 })
         .setPin("#header")
         .setTween(cloudsTimeLine.reverse())
         .addTo(controller);
 
-
+    
     airplane.makeScene();
-
-
 
 
 });

@@ -95,7 +95,7 @@
 }
 
 .cloud-layer-wrapper {
-    animation: cloudRotation 1s infinite alternate-reverse linear;
+    //animation: cloudRotation 1s infinite alternate-reverse linear;
 }
 
 .cloud-layer {
@@ -187,19 +187,29 @@
 
     //transform: translateZ(100px) scale(0.75);
     z-index: 150;
-    
+
     transform:scale(0.6) translateZ(100px);
 }
 
-#airplane{
-    display: none; 
+#airplane {
+    display: none;
+    background: violet;
 }
-#airport-airplane{
+
+#airport-airplane {
+    background: darkcyan;
 }
+
+#truck-airplane {
+    background: tomato;
+    top: 55.5%;
+    left: 311px;
+}
+
 .airplane-wrapper {
     position: absolute;
-   
-    left:1040.07px;
+
+    left: 1040.07px;
     top: 295.44px;
     width: 10%;
     display: block;
@@ -216,3 +226,18 @@
 
 
 /* Services */
+
+
+/* truck scene */
+.truck-wrapper {
+    position: absolute;
+    width: 10%;
+
+    img {
+        width: 100%;
+    }
+
+    top:50%;
+    left:80%;
+
+}
