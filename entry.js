@@ -31,7 +31,7 @@ function makeCloudsTimeLine() {
     tl.to("#viewport", 7, {
         perspective: 250,
         ease: Power3.easeOut
-    });
+    } , 3);
 
     tl.set("#airport-airplane", {
         "display": "none"

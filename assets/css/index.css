@@ -73,7 +73,8 @@ section {
   100% {
     transform: translateX(200px) translateY(-20px); } }
 .cloud-layer-wrapper {
-  position: relative; }
+  position: relative;
+  animation: cloudRotation 1s infinite alternate-reverse linear; }
 
 .cloud-layer {
   opacity: 1;
