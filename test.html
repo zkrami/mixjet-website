@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+	<title>iScroll demo: scrollbars</title>
+
+
+	<script type="text/javascript" src="node_modules/iscroll/build/iscroll-probe.js"></script>
+
+	<style type="text/css">
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		html {
+			-ms-touch-action: none;
+		}
+
+		body {
+			font-size: 12px;
+			font-family: ubuntu, helvetica, arial;
+			overflow: hidden;
+			/* this is important to prevent the whole page to bounce */
+		}
+
+
+		#wrapper {
+			position: absolute;
+			z-index: 1;
+			top: 0px;
+			bottom: 0px;
+			left: 0;
+			width: 100%;
+			background: #ccc;
+			overflow: hidden;
+		}
+
+		#scroller {
+			position: absolute;
+			z-index: 1;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			width: 100%;
+			-webkit-transform: translateZ(0);
+			-moz-transform: translateZ(0);
+			-ms-transform: translateZ(0);
+			-o-transform: translateZ(0);
+			transform: translateZ(0);
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-text-size-adjust: none;
+			-moz-text-size-adjust: none;
+			-ms-text-size-adjust: none;
+			-o-text-size-adjust: none;
+			text-size-adjust: none;
+		}
+	</style>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/index.css" />
+</head>
+
+<body>
+		<svg id="svg-converter" class="test-svg"
+        style="position: absolute ;   z-index:-1; top :0 ; left : 0 ; width:100%; height:100%; " viewBox="0 69 100 200">
+
+        <style type="text/css">
+            .st0 {
+                fill: none;
+                stroke: #000000;
+                stroke-miterlimit: 10;
+
+            }
+        </style>
+        <path id="airplane-path" class="st0" d="M77.1,0.1c14.3,79.5-55,52.5-72.7,112.7c-24.3,82.7,72.1,46,74.9,102.1" />
+    </svg>
+
+	<div id="wrapper">
+		<div id="scroller">
+			<div class="content-wrapper">
+				<section class="section services">
+					<div class="service-info">
+						<div class="container-fluid">
+
+							<div class="row">
+
+								<div class=" col-lg-6">
+									<img src="assets/imgs/truck-site.png" class="img-fluid" />
+									<h1>We fullfill your gallon </h1>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+										incididunt ut
+										labore et
+										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+										laboris
+										nisi
+										ut aliquip
+										ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit
+										esse
+										cillum dolore eu
+										fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+										culpa
+										qui
+										officia
+										deserunt mollit anim id est laborum.
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</section>
+				<section class="section services" id="truck-scene">
+					<div class="service-info">
+						<div class="container-fluid">
+
+							<div class="row">
+
+								<div class="col-lg-6 offset-lg-6">
+									<img src="assets/imgs/truck-site.png" class="img-fluid" />
+									<h1>We fullfill your gallon </h1>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+										incididunt ut
+										labore et
+										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+										laboris
+										nisi
+										ut aliquip
+										ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+										velit
+										esse
+										cillum dolore eu
+										fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+										culpa
+										qui
+										officia
+										deserunt mollit anim id est laborum.
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="truck-wrapper" id="truck">
+						<img src="assets/imgs/truck.svg" />
+					</div>
+					<div class="airplane-wrapper" id="truck-airplane">
+						<img src="assets/imgs/airplane.png" />
+					</div>
+				</section>
+				<div class="airplane-wrapper" id="airplane">
+					<img src="assets/imgs/airplane.png" />
+				</div>
+
+				<section class="section header" id="header">
+
+					<div class="viewport" id="viewport">
+
+
+						<div class="airport-airplane" id="airport-airplane">
+							<img src="assets/imgs/airplane.png" />
+						</div>
+
+
+						<div class="airport">
+
+							<div class="airport-background-wrapper">
+								<img src="assets/imgs/airport-scene-3.jpg" />
+							</div>
+
+						</div>
+
+						<div class="clouds-world" id="clouds-world">
+
+							<div class="clouds-container">
+								<div class="cloud-base"></div>
+								<div class="cloud-base"></div>
+								<div class="cloud-base"></div>
+								<div class="cloud-base"></div>
+								<div class="cloud-base"></div>
+								<div class="cloud-base"></div>
+								<div class="cloud-base"></div>
+								<div class="cloud-base"></div>
+								<div class="cloud-base"></div>
+								<div class="cloud-base"></div>
+
+							</div>
+						</div>
+						<div class="logo-wrapper cloud-logo-wrapper">
+							<img src="assets/imgs/logo-primary.png" />
+						</div>
+
+						<!-- <div class="clouds-world" id="clouds-world">
+		
+						<div class="airport">
+							<div class="airport-backgroun-wrapper">
+								<img class="airport-background" src="assets/imgs/airport222.jpg" />
+							</div>
+						</div>
+						<div class="clouds-container">
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+							<div class="cloud-base"></div>
+						</div>
+					</div> -->
+					</div>
+
+
+
+
+
+
+				</section>
+				<section class="section services">
+						<div class="service-info">
+							<div class="container-fluid">
+	
+								<div class="row">
+	
+									<div class=" col-lg-6">
+										<img src="assets/imgs/truck-site.png" class="img-fluid" />
+										<h1>We fullfill your gallon </h1>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+											incididunt ut
+											labore et
+											dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+											laboris
+											nisi
+											ut aliquip
+											ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+											velit
+											esse
+											cillum dolore eu
+											fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+											culpa
+											qui
+											officia
+											deserunt mollit anim id est laborum.
+										</p>
+									</div>
+	
+								</div>
+							</div>
+						</div>
+	
+					</section>
+					<section class="section services">
+							<div class="service-info">
+								<div class="container-fluid">
+		
+									<div class="row">
+		
+										<div class=" col-lg-6">
+											<img src="assets/imgs/truck-site.png" class="img-fluid" />
+											<h1>We fullfill your gallon </h1>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+												incididunt ut
+												labore et
+												dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+												laboris
+												nisi
+												ut aliquip
+												ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+												velit
+												esse
+												cillum dolore eu
+												fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+												culpa
+												qui
+												officia
+												deserunt mollit anim id est laborum.
+											</p>
+										</div>
+		
+									</div>
+								</div>
+							</div>
+		
+						</section>
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+		let world = document.getElementById("clouds-world");
+
+		let perspective = 2000;
+
+		function createCloud(div, imageFactor) {
+
+			for (var j = 0; j < 5; j++) {
+
+				let cloud = document.createElement('div');
+				cloud.className = 'cloud-layer';
+
+
+				var x = -75 + Math.random() * 100;
+				var y = -70 + Math.random() * 100;
+				var a = Math.random() * 360;
+				var z = 300 + Math.random() * 500;
+				var s = 1 + Math.random();
+				var ss = 1 - (z / perspective);
+
+
+				var speed = 20 + 30 * Math.random();
+				cloud.data = {
+					x, y, a, s
+				};
+				var t = 'translateX( ' + x + '% ) \
+                translateY( ' + y + '% ) \
+                translateZ( ' + z + 'px ) \
+                rotateZ( ' + a + 'deg ) \
+                scale( ' + ss + ' ) \
+                scale( ' + s + ' )';
+				cloud.style.transform = t;
+				// choose image randomly based on biases 
+				let selectedImage = 0;
+				imageFactor = imageFactor.map(e => Math.random() * e);
+				selectedImage = imageFactor.indexOf(Math.max(...imageFactor));
+
+				let image = `url("assets/imgs/cloud-base-${selectedImage + 1}.png")`;
+
+				cloud.style.backgroundSize = 'cover';
+				cloud.style.backgroundImage = image;
+
+				let cloudLayerWrapper = document.createElement("div");
+				cloudLayerWrapper.className = 'cloud-layer-wrapper';
+				cloudLayerWrapper.style.animationDuration = speed + 's';
+				cloudLayerWrapper.appendChild(cloud);
+
+				div.appendChild(cloudLayerWrapper);
+			}
+
+			return div;
+		}
+
+		let clouds = document.getElementsByClassName("cloud-base");
+		for (let cloud of clouds) {
+			createCloud(cloud, [2, 1, 1, 4, 1]);
+		}
+
+        // let surrounding = [0, 4, 8, 9, 10, 11];
+        // let centers = [1, 2, 5, 6];
+        // let clouds = document.getElementsByClassName("cloud-base");
+        // for (let index of surrounding) {
+        //     let cloud = clouds[index];
+        //     createCloud(cloud, [2, 1, 1, 4, 1]);
+        // }
+
+        // for (let index of centers) {
+        //     let cloud = clouds[index];
+        //     createCloud(cloud, [2, 0, 1, 0, 1]);
+        // }
+
+
+
+
+
+	</script>
+
+	<script src="assets/js/test.bundle.js"></script>
+
+</body>
+
+</html>

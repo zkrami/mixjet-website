@@ -199,26 +199,53 @@ $(function () {
 
 
 
-
+    var myScroll = new IScroll('#wrapper', {
+        scrollX: false,
+        scrollY: true,
+        scrollbars: true,
+        useTransform: true,
+        useTransition: false,
+        probeType: 3,
+        click: true
+    });
 
     let cloudsTimeLine = makeCloudsTimeLine();
-    let controller = new ScrollMagic.Controller({ });
+    let controller = new ScrollMagic.Controller({ container: "#wrapper" });
 
+    let isMobile = true;
+    if (isMobile) {
+        // configure iScroll
+
+        // overwrite scroll position calculation to use child's offset instead of container's scrollTop();
+        controller.scrollPos(function () {
+            return -myScroll.y;
+        });
+
+        // thanks to iScroll 5 we now have a real onScroll event (with some performance drawbacks)
+        myScroll.on("scroll", function () {
+            controller.update(true);
+        });
+
+    }
 
     let airplane = new Airplane({ airplane: $("#airplane"), path: document.getElementById("airplane-path"), controller, airplaneReplacement: $("#airport-airplane") });
 
     let truckTimeLine = makeTruckTimeLine();
 
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, {
+        capture: false,
+        passive: false
+    });
 
 
+    /*
+        let truckScene = new ScrollMagic.Scene({ offset: $("#truck-scene").position().top, duration: 2000 })
+            .setPin("#truck-scene")
+            .setTween(truckTimeLine.reverse())
+            .addTo(controller);
+    */
 
-    let truckScene = new ScrollMagic.Scene({ offset: $("#truck-scene").position().top, duration: 2000 })
-        .setPin("#truck-scene")
-        .setTween(truckTimeLine.reverse())
-        .addTo(controller);
-
-
-    let cloudScene = new ScrollMagic.Scene({ offset: $("#header").position().top + document.getElementById("clouds-world").offsetTop, duration: 1000 })
+    let cloudScene = new ScrollMagic.Scene({ offset:1005, duration: 1000 })
         .setTween(cloudsTimeLine.reverse())
         .setPin("#header")
         .addTo(controller);

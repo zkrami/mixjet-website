@@ -1,38 +1,33 @@
 html, body {
   margin: 0;
   padding: 0;
-  position: relative; }
+  position: relative;
+  height: 100%; }
 
 section {
   width: 100%;
   padding: 0;
   position: relative; }
 
-.centered-absolute, .airport .airport-background, .clouds-scene .window {
+.centered-absolute, .clouds-scene .window {
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto; }
 
-/*clouds wrapper*/
-.clouds-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  z-index: 10;
-  display: block;
-  top: 0;
-  left: 0;
+.viewport {
+  perspective: 2000px;
   overflow: hidden; }
-
-.clouds-viewport {
-  perspective: 2000px; }
 
 .clouds-world {
   transform-style: preserve-3d;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: 100%; }
+  height: 100vh;
+  z-index: 10; }
   .clouds-world div {
     transform-style: preserve-3d; }
 
@@ -42,14 +37,18 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
+  left: 20%;
+  top: 25%;
+  width: 60%;
+  height: 50%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
-  overflow: hidden; }
+  overflow: visible; }
 
 .cloud-base {
   position: relative;
-  width: 25%;
+  width: 20%;
   overflow: visible;
   z-index: 10; }
 
@@ -73,35 +72,35 @@ section {
     transform: translateX(100px) translateY(0px); }
   100% {
     transform: translateX(200px) translateY(-20px); } }
+.cloud-layer-wrapper {
+  position: relative; }
+
 .cloud-layer {
   opacity: 1;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  padding-bottom: 100%;
+  width: 200%;
+  padding-bottom: 200%;
   background-size: cover;
-  transform-origin: 0% 50%; }
+  transform-origin: 50% 50%; }
 
 /*Landing Page*/
 .airport {
   width: 100%;
-  min-height: 100vh;
   position: relative;
+  left: 0;
+  bottom: 0;
   z-index: 1;
   transform-origin: 50% 50%;
-  transform: scale(0.95) translateZ(100px); }
-  .airport .airport-backgroun-wrapper {
-    position: absolute;
+  transform: scale(0.6) translateZ(100px); }
+  .airport .airport-background-wrapper {
+    position: relative;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden; }
-  .airport .airport-background {
-    position: absolute;
-    width: 100%;
-    height: 100%; }
+    width: 100%; }
+    .airport .airport-background-wrapper img {
+      width: 100%; }
 
 .clouds-scene {
   z-index: 2;
