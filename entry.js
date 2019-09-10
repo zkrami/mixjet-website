@@ -218,14 +218,16 @@ $(function () {
         .addTo(controller);
 
 
-    let cloudScene = new ScrollMagic.Scene({ offset: $("#header").position().top + document.getElementById("clouds-world").offsetTop, duration: 1000 })
-        .setTween(cloudsTimeLine.reverse())
+    let cloudScene = new ScrollMagic.Scene({ offset: $("#header").position().top + document.getElementById("clouds-world").offsetTop , reverse : false })
+        .setTween(cloudsTimeLine)
         .setPin("#header")
         .addTo(controller);
 
 
-
     airplane.makeScene();
+
+    $("body , html").scrollTop(1e6);
+  
 
 
 });
