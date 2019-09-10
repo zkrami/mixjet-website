@@ -94,7 +94,8 @@
 
 .cloud-layer-wrapper {
     position: relative;
-    animation: cloudRotation 1s infinite alternate-reverse linear;
+    //animation: cloudRotation 1s infinite alternate-reverse linear;
+    will-change: transform ; 
 }
 
 .cloud-layer {
