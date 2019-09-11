@@ -218,8 +218,8 @@ $(function () {
         .addTo(controller);
 
 
-    let cloudScene = new ScrollMagic.Scene({ offset: $("#header").position().top + document.getElementById("clouds-world").offsetTop , reverse : false })
-        .setTween(cloudsTimeLine)
+    let cloudScene = new ScrollMagic.Scene({ offset: $("#header").position().top + document.getElementById("clouds-world").offsetTop , duration : 2000  })
+        .setTween(cloudsTimeLine.reverse())
         .setPin("#header")
         .addTo(controller);
 

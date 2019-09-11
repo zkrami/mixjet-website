@@ -1,0 +1,42 @@
+<html !DOCTYPE>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="assets/css/canvas.css" />
+    <style>
+        body , html {
+            position: relative;
+            width:100%; 
+            height: 100%;
+        }
+        .indicator-wrapper{
+            width:100%; 
+            position: fixed;
+            background: rgba(255 ,255 , 0 , .3); 
+            height: 100vh;
+            top:0; 
+            bottom:0;
+        }
+        .center{
+            top:0; 
+            left:0; 
+            bottom:0;
+            right: 0;
+            margin:auto; 
+            position: absolute;
+            width:100px ;
+             height:100px; 
+            background: red; 
+        }
+    </style>
+</head>
+
+<body>
+  
+    <canvas id="canvas" width="2760" height="2281"></canvas>
+    <script src="assets/js/canvas2.bundle.js" ></script>
+</body>
+
+</html>
