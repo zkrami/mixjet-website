@@ -121,7 +121,7 @@ async function main() {
 
 
 
-    const CLOUDS_COUNT = 100;
+    const CLOUDS_COUNT = 50;
     let clouds = [];
     for (let i = 0; i < CLOUDS_COUNT; i++) {
         let c = new Cloud(ctx, resources.cloud);
@@ -137,7 +137,7 @@ async function main() {
 
 
 
-        airport.render();
+        //airport.render();
 
         for (let cloud of clouds) {
             //   cloud.z -= 10;
