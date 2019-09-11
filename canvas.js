@@ -16,7 +16,7 @@ async function main() {
 
     }
 
-    let resources = { "cloud": "/assets/imgs/cloud-base-1.png", airport: "/assets/imgs/airport-scene-3-Recovered.jpg" };
+    let resources = { "cloud": "./assets/imgs/cloud-base-1.png", airport: "./assets/imgs/airport-scene-3-Recovered.jpg" };
 
     resources.cloud = await loadImage(resources.cloud);
     resources.airport = await loadImage(resources.airport);
