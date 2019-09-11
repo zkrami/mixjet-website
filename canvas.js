@@ -1,6 +1,6 @@
 import { TweenMax, TimelineMax } from 'gsap';
 import * as Complex from 'complex-js';
-
+import * as $ from 'jquery'; 
 async function main() {
 
     async function loadImage(src) {
@@ -55,13 +55,13 @@ async function main() {
     class Airport {
         constructor(ctx) {
 
-            this.z = 1320;
+            this.z = 1300;
             this.ctx = ctx;
             this.img = resources.airport;
             this.width = this.ctx.canvas.width ;
             this.height = this.ctx.canvas.height  ;
-            this.x = 0;
-            this.y = 0;
+            this.x = -this.width/2;
+            this.y = -this.height/2 - offsetY/2;
             this.s = 1.33;
         }
         render() {
@@ -70,9 +70,7 @@ async function main() {
 
             let ctx = this.ctx;
             ctx.save();
-            let x = this.width * (1 - projection.sf);
-            let y = this.height * (1 - projection.sf);
-            ctx.drawImage(this.img, x / 2, y, this.width * projection.sf, this.height * projection.sf);
+            ctx.drawImage(this.img, projection.x, projection.y, this.width * projection.sf, this.height * projection.sf);
 
             ctx.restore();
 
@@ -146,23 +144,36 @@ async function main() {
             cloud.render();
         }
         if (PERSPECTIVE.offsetZ <= 1500) {               
+            PERSPECTIVE.offsetZ  += 10 ; 
             requestAnimationFrame(draw);
       }
 
 
     }
-    setTimeout( () => { 
-        TweenMax.to(PERSPECTIVE , 3 , { offsetZ : 1500 } );
-    } , 5000); 
+    let tl = new TimelineMax({paused:true}); 
+
+    tl.to(PERSPECTIVE , 3 , { offsetZ : 1500 }  , 1 );
     
-    requestAnimationFrame(draw);
+    //tl.play(0);
+    setTimeout( () =>{
+        requestAnimationFrame(draw);
+
+    },3000);
+
+
+
 
 
 
 }
 
+$(function(){
 
-main();
+    main();
+
+
+});
+
 
 
 
