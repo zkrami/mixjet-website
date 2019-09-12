@@ -38,14 +38,18 @@ body {
   perspective: 2000px;
   overflow: hidden; }
 
-.clouds-world {
-  transform-style: preserve-3d;
+.clouds-world-wrapper {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   z-index: 10; }
+
+.clouds-world {
+  transform-style: preserve-3d;
+  height: 100%;
+  width: 100%; }
   .clouds-world div {
     transform-style: preserve-3d; }
 
@@ -143,6 +147,9 @@ body {
   top: 0;
   left: 0; }
 
+.header {
+  z-index: 5; }
+
 .plane-wrapper {
   position: absolute;
   left: 0;
@@ -150,7 +157,8 @@ body {
   width: 10%;
   display: block;
   perspective: 2000px;
-  z-index: 5; }
+  z-index: 8;
+  overflow: visible; }
   .plane-wrapper img {
     width: 100%;
     transform: translateZ(100px) scale(0.75); }
@@ -189,7 +197,9 @@ body {
   padding: 15px;
   border: none !important;
   text-align: center; }
-  .card p, .card h3, .card .icon-card {
+  .card p,
+  .card h3,
+  .card .icon-card {
     margin-top: 15px; }
   .card .icon-card {
     font-size: 2.0rem;

@@ -1,6 +1,6 @@
 
 import $ from 'jquery';
-import { TweenMax, TimelineMax, Power3 , Power0 } from 'gsap';
+import { TweenMax, TimelineMax, Power3, Power0 } from 'gsap';
 import { relative } from 'path';
 
 
@@ -12,7 +12,7 @@ function makeCloudsTimeLine() {
 
     tl.add("cloud-action");
 
-    tl.to(["#viewport", "#plane"], 7, {
+    tl.to(".viewport", 7, {
         perspective: 250,
         ease: Power3.easeOut
     });
@@ -55,7 +55,6 @@ class Plane {
 
     getPointAtScreen(percent) {
         let point = this.getPointAtPercent(percent);
-
         return (XYtoSecreenPercent(point));
     }
 
@@ -87,7 +86,7 @@ class Plane {
             rotation: "30deg",
         })
 
-        tl.to(this.plane, 10, { ease : Power0.easeNone ,  bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
+        tl.to(this.plane, 10, { ease: Power0.easeNone, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
 
         return tl;
 
@@ -110,11 +109,11 @@ function makeTruckTimeLine() {
 
 class ScrollController {
 
-    totalScroll(){
-        return  -this.iscroll.maxScrollY; 
+    totalScroll() {
+        return -this.iscroll.maxScrollY;
     }
-    
-   
+
+
     resize() {
 
         let height = this.scrollCotainer.height();
@@ -122,7 +121,7 @@ class ScrollController {
         this.scrolLHeightElement.height(total);
         this.total = total;
         window.dispatchEvent(new Event("resize"));
-        
+
     }
     constructor() {
 
@@ -152,15 +151,15 @@ class ScrollController {
 
 
         this.resize();
-        
+
 
     }
     onScroll() {
 
 
         let y = -this.iscroll.y;
-        
-        let offset = this.cloudsTimeLineDuration +  600;
+
+        let offset = this.cloudsTimeLineDuration + 600;
         let topPin = this.pin.getClientRects()[0].top;
         let cloudsTimeLineDuration = this.cloudsTimeLineDuration;
         if (topPin <= 0 && y < cloudsTimeLineDuration) {
@@ -178,16 +177,14 @@ class ScrollController {
             t = Math.max(t, 0);
             this.scrollCotainer.css("transform", `translateY(${t}px)`);
             if (y > offset) {
-                let totalPlaneScroll = this.totalScroll() - offset ;                 
-                let progress = y - offset ;
-                progress /= totalPlaneScroll ; 
-                console.log(progress); 
+                let totalPlaneScroll = this.totalScroll() - offset;
+                let progress = y - offset;
+                progress /= totalPlaneScroll;
                 progress = Math.min(progress, 1);
                 progress = Math.max(progress, 0);
-                
-                console.log(progress); 
-                this.planeTimeLine.tweenTo(progress * this.planeTimeLine.duration()); 
-                
+
+                this.planeTimeLine.tweenTo(progress * this.planeTimeLine.duration());
+
 
             }
         }

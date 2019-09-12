@@ -72,6 +72,8 @@
         #scroll-container {
             position: absolute;
             bottom: 0;
+            will-change: transform;
+            transition: transform 0.1s linear;
         }
 
         .svg-plane-path {
@@ -89,7 +91,7 @@
 
 
 
-        <div class="plane-wrapper" id="plane">
+        <div class="plane-wrapper viewport" id="plane">
             <img src="assets/imgs/plane2.png" />
         </div>
         <section class="section footer">
@@ -271,13 +273,28 @@
                 </div>
 
         </section>
+        <div class="clouds-world-wrapper viewport">
+            <div class="clouds-world" id="clouds-world">
+
+                <div class="clouds-container">
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+                    <div class="cloud-base"></div>
+
+                </div>
+            </div>
+        </div>
 
         <section class="section header" id="header">
 
-            <div class="viewport" id="viewport">
-
-
-
+            <div class="airpot-viewport viewport">
 
                 <div class="airport">
 
@@ -287,33 +304,13 @@
 
                 </div>
 
-                <div class="clouds-world" id="clouds-world">
 
-                    <div class="clouds-container">
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-
-                    </div>
-                </div>
                 <div class="logo-wrapper cloud-logo-wrapper">
                     <img src="assets/imgs/logo-primary.png" />
                 </div>
 
 
             </div>
-
-
-
-
-
 
         </section>
 
