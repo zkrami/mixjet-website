@@ -21,7 +21,6 @@ body {
 }
 .viewport {
     perspective: 2000px;
-    
     overflow: hidden;
 }
 
@@ -185,56 +184,31 @@ body {
     left: 0;
 }
 
-/* Airplane */
-.airport-airplane {
-
-
-    position: absolute;
-    left: 65.56%;
-    top: 39.1%;
-    width: 10%;
-
-    img {
-        width: 100%;
-
-    }
-
-    //transform: translateZ(100px) scale(0.75);
-    z-index: 150;
-
-    transform:scale(0.6) translateZ(100px);
+.header{
+    
 }
 
-#airplane {
-    display: none;
-    background: violet;
+#plane {
+    
 }
 
-#airport-airplane {
-    background: darkcyan;
-}
 
-#truck-airplane {
-    background: tomato;
-    top: 55.5%;
-    left: 311px;
-}
 
-.airplane-wrapper {
+.plane-wrapper {
     position: absolute;
 
-    left: 1040.07px;
-    top: 295.44px;
+    left:0;
+    top:0;
     width: 10%;
     display: block;
-
+    
     img {
         width: 100%;
-
+        transform: translateZ(100px) scale(0.75);
     }
-
-    //transform: translateZ(100px) scale(0.75);
-    z-index: 150;
+    perspective: 2000px;
+    //
+    z-index: 5;
 }
 
 
@@ -297,4 +271,11 @@ body {
     h3{
         color:#46DBF9;
     }
+}
+.section.services{
+    margin-bottom:200px;
+    margin-top:100px;
+}
+.section.planning{
+    margin-top:200px;
 }

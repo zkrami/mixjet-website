@@ -1,6 +1,6 @@
 
 import $ from 'jquery';
-import { TweenMax, TimelineMax, Power3, Sine, Bounce, Elastic, Power2, Power0 } from "gsap";
+import { TweenMax, TimelineMax, Power3 , Power0 } from 'gsap';
 import { relative } from 'path';
 
 
@@ -11,18 +11,13 @@ function makeCloudsTimeLine() {
 
 
     tl.add("cloud-action");
-   
-    tl.to("#viewport", 7, {
+
+    tl.to(["#viewport", "#plane"], 7, {
         perspective: 250,
         ease: Power3.easeOut
     });
 
-    tl.set("#airport-airplane", {
-        "display": "none"
-    });
-    tl.set("#airplane", {
-        "display": "block"
-    });
+
 
     return tl;
 
@@ -34,6 +29,8 @@ function XYtoTopLeftPercent({ x, y }) {
 }
 
 function XYtoSecreenPercent({ x, y }) {
+    x = Math.round(x * 100) / 100;
+    y = Math.round(y * 100) / 100;
     return { x, y };
     let width = $('html').width();
     let height = $('html').height();
@@ -44,7 +41,7 @@ function XYtoSecreenPercent({ x, y }) {
 
 
 
-class Airplane {
+class Plane {
 
 
 
@@ -62,17 +59,15 @@ class Airplane {
         return (XYtoSecreenPercent(point));
     }
 
-    constructor({ path, airplane, airplaneReplacement, controller }) {
+    constructor({ path, plane }) {
         this.path = path;
         this.pathLength = this.path.getTotalLength();
-        this.airplane = airplane;
-        this.airplaneReplacement = airplaneReplacement;
-        this.controller = controller;
+        this.plane = plane;
     }
     makePath() {
 
         let values = [];
-        let frames = 30;
+        let frames = 200;
         for (let i = 0; i <= frames; i++) {
             let precent = i * 100 / frames;
             let p = this.getPointAtScreen(precent);
@@ -80,81 +75,25 @@ class Airplane {
         }
         return values;
     }
+    makeTimeLine() {
 
-    makeScene() {
+        let planePath = this.makePath();
 
+        //let values = planePath.map(e => XYtoTopLeftPercent(e));
+        let tl = new TimelineMax({ paused: true });
 
+        TweenMax.set(this.plane, {
+            ...planePath[0],
+            rotation: "30deg",
+        })
 
-        let airplanePath = this.makePath();
-        let airplanePathScenes = [];
-        let hidden = true;
-        airplanePath = airplanePath.splice(22);
+        tl.to(this.plane, 10, { ease : Power0.easeNone ,  bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
 
-        for (let i = 1; i < airplanePath.length; i++) {
-
-            let start = airplanePath[i - 1];
-            let end = airplanePath[i];
-            let tl = new TimelineMax({ paused: true });
-            let d = { x: end.x - start.x, y: end.y - start.y };
-            let angle = Math.atan2(d.y, d.x) - Math.PI / 2;
-            if (i == 1 || i == airplanePath.length - 1) {
-                angle = 0;
-            }
-            angle = `${angle}rad`;
-            /*
-            let scene = new ScrollMagic.Scene({ offset: - 230 + start.y, reverse: true, loglevel: 2 })
-                .addTo(this.controller)
-                .on("start", (e) => {
-                    if (e.scrollDirection === "FORWARD") { // down 
-
-                        if (i == airplanePath.length - 1) {
-
-                            hidden = true;
-
-                            TweenMax.to(this.airplane, 0.7, {
-                                ...XYtoTopLeftPercent(end),
-                                rotation: angle,
-                                onComplete: () => {
-                                  
-                                }
-                            });
-
-                        } else {
-
-                            TweenMax.to(this.airplane, 0.7, {
-                                ...XYtoTopLeftPercent(end),
-                                rotation: angle
-                            });
-                        }
-
-                    } else { // up 
-                        hidden = false;
-                        if (i == airplanePath.length - 1) {
-
-                        
-
-                            TweenMax.to(this.airplane, 0.7, {
-                                ...XYtoTopLeftPercent(start),
-                                rotation: angle,
-                            });
-
-                        } else {
-
-                            TweenMax.to(this.airplane, 0.7, {
-                                ...XYtoTopLeftPercent(start),
-                                rotation: angle,
-                            });
-
-                        }
-                    }
-                });
-
-
-            airplanePathScenes.push(scene);*/
-        }
+        return tl;
 
 
     }
+
 
 }
 
@@ -171,15 +110,19 @@ function makeTruckTimeLine() {
 
 class ScrollController {
 
-
-
+    totalScroll(){
+        return  -this.iscroll.maxScrollY; 
+    }
+    
+   
     resize() {
 
         let height = this.scrollCotainer.height();
-        let total = height + 0 ;
+        let total = height + this.cloudsTimeLineDuration;
         this.scrolLHeightElement.height(total);
-        this.total = total ;
+        this.total = total;
         window.dispatchEvent(new Event("resize"));
+        
     }
     constructor() {
 
@@ -194,40 +137,59 @@ class ScrollController {
             probeType: 3,
             click: true,
             mouseWheel: true,
-            mouseWheelSpeed : 20 
+            mouseWheelSpeed: 20
         });
         this.iscroll.on("scroll", this.onScroll.bind(this));
-        this.resize();
 
         this.cloudsTimeLine = makeCloudsTimeLine();
-        this.pin = $("#clouds-world")[0];
+        this.cloudsTimeLineDuration = 1000;
 
+        this.pin = $("#clouds-world")[0];
+        let plane = new Plane({ plane: $("#plane"), path: document.getElementById("plane-path") });
+
+
+        this.planeTimeLine = plane.makeTimeLine();
+
+
+        this.resize();
+        
 
     }
     onScroll() {
-        
-            
-        let y = -this.iscroll.y;
-        this.scrollCotainer.css("transform", `translateY(${y}px)`);
 
-        return ; 
-        let topPin = this.pin.getClientRects()[0].top; 
-        let duration = 1000 ;         
-        if(topPin <= 0 && y < duration){
-            
-            let relativeY = y ; 
-            let progress = ( duration - relativeY) /  duration  ;
-            progress = Math.min(progress , 1); 
-            progress = Math.max(progress , 0); 
-            progress = 1 - progress ; 
-            //this.cloudsTimeLine.progress(progress);
-            console.log(this.cloudsTimeLine); 
-            console.log(this.cloudsTimeLine.duration());
-            this.cloudsTimeLine.tweenTo( progress * this.cloudsTimeLine.duration()); 
-        }else{
-            let t = y - duration ; 
-            t = Math.max(t , 0 ); 
+
+        let y = -this.iscroll.y;
+        
+        let offset = this.cloudsTimeLineDuration +  600;
+        let topPin = this.pin.getClientRects()[0].top;
+        let cloudsTimeLineDuration = this.cloudsTimeLineDuration;
+        if (topPin <= 0 && y < cloudsTimeLineDuration) {
+            // clouds time line 
+            let relativeY = y;
+            let progress = (cloudsTimeLineDuration - relativeY) / cloudsTimeLineDuration;
+            progress = Math.min(progress, 1);
+            progress = Math.max(progress, 0);
+            progress = 1 - progress;
+            this.cloudsTimeLine.progress(progress);
+
+            // this.cloudsTimeLine.tweenTo(progress * this.cloudsTimeLine.duration());
+        } else {
+            let t = y - cloudsTimeLineDuration;
+            t = Math.max(t, 0);
             this.scrollCotainer.css("transform", `translateY(${t}px)`);
+            if (y > offset) {
+                let totalPlaneScroll = this.totalScroll() - offset ;                 
+                let progress = y - offset ;
+                progress /= totalPlaneScroll ; 
+                console.log(progress); 
+                progress = Math.min(progress, 1);
+                progress = Math.max(progress, 0);
+                
+                console.log(progress); 
+                this.planeTimeLine.tweenTo(progress * this.planeTimeLine.duration()); 
+                
+
+            }
         }
     }
 }
@@ -239,11 +201,7 @@ $(function () {
 
     let controller = new ScrollController();
 
-    let airplane = new Airplane({ airplane: $("#airplane"), path: document.getElementById("airplane-path"), controller, airplaneReplacement: $("#airport-airplane") });
-
     let truckTimeLine = makeTruckTimeLine();
-
-    airplane.makeScene();
 
 
 
