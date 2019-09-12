@@ -382,7 +382,6 @@ c-25-266.5-22.5-532.6-8.7-799.8" />
                 let selectedImage = 0;
                 imageFactor = imageFactor.map(e => Math.random() * e);
                 selectedImage = imageFactor.indexOf(Math.max(...imageFactor));
-
                 let image = `url("assets/imgs/cloud-base-${selectedImage + 1}.png")`;
 
                 cloud.style.backgroundSize = 'cover';
