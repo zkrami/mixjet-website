@@ -1,10 +1,27 @@
 @import "reset";
 
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #333;
+}
 
+body {
+    color: #777777;
+    font-family: ubuntu, helvetica, arial;
 
+}
+
+.highlight{
+    color:#46DBF9;
+}
 .viewport {
     perspective: 2000px;
+    
     overflow: hidden;
 }
 
@@ -48,11 +65,6 @@
 
     overflow: visible;
     z-index: 10;
-    //background: rgba(#000, 1);
-
-    &:nth-child(2n) {
-        //  background: rgba(#eee, 1);
-    }
 }
 
 .logo-wrapper {
@@ -95,7 +107,7 @@
 .cloud-layer-wrapper {
     position: relative;
     //animation: cloudRotation 1s infinite alternate-reverse linear;
-    will-change: transform ; 
+    // transform:translateZ(0px); 
 }
 
 .cloud-layer {
@@ -242,4 +254,47 @@
     top:50%;
     left:80%;
 
+}
+
+/*footer*/
+.footer {
+    background: #222222;
+    padding: 10px;
+    padding-top: 40px;
+
+    padding-bottom: 20px;
+
+    h5 {
+        color: #fff;
+    }
+
+    .copyright {
+        color: #fff;
+        font-size: 1rem;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        color: #777777;
+        list-style: none;
+        font-size: 0.9rem;
+        padding-left: 5px;
+    }
+}
+.card{
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    padding:15px;
+    border:none !important;
+    text-align:center;
+    p , h3 , .icon-card{
+        margin-top:15px;
+    }
+    .icon-card{
+        font-size:2.0rem;
+        color:#46DBF9;
+    }
+    h3{
+        color:#46DBF9;
+    }
 }

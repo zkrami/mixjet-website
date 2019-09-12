@@ -5,74 +5,252 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css" />
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+
+    <script type="text/javascript" src="iscroll-probe-min.js"></script>
+
+    <style type="text/css">
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+
+
+        body {
+            overflow: hidden;
+        }
+
+
+        #scroller-wrapper {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            z-index: 200;
+        }
+
+        #scroller {
+            position: absolute;
+            z-index: 1;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            width: 100%;
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+
+        #scroll-container {
+            position: absolute;
+            bottom: 0;
+
+        }
+    </style>
+
 </head>
 
 <body id="body">
     <div class="scroll-container" id="scroll-container">
+        <section class="section footer">
+            <footer>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-2 offset-lg-1">
+                            <h5>Services</h5>
+                            <ul>
+                                <li>Airport services</li>
+                                <li>Grounding</li>
+                                <li>Airplane services</li>
+                                <li>Health Care</li>
+                                <li>Food and Drinks</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2">
+                            <h5>Main airport</h5>
+                            <ul>
+                                <li>Airport services</li>
+                                <li>Grounding</li>
+                                <li>Airplane services</li>
+                                <li>Health Care</li>
+                                <li>Food and Drinks</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2">
+                            <h5>Ground Handling</h5>
+                            <ul>
+                                <li>Airport services</li>
+                                <li>Grounding</li>
+                                <li>Airplane services</li>
+                                <li>Health Care</li>
+                                <li>Food and Drinks</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2">
+                            <h5>Resources</h5>
+                            <ul>
+                                <li>Airport services</li>
+                                <li>Grounding</li>
+                                <li>Airplane services</li>
+                                <li>Health Care</li>
+                                <li>Food and Drinks</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2">
+                            <h5>Newsletter</h5>
+                            <ul>
+                                <li>Airport services</li>
+                                <li>Grounding</li>
+                                <li>Airplane services</li>
+                                <li>Health Care</li>
+                                <li>Food and Drinks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="col-lg-10 offset-lg-1 mt-5">
+                        <p class="copyright">
+                            Copyright ©2019 All rights reserved
+                        </p>
+                    </div>
+                </div>
 
+            </footer>
+        </section>
+        <section class="section planning">
+
+                <div class="container-fluid">
+                    <div class="row mt-5">
+                        <div class="col-12 col-lg-6 offset-lg-3 text-center">
+                            <h2>We can make flight planing easy</h2>
+                            <p class="mt-4">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                        <div class="col-lg-10 offset-lg-1 mt-5">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card ">
+                                        <span class="icon-card">
+                                            <span class="fa fa-cog"></span>
+                                        </span>
+                                        <h3>
+                                            Ground Handling
+                                        </h3>
+                                        <p>
+                                            Usage of the Internet is becoming more common due to rapid advancement of
+                                            technology
+                                            and power.
+    
+                                        </p>
+                                    </div>
+    
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card ">
+                                        <span class="icon-card">
+                                            <span class="fa fa-paper-plane"></span>
+                                        </span>
+                                        <h3>
+                                            Plane Handling
+                                        </h3>
+                                        <p>
+                                            Usage of the Internet is becoming more common due to rapid advancement of
+                                            technology
+                                            and power.
+    
+                                        </p>
+                                    </div>
+    
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card ">
+                                        <span class="icon-card">
+                                            <span class="fa fa-support"></span>
+                                        </span>
+                                        <h3>
+                                            Expert Technicians
+                                        </h3>
+                                        <p>
+                                            Usage of the Internet is becoming more common due to rapid advancement of
+                                            technology
+                                            and power.
+    
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         <section class="section services">
             <div class="service-info">
                 <div class="container-fluid">
 
-                    <div class="row">
-
-                        <div class=" col-lg-6">
-                            <img src="assets/imgs/truck-site.png" class="img-fluid" />
-                            <h1>We fullfill your gallon </h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi
-                                ut aliquip
-                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu
-                                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                                officia
-                                deserunt mollit anim id est laborum.
-                            </p>
+                    <div class="row mt-5">
+                        <div class="col-lg-10 offset-lg-1 mt-5">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <img src="assets/imgs/plane.png" class="full-width" />
+                                </div>
+                                <div class=" col-lg-5 offset-lg-1">
+                                    <h1 class="title">Whether you are an
+                                        <span class="highlight">Airline</span> </h1>
+                                    <p>
+                                        we provide services for numerus Airline companies rangin in size... we provide
+                                        services for numerus
+                                        Airline companies rangin in size.
+                                        we provide services for numerus Airline companies rangin in size.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
-                </div>
-            </div>
+                    <div class="row mt-5">
+                        <div class="col-lg-10 offset-lg-1 mt-5">
+                            <div class="row ">
 
-        </section>
-        <section class="section services" id="truck-scene">
-            <div class="service-info">
-                <div class="container-fluid">
+                                <div class=" col-lg-6">
+                                    <h1 class="title">Or what every type of aircraft
+                                        <span class="highlight">Aircraft</span> you have</h1>
+                                    <p>
+                                        We provide services for numerus Airline companies ranging in size...
 
-                    <div class="row">
-
-                        <div class="col-lg-6 offset-lg-6">
-                            <img src="assets/imgs/truck-site.png" class="img-fluid" />
-                            <h1>We fullfill your gallon </h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi
-                                ut aliquip
-                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu
-                                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                                officia
-                                deserunt mollit anim id est laborum.
-                            </p>
+                                    </p>
+                                </div>
+                                <div class="col-lg-5 offset-lg-1">
+                                    <img src="assets/imgs/paper-plane.png" class="full-width" />
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
-            <div class="truck-wrapper" id="truck">
-                <img src="assets/imgs/truck.svg" />
-            </div>
-            <div class="airplane-wrapper" id="truck-airplane">
-                <img src="assets/imgs/airplane.png" />
-            </div>
+
         </section>
+
+
         <div class="airplane-wrapper" id="airplane">
             <img src="assets/imgs/airplane.png" />
         </div>
@@ -116,27 +294,27 @@
                 </div>
 
                 <!-- <div class="clouds-world" id="clouds-world">
-    
-                    <div class="airport">
-                        <div class="airport-backgroun-wrapper">
-                            <img class="airport-background" src="assets/imgs/airport222.jpg" />
-                        </div>
-                    </div>
-                    <div class="clouds-container">
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                        <div class="cloud-base"></div>
-                    </div>
-                </div> -->
+            
+                            <div class="airport">
+                                <div class="airport-backgroun-wrapper">
+                                    <img class="airport-background" src="assets/imgs/airport222.jpg" />
+                                </div>
+                            </div>
+                            <div class="clouds-container">
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                                <div class="cloud-base"></div>
+                            </div>
+                        </div> -->
             </div>
 
 
@@ -145,8 +323,18 @@
 
 
         </section>
+       
+
+
 
     </div>
+    <div id="scroller-wrapper">
+        <div id="scroller">
+            <div id="scroller-height"></div>
+        </div>
+    </div>
+
+
     <svg id="svg-converter" class="test-svg"
         style="position: absolute ;   z-index:-1; top :0 ; left : 0 ; width:100%; height:100%; " viewBox="0 69 100 200">
 
@@ -160,7 +348,7 @@
         </style>
         <path id="airplane-path" class="st0" d="M77.1,0.1c14.3,79.5-55,52.5-72.7,112.7c-24.3,82.7,72.1,46,74.9,102.1" />
     </svg>
-
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="assets/js/entry.bundle.js"></script>
 
     <script>
@@ -177,8 +365,8 @@
                 cloud.className = 'cloud-layer';
 
 
-                var x = -75 + Math.random() * 100;
-                var y = -70 + Math.random() * 100;
+                var x = -100 + Math.random() * 100;
+                var y = -100 + Math.random() * 100;
                 var a = Math.random() * 360;
                 var z = 300 + Math.random() * 500;
                 var s = 1 + Math.random();
@@ -240,6 +428,8 @@
 
 
     </script>
+
+
 </body>
 
 </html>

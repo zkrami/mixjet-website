@@ -1,37 +1,21 @@
 
 import $ from 'jquery';
-import * as ScrollMagic from "scrollmagic";
 import { TweenMax, TimelineMax, Power3, Sine, Bounce, Elastic, Power2, Power0 } from "gsap";
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import { relative } from 'path';
 
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 
 function makeCloudsTimeLine() {
 
-    let tl = new TimelineMax({});
+    let tl = new TimelineMax({ paused: true });
 
 
     tl.add("cloud-action");
-    let randomBezier = () => new Object({ values: Array(3).fill(0).map((v, i) => new Object({ y: `${(i % 2 == 0 ? "+=" : "-=")}${Math.random() * 20}` })) });
-    let xLocation = (i, e) => {
-        let { left } = $(e).position();
-        left = Math.round(left * 100 / $(window).width()); // percentage left 
-        return left < 50 ? "-=70%" : "+=70%";
-    };
-
-    /*tl.to($(".window"), 2, {
-        scale: 2,
-        transformOrigin: "90% center",
-        opacity: 0,
-
-        ease: Power3.easeInOut,
-
-    }, "cloud-action");*/
+   
     tl.to("#viewport", 7, {
         perspective: 250,
         ease: Power3.easeOut
-    } , 3);
+    });
 
     tl.set("#airport-airplane", {
         "display": "none"
@@ -117,7 +101,7 @@ class Airplane {
                 angle = 0;
             }
             angle = `${angle}rad`;
-
+            /*
             let scene = new ScrollMagic.Scene({ offset: - 230 + start.y, reverse: true, loglevel: 2 })
                 .addTo(this.controller)
                 .on("start", (e) => {
@@ -131,13 +115,7 @@ class Airplane {
                                 ...XYtoTopLeftPercent(end),
                                 rotation: angle,
                                 onComplete: () => {
-                                    /*
-                                                                        TweenMax.set(this.airplaneReplacement, {
-                                                                            "display": "block"
-                                                                        });
-                                                                        TweenMax.set(this.airplane, {
-                                                                            "display": "none"
-                                                                        });*/
+                                  
                                 }
                             });
 
@@ -153,12 +131,7 @@ class Airplane {
                         hidden = false;
                         if (i == airplanePath.length - 1) {
 
-                            /*   TweenMax.set(this.airplaneReplacement, {
-                                   "display": "none"
-                               });
-                               TweenMax.set(this.airplane, {
-                                   "display": "block"
-                               });*/
+                        
 
                             TweenMax.to(this.airplane, 0.7, {
                                 ...XYtoTopLeftPercent(start),
@@ -177,7 +150,7 @@ class Airplane {
                 });
 
 
-            airplanePathScenes.push(scene);
+            airplanePathScenes.push(scene);*/
         }
 
 
@@ -195,39 +168,85 @@ function makeTruckTimeLine() {
     });
     return tl;
 }
+
+class ScrollController {
+
+
+
+    resize() {
+
+        let height = this.scrollCotainer.height();
+        let total = height + 0 ;
+        this.scrolLHeightElement.height(total);
+        this.total = total ;
+        window.dispatchEvent(new Event("resize"));
+    }
+    constructor() {
+
+        this.scrollCotainer = $("#scroll-container");
+        this.scrolLHeightElement = $("#scroller-height");
+        this.iscroll = new IScroll('#scroller-wrapper', {
+            scrollX: false,
+            scrollY: true,
+            scrollbars: true,
+            useTransform: true,
+            useTransition: true,
+            probeType: 3,
+            click: true,
+            mouseWheel: true,
+            mouseWheelSpeed : 20 
+        });
+        this.iscroll.on("scroll", this.onScroll.bind(this));
+        this.resize();
+
+        this.cloudsTimeLine = makeCloudsTimeLine();
+        this.pin = $("#clouds-world")[0];
+
+
+    }
+    onScroll() {
+        
+            
+        let y = -this.iscroll.y;
+        this.scrollCotainer.css("transform", `translateY(${y}px)`);
+
+        return ; 
+        let topPin = this.pin.getClientRects()[0].top; 
+        let duration = 1000 ;         
+        if(topPin <= 0 && y < duration){
+            
+            let relativeY = y ; 
+            let progress = ( duration - relativeY) /  duration  ;
+            progress = Math.min(progress , 1); 
+            progress = Math.max(progress , 0); 
+            progress = 1 - progress ; 
+            //this.cloudsTimeLine.progress(progress);
+            console.log(this.cloudsTimeLine); 
+            console.log(this.cloudsTimeLine.duration());
+            this.cloudsTimeLine.tweenTo( progress * this.cloudsTimeLine.duration()); 
+        }else{
+            let t = y - duration ; 
+            t = Math.max(t , 0 ); 
+            this.scrollCotainer.css("transform", `translateY(${t}px)`);
+        }
+    }
+}
 $(function () {
 
 
 
 
 
-    let cloudsTimeLine = makeCloudsTimeLine();
-    let controller = new ScrollMagic.Controller({ });
-
+    let controller = new ScrollController();
 
     let airplane = new Airplane({ airplane: $("#airplane"), path: document.getElementById("airplane-path"), controller, airplaneReplacement: $("#airport-airplane") });
 
     let truckTimeLine = makeTruckTimeLine();
 
-
-
-
-    let truckScene = new ScrollMagic.Scene({ offset: $("#truck-scene").position().top, duration: 2000 })
-        .setPin("#truck-scene")
-        .setTween(truckTimeLine.reverse())
-        .addTo(controller);
-
-
-    let cloudScene = new ScrollMagic.Scene({ offset: $("#header").position().top + document.getElementById("clouds-world").offsetTop , duration : 2000  })
-        .setTween(cloudsTimeLine.reverse())
-        .setPin("#header")
-        .addTo(controller);
-
-
     airplane.makeScene();
 
-    $("body , html").scrollTop(1e6);
-  
+
+
 
 
 });

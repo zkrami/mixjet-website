@@ -16,6 +16,24 @@ section {
   bottom: 0;
   margin: auto; }
 
+.full-width {
+  width: 100%; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333; }
+
+body {
+  color: #777777;
+  font-family: ubuntu, helvetica, arial; }
+
+.highlight {
+  color: #46DBF9; }
+
 .viewport {
   perspective: 2000px;
   overflow: hidden; }
@@ -73,8 +91,7 @@ section {
   100% {
     transform: translateX(200px) translateY(-20px); } }
 .cloud-layer-wrapper {
-  position: relative;
-  will-change: transform; }
+  position: relative; }
 
 .cloud-layer {
   opacity: 1;
@@ -168,5 +185,37 @@ section {
   left: 80%; }
   .truck-wrapper img {
     width: 100%; }
+
+/*footer*/
+.footer {
+  background: #222222;
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 20px; }
+  .footer h5 {
+    color: #fff; }
+  .footer .copyright {
+    color: #fff;
+    font-size: 1rem; }
+  .footer ul {
+    margin: 0;
+    padding: 0;
+    color: #777777;
+    list-style: none;
+    font-size: 0.9rem;
+    padding-left: 5px; }
+
+.card {
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border: none !important;
+  text-align: center; }
+  .card p, .card h3, .card .icon-card {
+    margin-top: 15px; }
+  .card .icon-card {
+    font-size: 2.0rem;
+    color: #46DBF9; }
+  .card h3 {
+    color: #46DBF9; }
 
 /*# sourceMappingURL=index.css.map */
