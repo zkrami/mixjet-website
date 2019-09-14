@@ -100,9 +100,9 @@ class Plane {
 function makeTruckTimeLine() {
 
     let truck = $("#truck");
-    let tl = new TimelineMax();
+    let tl = new TimelineMax({ paused: true });
     tl.to(truck, 1, {
-        left: "20%",
+        left: "50%",
     });
     return tl;
 }
@@ -114,10 +114,11 @@ class ScrollController {
     }
 
 
+
     resize() {
 
         let height = this.scrollCotainer.height();
-        let total = height + this.cloudsTimeLineDuration;
+        let total = height + this.totalPinDuration;
         this.scrolLHeightElement.height(total);
         this.total = total;
         window.dispatchEvent(new Event("resize"));
@@ -133,24 +134,49 @@ class ScrollController {
             scrollbars: true,
             useTransform: true,
             useTransition: true,
+            keyBindings : true , 
+            bounce : false , 
             probeType: 3,
             click: true,
             mouseWheel: true,
-            mouseWheelSpeed: 20
+            mouseWheelSpeed: 20 , 
+            eventListener : document.getElementById("scroll-container")
         });
-        this.iscroll.on("scroll", this.onScroll.bind(this));
+        let scenes = [];
 
-        this.cloudsTimeLine = makeCloudsTimeLine();
-        this.cloudsTimeLineDuration = 1000;
+
+        scenes.push({
+            timeline: makeCloudsTimeLine(),
+            duration: 1000,
+            offset: 0,
+            pin: true
+        });
+        scenes.push({
+            timeline: makeTruckTimeLine(),
+            duration: 1000,
+            offset: 100,
+            pin: true
+        });
+
 
         this.pin = $("#clouds-world")[0];
         let plane = new Plane({ plane: $("#plane"), path: document.getElementById("plane-path") });
 
+        scenes.push({
+            timeline: plane.makeTimeLine(),
+            duration: "100%",
+            offset: 500,
+            pin: false
+        });
 
-        this.planeTimeLine = plane.makeTimeLine();
-
-
+        this.totalPinDuration = scenes.reduce((pre, cur, i) => pre + (cur.pin ? cur.duration : 0), 0);
+        // let topPin = this.pin.getClientRects()[0].top; 
         this.resize();
+        this.scenes = scenes;
+
+
+        this.iscroll.on("scroll", this.onScroll.bind(this));
+
 
 
     }
@@ -159,35 +185,64 @@ class ScrollController {
 
         let y = -this.iscroll.y;
 
-        let offset = this.cloudsTimeLineDuration + 600;
-        let topPin = this.pin.getClientRects()[0].top;
-        let cloudsTimeLineDuration = this.cloudsTimeLineDuration;
-        if (topPin <= 0 && y < cloudsTimeLineDuration) {
-            // clouds time line 
-            let relativeY = y;
-            let progress = (cloudsTimeLineDuration - relativeY) / cloudsTimeLineDuration;
-            progress = Math.min(progress, 1);
-            progress = Math.max(progress, 0);
-            progress = 1 - progress;
-            this.cloudsTimeLine.progress(progress);
+        let pinDuration = 0;
+        let pinned = false;
+        for (let scene of this.scenes) {
+            let yAbsolute = y - pinDuration; // y according to docuemnt 
+            if (scene.pin) {
 
-            // this.cloudsTimeLine.tweenTo(progress * this.cloudsTimeLine.duration());
-        } else {
-            let t = y - cloudsTimeLineDuration;
-            t = Math.max(t, 0);
-            this.scrollCotainer.css("transform", `translateY(${t}px)`);
-            if (y > offset) {
-                let totalPlaneScroll = this.totalScroll() - offset;
-                let progress = y - offset;
-                progress /= totalPlaneScroll;
-                progress = Math.min(progress, 1);
-                progress = Math.max(progress, 0);
+                if (yAbsolute > scene.offset) {
 
-                this.planeTimeLine.tweenTo(progress * this.planeTimeLine.duration());
+                    let yScene = yAbsolute - scene.offset;
 
+                    if (yScene < scene.duration) {
+                        let progress = (scene.duration - yScene) / scene.duration;
+                        progress = Math.min(progress, 1);
+                        progress = Math.max(progress, 0);
+                        progress = 1 - progress;
+                        scene.timeline.progress(progress);
+                        pinDuration += yScene;
+                        pinned = true;
 
+                    } else {
+                        pinDuration += scene.duration;
+                        scene.timeline.progress(1);
+                    }
+                } else {
+                    scene.timeline.progress(0);
+                }
+
+            } else {
+
+                if (yAbsolute > scene.offset) {
+
+                    let yScene = yAbsolute - scene.offset;
+                    let totalSceneScroll = scene.duration;
+                    if (scene.duration == "100%") {
+                        totalSceneScroll = this.totalScroll() - pinDuration - scene.offset;
+                    }
+
+                    let progress = yScene;
+                    progress /= totalSceneScroll;
+                    progress = Math.min(progress, 1);
+                    progress = Math.max(progress, 0);
+
+                    scene.timeline.tweenTo(progress * scene.timeline.duration());
+
+                } else {
+                    scene.timeline.tweenTo(0);
+                }
             }
         }
+        let yAbsolute = Math.max(0 , y - pinDuration); 
+
+        //this.scrollCotainer.css("transform", `translateY(${yAbsolute}px)`);
+        TweenMax.to(this.scrollCotainer , 0.1 , { 
+            y : yAbsolute 
+        }); 
+        console.log(yAbsolute); 
+
+
     }
 }
 $(function () {

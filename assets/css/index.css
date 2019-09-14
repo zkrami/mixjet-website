@@ -169,10 +169,11 @@ body {
 .truck-wrapper {
   position: absolute;
   width: 10%;
-  top: 50%;
-  left: 80%; }
+  top: 40%;
+  left: 10%; }
   .truck-wrapper img {
-    width: 100%; }
+    width: 100%;
+    transform: scaleX(-1); }
 
 /*footer*/
 .footer {

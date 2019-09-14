@@ -1,4 +1,4 @@
-<html !DOCTYPE>
+<!DOCTYPE html>
 
 <head>
     <title>MixJet</title>
@@ -34,7 +34,7 @@
             left: 0;
             width: 100%;
             overflow: hidden;
-            z-index: 200;
+            z-index: -1;
         }
 
         #scroller {
@@ -73,12 +73,12 @@
             position: absolute;
             bottom: 0;
             will-change: transform;
-            transition: transform 0.1s linear;
+            /*transition: transform 0.1s linear;*/
         }
 
         .svg-plane-path {
             position: absolute;
-            z-index: 1;
+            z-index: -1;
             top: 0;
             left: 0;
         }
@@ -258,7 +258,7 @@
 
                                 <div class=" col-lg-6">
                                     <h1 class="title">Or what every type of aircraft
-                                        <span class="highlight">Aircraft</span> you have</h1>
+                                        <a href="https://www.google.com"><span class="highlight">Aircraft</span></a> you have</h1>
                                     <p>
                                         We provide services for numerus Airline companies ranging in size...
 
@@ -271,7 +271,7 @@
                         </div>
                     </div>
                 </div>
-
+            </div>
         </section>
         <div class="clouds-world-wrapper viewport">
             <div class="clouds-world" id="clouds-world">
@@ -291,7 +291,6 @@
                 </div>
             </div>
         </div>
-
         <section class="section header" id="header">
 
             <div class="airpot-viewport viewport">
@@ -300,6 +299,9 @@
 
                     <div class="airport-background-wrapper">
                         <img src="assets/imgs/airport-scene-3.jpg" />
+                    </div>
+                    <div class="truck-wrapper" id="truck">
+                        <img src="assets/imgs/truck.svg" />
                     </div>
 
                 </div>
@@ -328,7 +330,7 @@
             </style>
             <path id="plane-path" class="st0" d="M794.6,2354.5c66.7-132.5,153.9-254.8,221.4-385.7c61.2-118.9-57.7-203.8-165.9-233.9
 c-58.2-16.2-217.7,5.5-208.9-78.5c9.5-90.4,204.5-209.4,282.4-247.1c239.3-115.7,412.3-195.3,383.7-500.9
-c-25-266.5-22.5-532.6-8.7-799.8" />
+c-25-266.5-22.5-532.6-8.7-799.8" ></path>
         </svg>
 
 
