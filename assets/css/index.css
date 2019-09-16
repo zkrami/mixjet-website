@@ -216,4 +216,25 @@ body {
 .section.planning {
   margin-top: 200px; }
 
+.loader {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  z-index: 20;
+  transition: all 1s; }
+  .loader img {
+    position: absolute;
+    width: 30%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto; }
+
+body.loading .loader {
+  top: 0 !important; }
+
 /*# sourceMappingURL=index.css.map */

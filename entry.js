@@ -134,13 +134,13 @@ class ScrollController {
             scrollbars: true,
             useTransform: true,
             useTransition: true,
-            keyBindings : true , 
-            bounce : false , 
+            keyBindings: true,
+            bounce: false,
             probeType: 3,
             click: true,
             mouseWheel: true,
-            mouseWheelSpeed: 20 , 
-            eventListener : document.getElementById("scroll-container")
+            mouseWheelSpeed: 20,
+            eventListener: document.getElementById("scroll-container")
         });
         let scenes = [];
 
@@ -165,7 +165,7 @@ class ScrollController {
         scenes.push({
             timeline: plane.makeTimeLine(),
             duration: "100%",
-            offset: 500,
+            offset: 500, 
             pin: false
         });
 
@@ -174,6 +174,10 @@ class ScrollController {
         this.resize();
         this.scenes = scenes;
 
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, {
+            capture: false,
+            passive: false
+        });
 
         this.iscroll.on("scroll", this.onScroll.bind(this));
 
@@ -226,21 +230,26 @@ class ScrollController {
                     progress /= totalSceneScroll;
                     progress = Math.min(progress, 1);
                     progress = Math.max(progress, 0);
-
-                    scene.timeline.tweenTo(progress * scene.timeline.duration());
+                    let toDuration = progress * scene.timeline.duration() ; 
+                    let cur = scene.timeline.time();                     
+                    
+                    if(Math.abs(cur - toDuration) > 1){
+                        scene.timeline.tweenTo(toDuration).duration(0.8);
+                    }else{
+                        scene.timeline.tweenTo(toDuration);
+                    }
 
                 } else {
                     scene.timeline.tweenTo(0);
                 }
             }
         }
-        let yAbsolute = Math.max(0 , y - pinDuration); 
+        let yAbsolute = Math.max(0, y - pinDuration);
 
         //this.scrollCotainer.css("transform", `translateY(${yAbsolute}px)`);
-        TweenMax.to(this.scrollCotainer , 0.1 , { 
-            y : yAbsolute 
-        }); 
-        console.log(yAbsolute); 
+        TweenMax.to(this.scrollCotainer, 0.1, {
+            y: yAbsolute
+        });
 
 
     }
@@ -249,13 +258,11 @@ $(function () {
 
 
 
-
-
     let controller = new ScrollController();
-
     let truckTimeLine = makeTruckTimeLine();
-
-
+    setTimeout(() => {
+        $("body").removeClass("loading");
+    }, 500);
 
 
 
