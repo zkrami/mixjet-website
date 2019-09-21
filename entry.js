@@ -1,8 +1,6 @@
 
 import $ from 'jquery';
 import { TweenMax, TimelineMax, Power3, Power0 } from 'gsap';
-import { relative } from 'path';
-
 
 
 function makeCloudsTimeLine() {
@@ -81,12 +79,15 @@ class Plane {
         //let values = planePath.map(e => XYtoTopLeftPercent(e));
         let tl = new TimelineMax({ paused: true });
 
+        let part2 = planePath.splice(Math.ceil(0.25 * planePath.length));
+
         TweenMax.set(this.plane, {
             ...planePath[0],
             rotation: "30deg",
         })
+        tl.to(this.plane, 1.5, { ease: Power0.easeNone, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
 
-        tl.to(this.plane, 10, { ease: Power0.easeNone, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
+        tl.to(this.plane, 15, { ease: Power0.easeNone, bezier: { curviness: 2, values: part2, autoRotate: ["x", "y", "rotation", 90, false] } });
 
         return tl;
 
@@ -151,26 +152,27 @@ class ScrollController {
             offset: 0,
             pin: true
         });
-        scenes.push({
-            timeline: makeTruckTimeLine(),
-            duration: 1000,
-            offset: 100,
-            pin: true
-        });
+        /*    scenes.push({
+                timeline: makeTruckTimeLine(),
+                duration: 1000,
+                offset: 100,
+                pin: true
+            });*/
 
 
-        this.pin = $("#clouds-world")[0];
+
         let plane = new Plane({ plane: $("#plane"), path: document.getElementById("plane-path") });
 
         scenes.push({
             timeline: plane.makeTimeLine(),
             duration: "100%",
-            offset: 500, 
+            offset: 1200,
             pin: false
         });
-
+        this.pin = document.getElementById("airfield");
         this.totalPinDuration = scenes.reduce((pre, cur, i) => pre + (cur.pin ? cur.duration : 0), 0);
-        // let topPin = this.pin.getClientRects()[0].top; 
+        let topPin = this.pin.getClientRects()[0].top;
+        console.log({ topPin });
         this.resize();
         this.scenes = scenes;
 
@@ -230,12 +232,12 @@ class ScrollController {
                     progress /= totalSceneScroll;
                     progress = Math.min(progress, 1);
                     progress = Math.max(progress, 0);
-                    let toDuration = progress * scene.timeline.duration() ; 
-                    let cur = scene.timeline.time();                     
-                    
-                    if(Math.abs(cur - toDuration) > 1){
+                    let toDuration = progress * scene.timeline.duration();
+                    let cur = scene.timeline.time();
+
+                    if (Math.abs(cur - toDuration) > 1) {
                         scene.timeline.tweenTo(toDuration).duration(0.8);
-                    }else{
+                    } else {
                         scene.timeline.tweenTo(toDuration);
                     }
 
@@ -260,11 +262,14 @@ $(function () {
 
     let controller = new ScrollController();
     let truckTimeLine = makeTruckTimeLine();
-    setTimeout(() => {
-        $("body").removeClass("loading");
-    }, 500);
-
-
+    // setTimeout(() => {
+    $("body").removeClass("loading");
+    //   }, 500);
+    /*
+        TweenMax.to($("#scroll-container"), 0.0, {
+            y: 1032
+        });
+    */
 
 });
 

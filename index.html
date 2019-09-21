@@ -65,9 +65,7 @@
 
         }
 
-        body {
-            overflow: hidden;
-        }
+
 
         #scroll-container {
             position: absolute;
@@ -81,202 +79,221 @@
             z-index: -1;
             top: 0;
             left: 0;
+            width:100%;
+            height: 100%;
         }
     </style>
 
 </head>
 
-<body id="body" class="loading">
+<body id="body" class="">
     <div class="loader">
         <img src="assets/imgs/giphy-downsized-large.gif" />
     </div>
     <div class="scroll-container" id="scroll-container">
 
 
+        <svg class="svg-plane-path" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="150 200 1360.5 5045.6"
+            style="enable-background:new 0 100 1360.5 5045.6;" xml:space="preserve">
+            <style type="text/css">
+                .st0 {
+                    fill:none;
+                    stroke: #000000;
+                    stroke-miterlimit: 30;
+                    stroke:none;
 
-        <div class="plane-wrapper viewport" id="plane">
+                }
+            </style>
+            <path id="plane-path" class="st0"
+                d="M163,3753.6c55.7-66.8,184.5-108.6,320.6-140.4c133.8-31.3,151.9-26.2,357.4-27.6c136.5-0.9,342.1-2.3,426-126
+	c37.4-55.1,36.3-126.7,34-270c-2-126-20.3-143.8-30-296c-5.1-80.6-1.9-104.8,0-286.3c0,0,0-0.8,0-335.7c0-175.6-7.6-755.8-32-2184" />
+        </svg>
+
+        <div class="main-plane-wrapper" id="plane">
             <img src="assets/imgs/plane2.png" />
         </div>
-        <section class="section footer">
-            <footer>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-2 offset-lg-1">
-                            <h5>Services</h5>
-                            <ul>
-                                <li>Airport services</li>
-                                <li>Grounding</li>
-                                <li>Airplane services</li>
-                                <li>Health Care</li>
-                                <li>Food and Drinks</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2">
-                            <h5>Main airport</h5>
-                            <ul>
-                                <li>Airport services</li>
-                                <li>Grounding</li>
-                                <li>Airplane services</li>
-                                <li>Health Care</li>
-                                <li>Food and Drinks</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2">
-                            <h5>Ground Handling</h5>
-                            <ul>
-                                <li>Airport services</li>
-                                <li>Grounding</li>
-                                <li>Airplane services</li>
-                                <li>Health Care</li>
-                                <li>Food and Drinks</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2">
-                            <h5>Resources</h5>
-                            <ul>
-                                <li>Airport services</li>
-                                <li>Grounding</li>
-                                <li>Airplane services</li>
-                                <li>Health Care</li>
-                                <li>Food and Drinks</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2">
-                            <h5>Newsletter</h5>
-                            <ul>
-                                <li>Airport services</li>
-                                <li>Grounding</li>
-                                <li>Airplane services</li>
-                                <li>Health Care</li>
-                                <li>Food and Drinks</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid">
-                    <div class="col-lg-10 offset-lg-1 mt-5">
-                        <p class="copyright">
-                            Copyright ©2019 All rights reserved
-                        </p>
-                    </div>
-                </div>
 
-            </footer>
-        </section>
-        <section class="section planning">
-
+        
+        <section class="service service-2">
             <div class="container-fluid">
-                <div class="row mt-5">
-                    <div class="col-12 col-lg-6 offset-lg-3 text-center">
-                        <h2>We can make flight planing easy</h2>
-                        <p class="mt-4">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.
-                        </p>
+                <div class="row align-items-center">
+
+
+                    <div class="offset-lg-1 col-lg-1 p-0 service-column service-column-1 ">
+                        <img src="assets/imgs/runway.png" class="full-width" />
                     </div>
-                    <div class="col-lg-10 offset-lg-1 mt-5">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card ">
-                                    <span class="icon-card">
-                                        <span class="fa fa-cog"></span>
-                                    </span>
-                                    <h3>
-                                        Ground Handling
-                                    </h3>
-                                    <p>
-                                        Usage of the Internet is becoming more common due to rapid advancement of
-                                        technology
-                                        and power.
 
-                                    </p>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card ">
-                                    <span class="icon-card">
-                                        <span class="fa fa-paper-plane"></span>
-                                    </span>
-                                    <h3>
-                                        Plane Handling
-                                    </h3>
-                                    <p>
-                                        Usage of the Internet is becoming more common due to rapid advancement of
-                                        technology
-                                        and power.
-
-                                    </p>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card ">
-                                    <span class="icon-card">
-                                        <span class="fa fa-support"></span>
-                                    </span>
-                                    <h3>
-                                        Expert Technicians
-                                    </h3>
-                                    <p>
-                                        Usage of the Internet is becoming more common due to rapid advancement of
-                                        technology
-                                        and power.
-
-                                    </p>
-                                </div>
+                    <div class="col-lg-4 service-details-column box-shadow p-5 service-column service-column-2">
+                        <div class="serivce-details pb-5">
+                            <h6 class="mini-title">Business services</h6>
+                            <h4 class="title">Concirge <span class="highlight">services</span> </h4>
+                            <p class="description pr-lg-3 mt-4">
+                                Yes we Handle the biggest aircraft made. <br />
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus sequi
+                                fugiat
+                                omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque officiis dicta
+                                recusandae eum eos, facere nobis quod aut.
+                            </p>
+                            <br />
+                            <div class="text-right">
+                                <a class="primary-anchor " href="javascript:void(0)">Checkout more</a>
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-5 p-0 service-column service-column-3">
+                        <img src="assets/imgs/conciergBG.jpg" class="full-width" />
+                    </div>
+
                 </div>
             </div>
         </section>
-        <section class="section services">
-            <div class="service-info">
-                <div class="container-fluid">
+        <section class="service service-1 ">
+            <div class="container-fluid">
+                <div class="row align-items-center parallax-viewport">
 
-                    <div class="row mt-5">
-                        <div class="col-lg-10 offset-lg-1 mt-5">
+
+                    <div class="offset-lg-1 col-lg-1 p-0 service-column  service-column-1 ">
+                        <div class="">
+                            <img src="assets/imgs/runway.png" class="full-width" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 p-0 service-column  service-column-2">
+                        <div class="">
+                            <img src="assets/imgs/businessman.jpg" class="full-width" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4  p-0  service-column-3">
+                        <div class="service-column p-5  box-shadow  service-details-column">
+                            <div class="serivce-details pb-5">
+                                <h6 class="mini-title">Business services</h6>
+                                <h4 class="title">Concirge <span class="highlight">services</span> </h4>
+                                <p class="description pr-lg-3 mt-4">
+                                    Yes we Handle the biggest aircraft made. <br />
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus sequi
+                                    fugiat
+                                    omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque officiis
+                                    dicta
+                                    recusandae eum eos, facere nobis quod aut.
+                                </p>
+                                <br />
+                                <a class="primary-anchor " href="javascript:void(0)">Checkout more</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="antonov mt-5">
+            <div class="antonov-wrapper">
+                <img class="full-width" src="assets/imgs/antonov.png" />
+
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 offset-lg-1">
+
+                        <div class="clients-container">
                             <div class="row">
-                                <div class="col-lg-5">
-                                    <img src="assets/imgs/plane.png" class="full-width" />
+                                <div class="col-lg-6 client">
+                                    <img src="assets/imgs/client-1.png" />
                                 </div>
-                                <div class=" col-lg-5 offset-lg-1">
-                                    <h1 class="title">Whether you are an
-                                        <span class="highlight">Airline</span> </h1>
-                                    <p>
-                                        we provide services for numerus Airline companies rangin in size... we provide
-                                        services for numerus
-                                        Airline companies rangin in size.
-                                        we provide services for numerus Airline companies rangin in size.
-                                    </p>
+
+                                <div class="col-lg-6 client">
+                                    <img src="assets/imgs/client-3.png" />
                                 </div>
+                                <div class="col-lg-6 client">
+                                    <img src="assets/imgs/client-2.png" />
+                                </div>
+
+                                <div class="col-lg-6 client">
+                                    <img src="assets/imgs/client-5.png" />
+                                </div>
+                                <div class="col-lg-6 client">
+                                    <img src="assets/imgs/client-4.png" />
+                                </div>
+                                <div class="col-lg-6 client">
+                                    <img src="assets/imgs/client-6.png" />
+                                </div>
+
                             </div>
                         </div>
+                    </div>
+                    <div class="col-lg-1">
 
                     </div>
-                    <div class="row mt-5">
-                        <div class="col-lg-10 offset-lg-1 mt-5">
-                            <div class="row ">
-
-                                <div class=" col-lg-6">
-                                    <h1 class="title">Or what every type of aircraft
-                                        <a href="https://www.google.com"><span class="highlight">Aircraft</span></a> you have</h1>
-                                    <p>
-                                        We provide services for numerus Airline companies ranging in size...
-
-                                    </p>
-                                </div>
-                                <div class="col-lg-5 offset-lg-1">
-                                    <img src="assets/imgs/paper-plane.png" class="full-width" />
-                                </div>
-                            </div>
+                    <div class="col-lg-5 p-0 details-column">
+                        <div class="antonov-details">
+                            <h4 class="antonov-title">ANTONOV <br /> An-225 MRIYA.</h4>
+                            <h4 class="title">Proud of our <span class="highlight">clients</span></h4>
+                            <p class="description">
+                                MixJet Handle the Biggest aircraft made. <br />
+                                no matter how big or small your aircraft is we've got you covered.
+                            </p>
                         </div>
+                    </div>
+                    <div class="col-lg-1 runway-column">
+                        <img class="full-width runway" src="assets/imgs/runway.png" />
                     </div>
                 </div>
             </div>
         </section>
+        <section class="airfield " id="airfield">
+
+            <div class="container-fluid ">
+
+                <div class="row align-items-end ">
+                    <div class="col-lg-6">
+                        <div class="airfield-description">
+
+                            <h4 class="title">No <span class="highlight">Matter</span> what are your needs</h4>
+                            <p class="description">
+                                A business man or a an airline
+                            </p>
+                        </div>
+                        <div class="planes-container">
+                            <div class=" plane-location-wrapper">
+                                <div class="plane-2-location plane-location">
+
+                                    <div class="plane-wrapper">
+                                        <img class="hidden" src="assets/imgs/plane2.png" />
+
+                                    </div>
+                                    <span class="plane-word">
+                                        Jet
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div class=" plane-location-wrapper">
+                                <div class="plane-1-location plane-location">
+                                    <div class="plane-wrapper">
+                                        <img src="assets/imgs/plane1.png" />
+
+                                    </div>
+                                    <span class="plane-word">
+                                        Airplane
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img class="full-width" src="assets/imgs/airport.png" />
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
         <div class="clouds-world-wrapper viewport">
+
+            <div class="logo-wrapper cloud-logo-wrapper">
+                <img src="assets/imgs/logo.svg" />
+            </div>
+
+
             <div class="clouds-world" id="clouds-world">
 
                 <div class="clouds-container">
@@ -301,17 +318,10 @@
                 <div class="airport">
 
                     <div class="airport-background-wrapper">
-                        <img src="assets/imgs/airport-scene-3.jpg" />
-                    </div>
-                    <div class="truck-wrapper" id="truck">
-                        <img src="assets/imgs/truck.svg" />
+                        <img src="assets/imgs/airport-scene.jpg" />
                     </div>
 
-                </div>
 
-
-                <div class="logo-wrapper cloud-logo-wrapper">
-                    <img src="assets/imgs/logo-primary.png" />
                 </div>
 
 
@@ -320,21 +330,7 @@
         </section>
 
 
-        <svg class="svg-plane-path" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="120 0 1360.5 3076"
-            style="enable-background:new 0 0 1360.5 3076;" xml:space="preserve">
-            <style type="text/css">
-                .st0 {
-                    fill: none;
-                    stroke: none;
-                    stroke-miterlimit: 20;
-                    stroke-width: 10;
-                }
-            </style>
-            <path id="plane-path" class="st0" d="M794.6,2354.5c66.7-132.5,153.9-254.8,221.4-385.7c61.2-118.9-57.7-203.8-165.9-233.9
-c-58.2-16.2-217.7,5.5-208.9-78.5c9.5-90.4,204.5-209.4,282.4-247.1c239.3-115.7,412.3-195.3,383.7-500.9
-c-25-266.5-22.5-532.6-8.7-799.8" ></path>
-        </svg>
+
 
 
     </div>
@@ -348,7 +344,7 @@ c-25-266.5-22.5-532.6-8.7-799.8" ></path>
 
         </div>
         <div class="page">
-            
+
         </div>
     </div>
 

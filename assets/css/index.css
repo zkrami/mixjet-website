@@ -19,6 +19,16 @@ section {
 .full-width {
   width: 100%; }
 
+a, a:hover {
+  color: inherit;
+  text-decoration: none !important; }
+
+.hidden {
+  visibility: hidden; }
+
+@font-face {
+  font-family: primary-font;
+  src: url(../fonts/LeagueSpartan-Bold.otf); }
 h1,
 h2,
 h3,
@@ -29,10 +39,36 @@ h6 {
 
 body {
   color: #777777;
-  font-family: ubuntu, helvetica, arial; }
+  background: #e7e7e7 !important;
+  font-family: "primary-font", helvetica, arial !important; }
+
+.title {
+  font-weight: lighter; }
+
+.primary-anchor {
+  background: #cfa865;
+  background: linear-gradient(90deg, #cfa865 31%, #bb8c3e 100%);
+  padding: 13px 25px;
+  font-size: 0.9rem;
+  color: #fff; }
+  .primary-anchor:hover {
+    color: #fff; }
+
+.box-shadow {
+  box-shadow: 8px 15px 20px 3px rgba(51, 51, 51, 0.14), -8px -15px 20px 3px rgba(51, 51, 51, 0.14); }
 
 .highlight {
-  color: #46DBF9; }
+  position: relative;
+  z-index: 1; }
+  .highlight:after {
+    content: '';
+    position: absolute;
+    width: 110%;
+    background: #cda868;
+    height: 50%;
+    top: 40%;
+    left: -5%;
+    z-index: -1; }
 
 .viewport {
   perspective: 2000px;
@@ -78,9 +114,9 @@ body {
   position: absolute;
   top: 22%;
   left: 15%;
-  z-index: 10;
+  z-index: 20;
   height: auto;
-  width: 25%; }
+  width: 30%; }
   .logo-wrapper img {
     width: 100%; }
 
@@ -143,26 +179,19 @@ body {
     min-width: 100%;
     width: 100%; }
 
-.header-info {
-  position: absolute;
-  top: 0;
-  left: 0; }
-
 .header {
   z-index: 5; }
 
-.plane-wrapper {
+.main-plane-wrapper {
   position: absolute;
   left: 0;
   top: 0;
-  width: 10%;
+  width: 16.6%;
   display: block;
-  perspective: 2000px;
   z-index: 8;
   overflow: visible; }
-  .plane-wrapper img {
-    width: 100%;
-    transform: translateZ(100px) scale(0.75); }
+  .main-plane-wrapper img {
+    width: 100%; }
 
 /* Services */
 /* truck scene */
@@ -209,10 +238,6 @@ body {
   .card h3 {
     color: #46DBF9; }
 
-.section.services {
-  margin-bottom: 200px;
-  margin-top: 100px; }
-
 .section.planning {
   margin-top: 200px; }
 
@@ -236,5 +261,113 @@ body {
 
 body.loading .loader {
   top: 0 !important; }
+
+/* airfield */
+.airfield-description {
+  padding: 20px; }
+  .airfield-description .description {
+    padding-left: 40px;
+    padding-top: 10px;
+    width: 40%; }
+
+.planes-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px; }
+  .planes-container .plane-location {
+    position: relative; }
+  .planes-container .plane-1-location {
+    background-image: url("../imgs/spot1.svg");
+    background-size: contain;
+    overflow: visible;
+    background-repeat: no-repeat;
+    width: 24vw; }
+  .planes-container .plane-2-location {
+    flex-grow: 2;
+    background-image: url("../imgs/spot2.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    overflow: visible;
+    width: 16.6vw; }
+  .planes-container .plane-wrapper {
+    width: 100%;
+    z-index: 2;
+    position: relative; }
+    .planes-container .plane-wrapper img {
+      width: 100%; }
+  .planes-container .plane-word {
+    font-size: 3rem;
+    position: absolute;
+    bottom: -4%;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    color: rgba(51, 51, 51, 0.7); }
+
+.client {
+  margin-top: 25px; }
+  .client img {
+    width: 100%; }
+
+.antonov-details {
+  position: relative;
+  margin-top: 50%;
+  overflow: hidden; }
+  .antonov-details .antonov-title {
+    font-size: 4rem;
+    color: rgba(51, 51, 51, 0.3);
+    width: 116%; }
+  .antonov-details .title,
+  .antonov-details .description {
+    padding-left: 100px;
+    margin-top: 30px; }
+  .antonov-details .description {
+    margin-top: 30px; }
+
+.antonov .runway {
+  transform: translateX(-200%); }
+.antonov .details-column {
+  z-index: 2;
+  overflow: visible; }
+.antonov .runway-column {
+  z-index: 1; }
+
+section.airfield {
+  margin-top: 35%; }
+
+.antonov-wrapper {
+  width: 47vw;
+  position: absolute;
+  top: 30%;
+  left: -10%;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 10; }
+
+.service-details-column {
+  background: #fff; }
+
+.serivce-details .mini-title,
+.serivce-details .description {
+  color: #7c8385; }
+
+section.service {
+  margin-bottom: 200px;
+  margin-top: 100px; }
+
+.service-1 .service-column-1 {
+  transform: translate(40px, 15%) translateZ(300px); }
+.service-1 .service-column-3 {
+  transform: translate(-20%, 15%) translateZ(300px); }
+
+.service-2 .service-column-1 {
+  transform: translate(40px, 15%) translateZ(300px);
+  z-index: 5; }
+.service-2 .service-column-2 {
+  z-index: 4; }
+.service-2 .service-column-3 {
+  transform: translate(-20%, 0%) translateZ(300px); }
 
 /*# sourceMappingURL=index.css.map */

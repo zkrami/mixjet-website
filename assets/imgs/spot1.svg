@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="407.094" height="450.62" viewBox="0 0 407.094 450.62">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+        fill: url(#linear-gradient);
+        filter: url(#filter);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="506.167" y1="6185.44" x2="810.115" y2="6636.06" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d1aa68"/>
+      <stop offset="1" stop-color="#bb8c3e"/>
+    </linearGradient>
+    <filter id="filter" x="454.594" y="6185.44" width="407.094" height="450.62" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#55655d"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" mode="darkerColor" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path class="cls-1" d="M861,6341c12.826,192.83-152.913,293.04-222,295s-226.1-56.31-174-318C508.31,6100.43,850.382,6181.37,861,6341Z" transform="translate(-454.594 -6185.44)"/>
+</svg>
