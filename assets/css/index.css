@@ -357,17 +357,26 @@ section.service {
   margin-bottom: 200px;
   margin-top: 100px; }
 
+html {
+  overflow: hidden; }
+
+body {
+  overflow: auto;
+  height: 100%; }
+
 .service-1 .service-column-1 {
-  transform: translate(40px, 15%) translateZ(300px); }
+  transform: translateX(100%); }
+.service-1 .service-column-2 {
+  transform: translateZ(50px) translateX(35%) scale(0.5); }
 .service-1 .service-column-3 {
-  transform: translate(-20%, 15%) translateZ(300px); }
+  transform: translateZ(75px) scale(0.25) translateX(-145%); }
 
 .service-2 .service-column-1 {
-  transform: translate(40px, 15%) translateZ(300px);
   z-index: 5; }
 .service-2 .service-column-2 {
   z-index: 4; }
-.service-2 .service-column-3 {
-  transform: translate(-20%, 0%) translateZ(300px); }
+
+.parallax-perspective {
+  perspective: 100px; }
 
 /*# sourceMappingURL=index.css.map */

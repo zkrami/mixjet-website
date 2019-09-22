@@ -39,7 +39,7 @@ body {
 }
 
 .box-shadow {
-    box-shadow: 8px 15px 20px 3px rgba(#333 , .14) , -8px -15px 20px 3px rgba(#333 , .14);    
+    box-shadow: 8px 15px 20px 3px rgba(#333, .14), -8px -15px 20px 3px rgba(#333, .14);
 }
 
 .highlight {
@@ -238,9 +238,11 @@ body {
     top: 0;
     width: 16.6%;
     display: block;
+
     img {
         width: 100%;
     }
+
     z-index: 8;
     overflow: visible;
 }
@@ -493,29 +495,46 @@ section.service {
     margin-top: 100px;
 }
 
-.service-1 {
+html {
+    overflow: hidden;
+}
 
+body {
+    overflow: auto;
+    height: 100%;
+}
+
+.service-1 {
     .service-column-1 {
-        transform: translate(40px, 15%) translateZ(300px);
+        transform: translateX(100%);
+    }
+
+    .service-column-2 {
+        transform: translateZ(50px) translateX(35%) scale(0.5);
     }
 
     .service-column-3 {
-        transform: translate(-20%, 15%) translateZ(300px);
+
+        transform: translateZ(75px) scale(0.25) translateX(-145%);
     }
 }
 
 .service-2 {
-
     .service-column-1 {
-        transform: translate(40px, 15%) translateZ(300px);
+        //transform: translate(40px, 15%) translateZ(1px);
         z-index: 5;
     }
+
     .service-column-2 {
         z-index: 4;
 
     }
+
     .service-column-3 {
-        transform: translate(-20%, 0%) translateZ(300px);
+        //transform: translate(-20%, 0%) translateZ(0);
     }
 }
 
+.parallax-perspective {
+    perspective: 100px;
+}
