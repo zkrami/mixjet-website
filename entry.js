@@ -104,10 +104,10 @@ class Plane {
 
         tl2.to(this.plane, 15, { ease: Power0.easeNone, bezier: { curviness: 2, values: part2, autoRotate: ["x", "y", "rotation", 90, false] } });
 
-        tl2.to($("#arrows-2"), 1.5, { ease: Power2.easeOut, top: "10%" }, 10.6);
-        tl2.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 11);
-        tl2.to($("#clock-1"), 1.8, { ease: Power2.easeInOut, rotation: "+=40deg" }, 13);
-        tl2.to($("#clock-2"), 1.8, { ease: Power2.easeInOut, rotation: "-=40deg" }, 13);
+        tl2.to($("#arrows-2"), 1.5, { ease: Power2.easeOut, top: "10%" }, 10.0275);
+        tl2.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 10.4);
+        tl2.to($("#clock-1"), 1.8, { ease: Power2.easeInOut, rotation: "+=40deg" }, 12.7);
+        tl2.to($("#clock-2"), 1.8, { ease: Power2.easeInOut, rotation: "-=40deg" }, 12.7);
         return [tl1, tl2];
 
 
@@ -141,6 +141,7 @@ class ScrollController {
         let total = height + this.totalPinDuration - 0;
         this.scrolLHeightElement.height(total);
         this.total = total;
+        this.maxScrollY = height - window.innerHeight;
         window.dispatchEvent(new Event("resize"));
 
     }
@@ -174,7 +175,7 @@ class ScrollController {
         scenes.push({
             timeline: makeAntonovTimeLine(),
             duration: 700,
-            offset: 2900,
+            offset: 2650,
             pin: false
         });
         /*    scenes.push({
@@ -289,10 +290,11 @@ class ScrollController {
         let yAbsolute = Math.max(0, y - pinDuration);
 
         //this.scrollCotainer.css("transform", `translateY(${yAbsolute}px)`);
+
+        
         TweenMax.to(this.scrollCotainer, 0.1, {
             y: yAbsolute
         });
-        console.log(yAbsolute);
 
 
     }
@@ -301,11 +303,14 @@ $(function () {
 
 
 
-    let controller = new ScrollController();
+
+    setTimeout(() => {
+        let controller = new ScrollController();
     let truckTimeLine = makeTruckTimeLine();
-    // setTimeout(() => {
+    }, 500);
     $("body").removeClass("loading");
-    //   }, 500);
+
+    
     /*
         TweenMax.to($("#scroll-container"), 0.0, {
             y: 1032

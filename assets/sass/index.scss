@@ -510,7 +510,7 @@ section.airfield {
 .service-details-column {
     background: #fff;
     align-self: stretch;
-    padding: 2rem !important;
+    padding:2rem !important;
 }
 
 .serivce-details {
@@ -523,8 +523,8 @@ section.airfield {
 
 
 section.service {
-    margin-bottom:40vh;
-    margin-top: 40vh;
+    margin-bottom: 150px;
+    margin-top:50vh;
 }
 
 html {
@@ -541,33 +541,30 @@ body {
 .service-0 {
     .service-column-1 {
         //transform: translateX(80%);
-
-        background-image: url("../imgs/clocks-background.jpg");
-        background-size: contain;
+        
+        background-image: url("../imgs/clocks-background.jpg"); 
+        background-size:contain; 
         background-repeat: no-repeat;
-        transform: translate(15%, 0%) translateZ(30px) scale(0.7);
-        z-index: 100;
+        transform: translate(15%, 0%)  translateZ(30px )  scale(0.7);
+        z-index:10;
 
     }
 
     .service-column-2 {
         transform: translateZ(-30px) translateX(-15%) translateY(0%) scale(1.3);
-        padding-right: 1rem;
-
-        .serivce-details {
-            padding-left: 28% !important;
+        padding-right:1rem;
+        .serivce-details{
+            padding-left:28% !important;
         }
     }
-
-    .clock-1 {
-        transform: rotate(-15deg) translate(-20%, -30%) scale(1.1);
+    .clock-1{
+        transform:rotate(-15deg) translate(-20%, -30%) scale(1.1);
 
     }
-
-    .clock-2 {
-        transform: rotate(15deg);
+    .clock-2{
+        transform:rotate(15deg);
     }
-
+    
 
 
 }
@@ -582,15 +579,15 @@ body {
     }
 
     .service-column-3 {
-        position: relative;
+        position: relative;       
         transform: translateZ(50px) translateX(-25%) translateY(0%) scale(0.5);
     }
 }
 
 .service-2 {
-
+    margin-top:200px !important;
     .service-column-1 {
-        transform: translate(150%, 5%) translateZ(30px) scale(0.7);
+        transform: translate(150%, 5%)  translateZ(30px )  scale(0.7);
         z-index: 5;
     }
 
@@ -600,14 +597,14 @@ body {
     }
 
     .service-column-3 {
-        transform: translate(14%, 0%) translateZ(-30px) scale(1.3);
+        transform: translate(14%, 0%)  translateZ(-30px )  scale(1.3);
     }
 }
 
 
 
 .service-3 {
-
+    margin-top:200px !important;
     .service-column-1 {
         transform: translateY(0%) translateX(120%);
     }
@@ -615,7 +612,7 @@ body {
     .service-column-2 {
         transform: translateZ(30px) translateX(22%) translateY(-5%) scale(0.7);
 
-
+        
 
         .serivce-details {
             padding-right: 20%;
@@ -650,17 +647,14 @@ body {
 
 .antonov-clouds {
     position: relative;
-    top: 0%;
+    top: 100%;
     left: 0;
-    padding-bottom: 84.4%;
-    
+    overflow: visible;
+
     img {
         width: 100%;
 
         &:nth-child(1) {
-            position: absolute;
-            top: 0;
-            left: 0;
             transform: translateZ(-25px) scale(1.25) translateY(20%);
         }
 
@@ -714,7 +708,7 @@ body {
 
 
 .service-2 {
-
+   
 
     .arrow-path {
         height: 60vh;
@@ -723,9 +717,8 @@ body {
         top: -110%;
     }
 }
-
 .service-3 {
-
+   
 
     .arrow-path {
         height: 50vh;
