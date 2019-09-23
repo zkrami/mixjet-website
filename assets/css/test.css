@@ -1,8 +1,6 @@
 body {
-  background: red !important;
-  height: 100%; }
-
-body * {
-  display: none; }
+  background: red !important; }
+  body * {
+    opacity: 0; }
 
 /*# sourceMappingURL=test.css.map */

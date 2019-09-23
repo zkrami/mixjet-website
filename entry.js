@@ -1,6 +1,6 @@
 
 import $ from 'jquery';
-import { TweenMax, TimelineMax, Power3, Power0 } from 'gsap';
+import { TweenMax, TimelineMax, Power3, Power0, Power2 } from 'gsap';
 
 
 function makeCloudsTimeLine() {
@@ -20,7 +20,16 @@ function makeCloudsTimeLine() {
     return tl;
 
 }
-
+function makeAntonovTimeLine() {
+    let tl = new TimelineMax({ paused: true });
+    tl.to(".antonov-wrapper", 1, {
+        y: 0,
+        z: 0,
+        scale: 1,
+        ease: Power3.easeOut
+    });
+    return tl;
+}
 
 function XYtoTopLeftPercent({ x, y }) {
     return { left: `${x}px`, top: `${y}px` };
@@ -77,19 +86,29 @@ class Plane {
         let planePath = this.makePath();
 
         //let values = planePath.map(e => XYtoTopLeftPercent(e));
-        let tl = new TimelineMax({ paused: true });
+        let tl1 = new TimelineMax({ paused: true });
 
-        let part2 = planePath.splice(Math.ceil(0.25 * planePath.length));
+        let tl2 = new TimelineMax({ paused: true });
+
+        let part2 = planePath.splice(Math.ceil(0.15 * planePath.length));
 
         TweenMax.set(this.plane, {
             ...planePath[0],
             rotation: "30deg",
         })
-        tl.to(this.plane, 1.5, { ease: Power0.easeNone, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
+        tl1.to(this.plane, 1.5, { ease: Power3.easeInOut, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
 
-        tl.to(this.plane, 15, { ease: Power0.easeNone, bezier: { curviness: 2, values: part2, autoRotate: ["x", "y", "rotation", 90, false] } });
+        tl1.to(".plane-location-wrapper .background", 1., { ease: Power2.easeInOut, opacity: 1 }, 0);
 
-        return tl;
+
+
+        tl2.to(this.plane, 15, { ease: Power0.easeNone, bezier: { curviness: 2, values: part2, autoRotate: ["x", "y", "rotation", 90, false] } });
+
+        tl2.to($("#arrows-2"), 1.5, { ease: Power2.easeOut, top: "10%" }, 10.6);
+        tl2.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 11);
+        tl2.to($("#clock-1"), 1.8, { ease: Power2.easeInOut, rotation: "+=40deg" }, 13);
+        tl2.to($("#clock-2"), 1.8, { ease: Power2.easeInOut, rotation: "-=40deg" }, 13);
+        return [tl1, tl2];
 
 
     }
@@ -119,7 +138,7 @@ class ScrollController {
     resize() {
 
         let height = this.scrollCotainer.height();
-        let total = height + this.totalPinDuration;
+        let total = height + this.totalPinDuration - 0;
         this.scrolLHeightElement.height(total);
         this.total = total;
         window.dispatchEvent(new Event("resize"));
@@ -152,6 +171,12 @@ class ScrollController {
             offset: 0,
             pin: true
         });
+        scenes.push({
+            timeline: makeAntonovTimeLine(),
+            duration: 700,
+            offset: 2900,
+            pin: false
+        });
         /*    scenes.push({
                 timeline: makeTruckTimeLine(),
                 duration: 1000,
@@ -162,17 +187,24 @@ class ScrollController {
 
 
         let plane = new Plane({ plane: $("#plane"), path: document.getElementById("plane-path") });
+        let [planeTimeLine1, planeTimeLine2] = plane.makeTimeLine();
+        scenes.push({
+            timeline: planeTimeLine1,
+            duration: 500,
+            offset: 800,
+            pin: true
+        });
 
         scenes.push({
-            timeline: plane.makeTimeLine(),
+            timeline: planeTimeLine2,
             duration: "100%",
-            offset: 1200,
+            offset: 1000,
+            tag: 'debug',
             pin: false
         });
         this.pin = document.getElementById("airfield");
         this.totalPinDuration = scenes.reduce((pre, cur, i) => pre + (cur.pin ? cur.duration : 0), 0);
         let topPin = this.pin.getClientRects()[0].top;
-        console.log({ topPin });
         this.resize();
         this.scenes = scenes;
 
@@ -207,15 +239,20 @@ class ScrollController {
                         progress = Math.max(progress, 0);
                         progress = 1 - progress;
                         scene.timeline.progress(progress);
+                        //  scene.timeline.tweenTo(progress * scene.timeline.duration());
+
+
                         pinDuration += yScene;
                         pinned = true;
 
                     } else {
                         pinDuration += scene.duration;
                         scene.timeline.progress(1);
+                        // scene.timeline.tweenTo(1 * scene.timeline.duration());
                     }
                 } else {
                     scene.timeline.progress(0);
+                    // scene.timeline.tweenTo(0 * scene.timeline.duration());
                 }
 
             } else {
@@ -234,6 +271,9 @@ class ScrollController {
                     progress = Math.max(progress, 0);
                     let toDuration = progress * scene.timeline.duration();
                     let cur = scene.timeline.time();
+                    if (scene.tag == 'debug') {
+                        //console.log(toDuration);
+                    }
 
                     if (Math.abs(cur - toDuration) > 1) {
                         scene.timeline.tweenTo(toDuration).duration(0.8);
@@ -252,6 +292,7 @@ class ScrollController {
         TweenMax.to(this.scrollCotainer, 0.1, {
             y: yAbsolute
         });
+        console.log(yAbsolute);
 
 
     }

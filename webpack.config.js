@@ -1,13 +1,13 @@
 var webpack = require('webpack');
 var path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const devMode = true ; 
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const devMode = true;
 module.exports = {
     entry: {
-        entry: __dirname + '/entry.js',
-        test: __dirname + '/test.js',
-        canvas: __dirname + '/canvas.js',
-        style: __dirname + '/assets/sass/test.scss'
+         entry: __dirname + '/entry.js',
+        style: __dirname + '/style.js',
     },
     output: {
         path: path.resolve(__dirname, 'assets'),
@@ -17,24 +17,35 @@ module.exports = {
         rules: [
             {
                 test: /\.scss$/i,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: true
-                        },
-                    },
-                    'css-loader',
-                    'sass-loader',
-                ],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
+            {
+                test: /\.(jpe?g|png|gif|otf|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192
+                    }
+                }
+            }
+            
         ],
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: devMode ? '[name].css' : '[name].[hash].css',
-            chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+},
+    devServer: {
+    contentBase: path.join(__dirname),
+        compress: true,
+            hot: true,
+                open: true
+},
+plugins: [
 
-        })
-    ]
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new HtmlWebpackPlugin({
+        title: 'Project Demo',
+        hash: true,
+        template: './index2.html',
+        filename: './dist.html'
+    })
+]
 }

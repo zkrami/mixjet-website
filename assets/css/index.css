@@ -27,8 +27,8 @@ a, a:hover {
   visibility: hidden; }
 
 @font-face {
-  font-family: primary-font;
-  src: url(../fonts/LeagueSpartan-Bold.otf); }
+  font-family: "primary-font";
+  src: url(../fonts/DINAlternateBold.ttf); }
 h1,
 h2,
 h3,
@@ -41,6 +41,9 @@ body {
   color: #777777;
   background: #e7e7e7 !important;
   font-family: "primary-font", helvetica, arial !important; }
+
+html {
+  font-size: 20px !important; }
 
 .title {
   font-weight: lighter; }
@@ -66,7 +69,7 @@ body {
     width: 110%;
     background: #cda868;
     height: 50%;
-    top: 40%;
+    top: 50%;
     left: -5%;
     z-index: -1; }
 
@@ -151,15 +154,22 @@ body {
   left: 0;
   bottom: 0;
   z-index: 1;
-  transform-origin: 50% 50%;
+  transform-origin: 60% 100%;
   transform: scale(0.6) translateZ(100px); }
   .airport .airport-background-wrapper {
     position: relative;
     top: 0;
     left: 0;
-    width: 100%; }
+    width: 100%;
+    padding-bottom: 60%; }
     .airport .airport-background-wrapper img {
-      width: 100%; }
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto; }
 
 .clouds-scene {
   z-index: 2;
@@ -206,10 +216,10 @@ body {
 
 /*footer*/
 .footer {
-  background: #222222;
+  background: #3F3E3D;
   padding: 10px;
-  padding-top: 40px;
-  padding-bottom: 20px; }
+  padding-top: 50px;
+  padding-bottom: 80px; }
   .footer h5 {
     color: #fff; }
   .footer .copyright {
@@ -277,19 +287,36 @@ body.loading .loader {
   .planes-container .plane-location {
     position: relative; }
   .planes-container .plane-1-location {
-    background-image: url("../imgs/spot1.svg");
-    background-size: contain;
-    overflow: visible;
-    background-repeat: no-repeat;
     width: 24vw; }
+    .planes-container .plane-1-location .background {
+      background-image: url("../imgs/spot1.svg");
+      background-size: contain;
+      overflow: visible;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1; }
   .planes-container .plane-2-location {
     flex-grow: 2;
-    background-image: url("../imgs/spot2.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 0 100%;
     overflow: visible;
     width: 16.6vw; }
+    .planes-container .plane-2-location .background {
+      background-image: url("../imgs/spot2.svg");
+      background-size: contain;
+      background-position: 0 100%;
+      overflow: visible;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1; }
   .planes-container .plane-wrapper {
     width: 100%;
     z-index: 2;
@@ -312,7 +339,7 @@ body.loading .loader {
 
 .antonov-details {
   position: relative;
-  margin-top: 50%;
+  margin-top: 30%;
   overflow: hidden; }
   .antonov-details .antonov-title {
     font-size: 4rem;
@@ -333,29 +360,18 @@ body.loading .loader {
 .antonov .runway-column {
   z-index: 1; }
 
-section.airfield {
-  margin-top: 35%; }
-
-.antonov-wrapper {
-  width: 47vw;
-  position: absolute;
-  top: 30%;
-  left: -10%;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  z-index: 10; }
-
 .service-details-column {
-  background: #fff; }
+  background: #fff;
+  align-self: stretch;
+  padding: 2rem !important; }
 
 .serivce-details .mini-title,
 .serivce-details .description {
   color: #7c8385; }
 
 section.service {
-  margin-bottom: 200px;
-  margin-top: 100px; }
+  margin-bottom: 40vh;
+  margin-top: 40vh; }
 
 html {
   overflow: hidden; }
@@ -364,19 +380,116 @@ body {
   overflow: auto;
   height: 100%; }
 
+.service-0 .service-column-1 {
+  background-image: url("../imgs/clocks-background.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translate(15%, 0%) translateZ(30px) scale(0.7);
+  z-index: 100; }
+.service-0 .service-column-2 {
+  transform: translateZ(-30px) translateX(-15%) translateY(0%) scale(1.3);
+  padding-right: 1rem; }
+  .service-0 .service-column-2 .serivce-details {
+    padding-left: 28% !important; }
+.service-0 .clock-1 {
+  transform: rotate(-15deg) translate(-20%, -30%) scale(1.1); }
+.service-0 .clock-2 {
+  transform: rotate(15deg); }
+
 .service-1 .service-column-1 {
-  transform: translateX(100%); }
+  transform: translateX(80%); }
 .service-1 .service-column-2 {
-  transform: translateZ(50px) translateX(35%) scale(0.5); }
+  transform: translateZ(30px) translateX(22%) translateY(-10%) scale(0.7); }
 .service-1 .service-column-3 {
-  transform: translateZ(75px) scale(0.25) translateX(-145%); }
+  position: relative;
+  transform: translateZ(50px) translateX(-25%) translateY(0%) scale(0.5); }
 
 .service-2 .service-column-1 {
+  transform: translate(150%, 5%) translateZ(30px) scale(0.7);
   z-index: 5; }
 .service-2 .service-column-2 {
   z-index: 4; }
+.service-2 .service-column-3 {
+  transform: translate(14%, 0%) translateZ(-30px) scale(1.3); }
+
+.service-3 .service-column-1 {
+  transform: translateY(0%) translateX(120%); }
+.service-3 .service-column-2 {
+  transform: translateZ(30px) translateX(22%) translateY(-5%) scale(0.7); }
+  .service-3 .service-column-2 .serivce-details {
+    padding-right: 20%; }
+.service-3 .service-column-3 {
+  margin-top: 10%;
+  transform: translateZ(50px) translateX(-50%) translateY(0%) scale(0.7); }
 
 .parallax-perspective {
   perspective: 100px; }
+
+.antonov-wrapper {
+  width: 47vw;
+  position: absolute;
+  top: 8%;
+  left: -12%;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 10;
+  transform: translateY(50%) translateZ(0px); }
+
+.antonov-clouds {
+  position: relative;
+  top: 0%;
+  left: 0;
+  padding-bottom: 84.4%;
+  z-index: 10; }
+  .antonov-clouds img {
+    width: 100%; }
+    .antonov-clouds img:nth-child(1) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateZ(-25px) scale(1.25) translateY(20%); }
+    .antonov-clouds img:nth-child(2) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scaleX(-1) translateZ(25px) scale(0.75) translateY(-15%); }
+    .antonov-clouds img:nth-child(3) {
+      position: absolute;
+      top: -50%;
+      left: 0;
+      transform: translateZ(50px) scale(0.5);
+      display: none; }
+
+.arrow-path {
+  position: absolute;
+  width: 2px;
+  background: #cda868;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  border-radius: 5px; }
+  .arrow-path img {
+    position: absolute;
+    top: 80%;
+    width: 20px;
+    left: -9px; }
+
+.service-1 .arrow-path {
+  left: 10%;
+  top: -50%; }
+
+.service-2 .arrow-path {
+  height: 60vh;
+  right: 10%;
+  left: unset;
+  top: -110%; }
+
+.service-3 .arrow-path {
+  height: 50vh;
+  right: 15%;
+  left: unset;
+  top: 10%;
+  display: none; }
 
 /*# sourceMappingURL=index.css.map */
