@@ -11,15 +11,16 @@ let prodCss = [
     {
         loader: MiniCssExtractPlugin.loader,
         options: {
-            publicPath: '../',
+            publicPath: './',
 
         },
     },
-    'style-loader', 'css-loader', 'sass-loader']
+     'css-loader', 'sass-loader',
+]
 module.exports = {
     entry: {
         entry: __dirname + '/entry.js',
-        style: __dirname + '/style.js',
+        style: __dirname + '/assets/sass/index.scss',
     },
     output: {
         path: path.resolve(__dirname, 'assets'),
@@ -46,7 +47,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname),
         compress: true,
-        hot: true,
+        hot: false,
         open: true
     },
     plugins: [
@@ -57,13 +58,13 @@ module.exports = {
             filename: '[name].css',
             chunkFilename: '[id].css',
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new HtmlWebpackPlugin({
-            title: 'Project Demo',
-            hash: true,
-            template: './index2.html',
-            filename: './dist.html'
-        })
+        /*  new webpack.HotModuleReplacementPlugin(),
+          new webpack.NamedModulesPlugin(),
+          new HtmlWebpackPlugin({
+              title: 'Project Demo',
+              hash: true,
+              template: './index2.html',
+              filename: './dist.html'
+          })*/
     ]
 }
