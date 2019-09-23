@@ -29,6 +29,9 @@ a, a:hover {
 @font-face {
   font-family: "primary-font";
   src: url(../fonts/DINAlternateBold.ttf); }
+@font-face {
+  font-family: "secondary-font";
+  src: url(../fonts/LeagueSpartan-Bold.otf); }
 h1,
 h2,
 h3,
@@ -324,6 +327,7 @@ body.loading .loader {
     .planes-container .plane-wrapper img {
       width: 100%; }
   .planes-container .plane-word {
+    font-family: 'secondary-font';
     font-size: 3rem;
     position: absolute;
     bottom: -4%;
@@ -342,7 +346,8 @@ body.loading .loader {
   margin-top: 30%;
   overflow: hidden; }
   .antonov-details .antonov-title {
-    font-size: 4rem;
+    font-family: 'secondary-font';
+    font-size: 3.7rem;
     color: rgba(51, 51, 51, 0.3);
     width: 116%; }
   .antonov-details .title,

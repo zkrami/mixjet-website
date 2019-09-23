@@ -94,7 +94,7 @@ class Plane {
 
         TweenMax.set(this.plane, {
             ...planePath[0],
-            rotation: "30deg",
+            rotation: "57.5deg",
         })
         tl1.to(this.plane, 1.5, { ease: Power3.easeInOut, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
 
@@ -104,10 +104,10 @@ class Plane {
 
         tl2.to(this.plane, 15, { ease: Power0.easeNone, bezier: { curviness: 2, values: part2, autoRotate: ["x", "y", "rotation", 90, false] } });
 
-        tl2.to($("#arrows-2"), 1.5, { ease: Power2.easeOut, top: "10%" }, 10.0275);
-        tl2.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 10.4);
-        tl2.to($("#clock-1"), 1.8, { ease: Power2.easeInOut, rotation: "+=40deg" }, 12.7);
-        tl2.to($("#clock-2"), 1.8, { ease: Power2.easeInOut, rotation: "-=40deg" }, 12.7);
+        tl2.to($("#arrows-2"), 1.5, { ease: Power2.easeOut, top: "10%" }, 10.4);
+        tl2.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 10.6);
+        tl2.to($("#clock-1"), 2, { ease: Power2.easeInOut, rotation: "+=50deg" }, 12.7);
+        tl2.to($("#clock-2"), 2, { ease: Power2.easeInOut, rotation: "-=50deg" }, 12.7);
         return [tl1, tl2];
 
 
@@ -175,7 +175,7 @@ class ScrollController {
         scenes.push({
             timeline: makeAntonovTimeLine(),
             duration: 700,
-            offset: 2650,
+            offset: 3150,
             pin: false
         });
         /*    scenes.push({
@@ -191,7 +191,7 @@ class ScrollController {
         let [planeTimeLine1, planeTimeLine2] = plane.makeTimeLine();
         scenes.push({
             timeline: planeTimeLine1,
-            duration: 500,
+            duration: 1000,
             offset: 800,
             pin: true
         });
@@ -208,7 +208,7 @@ class ScrollController {
         let topPin = this.pin.getClientRects()[0].top;
         this.resize();
         this.scenes = scenes;
-
+   
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, {
             capture: false,
             passive: false
@@ -291,7 +291,7 @@ class ScrollController {
 
         //this.scrollCotainer.css("transform", `translateY(${yAbsolute}px)`);
 
-        
+
         TweenMax.to(this.scrollCotainer, 0.1, {
             y: yAbsolute
         });
@@ -306,11 +306,11 @@ $(function () {
 
     setTimeout(() => {
         let controller = new ScrollController();
-    let truckTimeLine = makeTruckTimeLine();
+        let truckTimeLine = makeTruckTimeLine();
     }, 500);
     $("body").removeClass("loading");
 
-    
+
     /*
         TweenMax.to($("#scroll-container"), 0.0, {
             y: 1032

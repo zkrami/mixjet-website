@@ -3,10 +3,22 @@ var path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const devMode = true;
+const devMode = false;
+
+
+let devCss = [];
+let prodCss = [
+    {
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+            publicPath: '../',
+
+        },
+    },
+    'style-loader', 'css-loader', 'sass-loader']
 module.exports = {
     entry: {
-         entry: __dirname + '/entry.js',
+        entry: __dirname + '/entry.js',
         style: __dirname + '/style.js',
     },
     output: {
@@ -17,7 +29,7 @@ module.exports = {
         rules: [
             {
                 test: /\.scss$/i,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: prodCss,
             },
             {
                 test: /\.(jpe?g|png|gif|otf|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
@@ -28,24 +40,30 @@ module.exports = {
                     }
                 }
             }
-            
-        ],
-},
-    devServer: {
-    contentBase: path.join(__dirname),
-        compress: true,
-            hot: true,
-                open: true
-},
-plugins: [
 
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new HtmlWebpackPlugin({
-        title: 'Project Demo',
-        hash: true,
-        template: './index2.html',
-        filename: './dist.html'
-    })
-]
+        ],
+    },
+    devServer: {
+        contentBase: path.join(__dirname),
+        compress: true,
+        hot: true,
+        open: true
+    },
+    plugins: [
+
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'Project Demo',
+            hash: true,
+            template: './index2.html',
+            filename: './dist.html'
+        })
+    ]
 }

@@ -440,6 +440,7 @@ body.loading .loader {
     }
 
     .plane-word {
+        font-family: 'secondary-font'; 
         font-size: 3rem;
         position: absolute;
         bottom: -4%;
@@ -466,7 +467,8 @@ body.loading .loader {
     overflow: hidden;
 
     .antonov-title {
-        font-size: 4rem;
+        font-family: 'secondary-font'; 
+        font-size: 3.7rem;
         color: rgba($black-color, 0.3);
         width: 116%;
 
