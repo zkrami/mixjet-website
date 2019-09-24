@@ -3,12 +3,10 @@
 <head>
     <title>MixJet</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css" />
     <meta charset="utf-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 
 
     <script type="text/javascript" src="iscroll-probe-min.js"></script>
@@ -752,85 +750,7 @@
 
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="assets/js/entry.bundle.js"></script>
-
-    <script>
-
-       /* let world = document.getElementById("clouds-world");
-
-        let perspective = 2000;
-
-        function createCloud(div, imageFactor) {
-
-            for (var j = 0; j < 5; j++) {
-
-                let cloud = document.createElement('div');
-                cloud.className = 'cloud-layer';
-
-
-                var x = -100 + Math.random() * 100;
-                var y = -100 + Math.random() * 100;
-                var a = Math.random() * 360;
-                var z = 300 + Math.random() * 500;
-                var s = 1 + Math.random();
-                var ss = 1 - (z / perspective);
-
-
-                var speed = 20 + 30 * Math.random();
-                cloud.data = {
-                    x, y, a, s
-                };
-                var t = 'translateX( ' + x + '% ) \
-                translateY( ' + y + '% ) \
-                translateZ( ' + z + 'px ) \
-                rotateZ( ' + a + 'deg ) \
-                scale( ' + ss + ' ) \
-                scale( ' + s + ' )';
-                cloud.style.transform = t;
-                // choose image randomly based on biases 
-                let selectedImage = 0;
-                imageFactor = imageFactor.map(e => Math.random() * e);
-                selectedImage = imageFactor.indexOf(Math.max(...imageFactor));
-                let image = `url("assets/imgs/cloud-base-${selectedImage + 1}.png")`;
-
-                cloud.style.backgroundSize = 'cover';
-                cloud.style.backgroundImage = image;
-
-                let cloudLayerWrapper = document.createElement("div");
-                cloudLayerWrapper.className = 'cloud-layer-wrapper';
-                cloudLayerWrapper.style.animationDuration = speed + 's';
-                cloudLayerWrapper.appendChild(cloud);
-
-                div.appendChild(cloudLayerWrapper);
-            }
-
-            return div;
-        }
-
-        let clouds = document.getElementsByClassName("cloud-base");
-        for (let cloud of clouds) {
-            createCloud(cloud, [2, 1, 1, 4, 1]);
-        }*/
-
-        // let surrounding = [0, 4, 8, 9, 10, 11];
-        // let centers = [1, 2, 5, 6];
-        // let clouds = document.getElementsByClassName("cloud-base");
-        // for (let index of surrounding) {
-        //     let cloud = clouds[index];
-        //     createCloud(cloud, [2, 1, 1, 4, 1]);
-        // }
-
-        // for (let index of centers) {
-        //     let cloud = clouds[index];
-        //     createCloud(cloud, [2, 0, 1, 0, 1]);
-        // }
-
-
-
-
-
-    </script>
-
+   
 
 </body>
 

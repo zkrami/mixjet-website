@@ -2,11 +2,11 @@ var webpack = require('webpack');
 var path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+require("css-loader");
 
-const devMode = false;
+var isDev = process.env.NODE_ENV === 'dev' // true or false
 
-
-let devCss = [];
+let devCss = ['style-loader', 'css-loader', 'sass-loader'];
 let prodCss = [
     {
         loader: MiniCssExtractPlugin.loader,
@@ -15,22 +15,25 @@ let prodCss = [
 
         },
     },
-     'css-loader', 'sass-loader',
-]
+    'css-loader', 'sass-loader',
+];
+
+var cssConfig = isDev ? devCss : prodCss
+
 module.exports = {
     entry: {
-        entry: __dirname + '/entry.js',
+        entry: __dirname + '/assets/js/entry.js',
         style: __dirname + '/assets/sass/index.scss',
     },
     output: {
-        path: path.resolve(__dirname, 'assets'),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].bundle.js',
     },
     module: {
         rules: [
             {
                 test: /\.scss$/i,
-                use: prodCss,
+                use: cssConfig,
             },
             {
                 test: /\.(jpe?g|png|gif|otf|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
@@ -47,7 +50,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname),
         compress: true,
-        hot: false,
+        hot: true,
         open: true
     },
     plugins: [
@@ -58,13 +61,13 @@ module.exports = {
             filename: '[name].css',
             chunkFilename: '[id].css',
         }),
-        /*  new webpack.HotModuleReplacementPlugin(),
-          new webpack.NamedModulesPlugin(),
-          new HtmlWebpackPlugin({
-              title: 'Project Demo',
-              hash: true,
-              template: './index2.html',
-              filename: './dist.html'
-          })*/
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'Project Demo',
+            hash: true,
+            template: './index.html',
+            filename: './index.html'
+        })
     ]
 }
