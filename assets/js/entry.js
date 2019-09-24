@@ -208,7 +208,7 @@ class ScrollController {
         let topPin = this.pin.getClientRects()[0].top;
         this.resize();
         this.scenes = scenes;
-   
+
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, {
             capture: false,
             passive: false
@@ -299,7 +299,7 @@ class ScrollController {
 
     }
 }
-$(function () {
+window.onload = function () {
 
 
 
@@ -317,7 +317,7 @@ $(function () {
         });
     */
 
-});
+};
 
 
 
