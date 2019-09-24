@@ -1,5 +1,6 @@
 
 import $ from 'jquery';
+import * as IScroll from './iscroll-probe';
 import { TweenMax, TimelineMax, Power3, Power0, Power2 } from 'gsap';
 
 
@@ -129,7 +130,7 @@ function makeTruckTimeLine() {
 
 class ScrollController {
 
-    totalScroll() {
+    get totalScroll() {
         return -this.iscroll.maxScrollY;
     }
 
@@ -175,16 +176,10 @@ class ScrollController {
         scenes.push({
             timeline: makeAntonovTimeLine(),
             duration: 700,
-            offset: 3150,
+            offset: 2150,
+            tag: 'antonov', // for debug purposes 
             pin: false
         });
-        /*    scenes.push({
-                timeline: makeTruckTimeLine(),
-                duration: 1000,
-                offset: 100,
-                pin: true
-            });*/
-
 
 
         let plane = new Plane({ plane: $("#plane"), path: document.getElementById("plane-path") });
@@ -206,9 +201,10 @@ class ScrollController {
         this.pin = document.getElementById("airfield");
         this.totalPinDuration = scenes.reduce((pre, cur, i) => pre + (cur.pin ? cur.duration : 0), 0);
         let topPin = this.pin.getClientRects()[0].top;
-        this.resize();
-        this.scenes = scenes;
 
+        this.scenes = scenes.sort((a, b) => a.offset - b.offset);
+
+        this.resize();
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, {
             capture: false,
             passive: false
@@ -257,13 +253,13 @@ class ScrollController {
                 }
 
             } else {
-
                 if (yAbsolute > scene.offset) {
+
 
                     let yScene = yAbsolute - scene.offset;
                     let totalSceneScroll = scene.duration;
                     if (scene.duration == "100%") {
-                        totalSceneScroll = this.totalScroll() - pinDuration - scene.offset;
+                        totalSceneScroll = this.totalScroll - pinDuration - scene.offset;
                     }
 
                     let progress = yScene;
@@ -272,9 +268,6 @@ class ScrollController {
                     progress = Math.max(progress, 0);
                     let toDuration = progress * scene.timeline.duration();
                     let cur = scene.timeline.time();
-                    if (scene.tag == 'debug') {
-                        //console.log(toDuration);
-                    }
 
                     if (Math.abs(cur - toDuration) > 1) {
                         scene.timeline.tweenTo(toDuration).duration(0.8);
