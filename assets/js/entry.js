@@ -376,10 +376,10 @@ window.onload = function () {
         // });
 
 
+        $("body").removeClass("loading");
 
 
     }, 100);
-    $("body").removeClass("loading");
 
 
 

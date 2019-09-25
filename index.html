@@ -79,8 +79,9 @@
             width: 100%;
             height: auto;
         }
-        .svg-plane-path svg{
-            width:100%;
+
+        .svg-plane-path svg {
+            width: 100%;
             height: auto;
         }
 
@@ -98,20 +99,63 @@
     </style>
 
 
+    <style>
+        .loader {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1d1d1d;
+            z-index: 20;
+            transition: all 1s;
+
+        }
+        @keyframes loader-animation{
+
+            from{
+                transform: rotate(0deg); 
+            }
+            to{
+                transform: rotate(360deg); 
+            }
+        }
+        .loader img {
+
+                position: absolute;
+                width: 10%;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                transform-origin: 50% 50%; 
+                animation: loader-animation 1.5s infinite linear;  
+        }
+
+        body.loading .loader {
+            top: 0 !important;
+        }
+    </style>
+
 </head>
 
-<body id="body" class="parallax-perspective">
+<body id="body" class="parallax-perspective loading">
     <div class="loader">
-        <img src="assets/imgs/giphy-downsized-large.gif" />
+
+        <img src="assets/imgs/loader.jpg" />
+
+
+
     </div>
 
     <div class="scroll-container  " id="scroll-container">
 
         <div id="test"></div>
         <div class="svg-plane-path" id="svg-plane-path">
-            ${  require("!!raw-loader!./path.svg").default}
+            ${ require("!!raw-loader!./path.svg").default}
         </div>
-        
+
 
         <div class="main-plane-wrapper" id="plane">
             <img src="assets/imgs/plane2.png" />
