@@ -4,6 +4,7 @@ import * as IScroll from './iscroll-probe';
 import { TweenMax, TimelineMax, Power3, Power0, Power2 } from 'gsap';
 
 
+
 function makeCloudsTimeLine() {
 
     let tl = new TimelineMax({ paused: true });
@@ -32,21 +33,32 @@ function makeAntonovTimeLine() {
     return tl;
 }
 
-function XYtoTopLeftPercent({ x, y }) {
-    return { left: `${x}px`, top: `${y}px` };
+
+
+function round2(x) {
+    return Math.round(x * 100) / 100;
 }
 
-function XYtoSecreenPercent({ x, y }) {
-    x = Math.round(x * 100) / 100;
-    y = Math.round(y * 100) / 100;
-    return { x, y };
-    let width = $('html').width();
-    let height = $('html').height();
-    x = Math.round(x * 1000 / width) / 10;
-    y = Math.round(y * 1000 / height) / 10;
-    return { x, y };
+
+function getOffsetTop(elem) {
+    var offsetTop = 0;
+
+    do {
+        if (!isNaN(elem.offsetTop)) {
+            offsetTop += elem.offsetTop;
+        }
+    } while (elem = elem.offsetParent);
+
+    offsetTop -= document.getElementById("scroll-container").offsetTop;
+    return offsetTop;
 }
 
+
+function getOffsetBottom(elem) {
+    var offsetBottom = getOffsetTop(elem);
+    offsetBottom = -document.getElementById("scroll-container").offsetTop - offsetBottom;
+    return offsetBottom;
+}
 
 
 class Plane {
@@ -63,13 +75,22 @@ class Plane {
 
     getPointAtScreen(percent) {
         let point = this.getPointAtPercent(percent);
-        return (XYtoSecreenPercent(point));
+        let { x, y } = point;
+        x += this.pathOffset.x;
+        y += this.pathOffset.y;
+
+        x = round2(x);
+        y = round2(y);
+
+        return { x, y };
+
     }
 
-    constructor({ path, plane }) {
+    constructor({ path, plane, pathOffset }) {
         this.path = path;
         this.pathLength = this.path.getTotalLength();
         this.plane = plane;
+        this.pathOffset = pathOffset;
     }
     makePath() {
 
@@ -118,15 +139,6 @@ class Plane {
 }
 
 
-function makeTruckTimeLine() {
-
-    let truck = $("#truck");
-    let tl = new TimelineMax({ paused: true });
-    tl.to(truck, 1, {
-        left: "50%",
-    });
-    return tl;
-}
 
 class ScrollController {
 
@@ -134,7 +146,28 @@ class ScrollController {
         return -this.iscroll.maxScrollY;
     }
 
+    get planeOffset() {
 
+        let y = getOffsetTop(document.getElementById("plane-2-location")) - document.getElementById("svg-plane-path").clientHeight;//+ document.getElementById("plane-2-location").clientHeight / 4;
+
+        // debug
+
+        $("#svg-plane-path").css("top", y);
+        $("#svg-plane-path").css("z-index", 100);
+
+        let x = 0;
+        return { x, y };
+
+    }
+
+    get planeTimeLineOffset() {
+
+        return getOffsetBottom(document.getElementById("plane-2-location")) + $(window).height() / 2;
+    }
+    get antonovTimeLineOffset() {
+        return getOffsetBottom(document.getElementById("antonov-marker"));
+
+    }
 
     resize() {
 
@@ -143,13 +176,82 @@ class ScrollController {
         this.scrolLHeightElement.height(total);
         this.total = total;
         this.maxScrollY = height - window.innerHeight;
+
+
+
         window.dispatchEvent(new Event("resize"));
+
+
+
+    }
+
+    init() {
+
+
+        this.iscroll.off("scroll", this.onScroll.bind(this));
+
+        let scenes = [];
+
+
+        scenes.push({
+            timeline: makeCloudsTimeLine(),
+            duration: 1000,
+            offset: 0,
+            pin: true
+        });
+        scenes.push({
+            timeline: makeAntonovTimeLine(),
+            duration: 700,
+            offset: this.antonovTimeLineOffset + 105,
+            tag: 'antonov', // for debug purposes 
+            pin: false
+        });
+
+
+        let path = $("#svg-plane-path path")[0];
+        let plane = new Plane({
+            plane: $("#plane"), path: path
+            , pathOffset: this.planeOffset
+        });
+
+        let [planeTimeLine1, planeTimeLine2] = plane.makeTimeLine();
+
+        console.log(this.antonovTimeLineOffset);
+
+        scenes.push({
+            timeline: planeTimeLine1,
+            duration: 1000,
+            offset: this.planeTimeLineOffset,
+            pin: true
+        });
+
+        scenes.push({
+            timeline: planeTimeLine2,
+            duration: "100%",
+            offset: this.planeTimeLineOffset + 200,
+            tag: 'debug',
+            pin: false
+        });
+
+        this.pin = document.getElementById("airfield");
+        this.totalPinDuration = scenes.reduce((pre, cur, i) => pre + (cur.pin ? cur.duration : 0), 0);
+
+        this.scenes = scenes.sort((a, b) => a.offset - b.offset);
+
+        this.resize();
+
+        this.iscroll.on("scroll", this.onScroll.bind(this));
 
     }
     constructor() {
 
+
+
         this.scrollCotainer = $("#scroll-container");
         this.scrolLHeightElement = $("#scroller-height");
+        this.planeLocation = document.getElementById("plane-2-location");
+
+
         this.iscroll = new IScroll('#scroller-wrapper', {
             scrollX: false,
             scrollY: true,
@@ -164,53 +266,16 @@ class ScrollController {
             mouseWheelSpeed: 20,
             eventListener: document.getElementById("scroll-container")
         });
-        let scenes = [];
 
 
-        scenes.push({
-            timeline: makeCloudsTimeLine(),
-            duration: 1000,
-            offset: 0,
-            pin: true
-        });
-        scenes.push({
-            timeline: makeAntonovTimeLine(),
-            duration: 700,
-            offset: 2150,
-            tag: 'antonov', // for debug purposes 
-            pin: false
-        });
-
-
-        let plane = new Plane({ plane: $("#plane"), path: document.getElementById("plane-path") });
-        let [planeTimeLine1, planeTimeLine2] = plane.makeTimeLine();
-        scenes.push({
-            timeline: planeTimeLine1,
-            duration: 1000,
-            offset: 800,
-            pin: true
-        });
-
-        scenes.push({
-            timeline: planeTimeLine2,
-            duration: "100%",
-            offset: 1000,
-            tag: 'debug',
-            pin: false
-        });
-        this.pin = document.getElementById("airfield");
-        this.totalPinDuration = scenes.reduce((pre, cur, i) => pre + (cur.pin ? cur.duration : 0), 0);
-        let topPin = this.pin.getClientRects()[0].top;
-
-        this.scenes = scenes.sort((a, b) => a.offset - b.offset);
-
-        this.resize();
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, {
             capture: false,
             passive: false
         });
 
-        this.iscroll.on("scroll", this.onScroll.bind(this));
+
+        this.init();
+
 
 
 
@@ -221,7 +286,6 @@ class ScrollController {
         let y = -this.iscroll.y;
 
         let pinDuration = 0;
-        let pinned = false;
         for (let scene of this.scenes) {
             let yAbsolute = y - pinDuration; // y according to docuemnt 
             if (scene.pin) {
@@ -240,7 +304,7 @@ class ScrollController {
 
 
                         pinDuration += yScene;
-                        pinned = true;
+
 
                     } else {
                         pinDuration += scene.duration;
@@ -273,6 +337,7 @@ class ScrollController {
                         scene.timeline.tweenTo(toDuration).duration(0.8);
                     } else {
                         scene.timeline.tweenTo(toDuration);
+                        //scene.timeline.progress(progress); 
                     }
 
                 } else {
@@ -289,6 +354,9 @@ class ScrollController {
             y: yAbsolute
         });
 
+        //console.log({ yAbsolute });
+
+
 
     }
 }
@@ -297,18 +365,30 @@ window.onload = function () {
 
 
 
+
+
     setTimeout(() => {
+
         let controller = new ScrollController();
-        let truckTimeLine = makeTruckTimeLine();
-    }, 500);
+
+
+        // TweenMax.to($("#scroll-container"), 0.0, {
+        //     y: 1032
+        // });
+
+
+
+
+    }, 100);
     $("body").removeClass("loading");
 
 
-    /*
-        TweenMax.to($("#scroll-container"), 0.0, {
-            y: 1032
-        });
-    */
+
+
+
+
+
+
 
 };
 
