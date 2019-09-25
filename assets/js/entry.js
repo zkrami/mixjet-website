@@ -152,8 +152,7 @@ class ScrollController {
 
         // debug
 
-        $("#svg-plane-path").css("top", y);
-        $("#svg-plane-path").css("z-index", 100);
+        //$("#svg-plane-path").css("top", y);
 
         let x = 0;
         return { x, y };
