@@ -148,14 +148,7 @@ class ScrollController {
 
     get planeOffset() {
 
-        let y = getOffsetTop(document.getElementById("plane-2-location")) - document.getElementById("svg-plane-path").clientHeight;//+ document.getElementById("plane-2-location").clientHeight / 4;
-
-        // debug
-
-        $("#svg-plane-path").css("top", y);
-
-        let x = 0;
-        return { x, y };
+        return { x: 0, y: 0 };
 
     }
 
@@ -208,6 +201,12 @@ class ScrollController {
 
 
         let path = $("#svg-plane-path path")[0];
+
+        let y = getOffsetTop(document.getElementById("plane-2-location"));
+
+        $("#svg-plane-path").css("height", y);
+        //$("#test").css({ display: "block", top: y });
+
         let plane = new Plane({
             plane: $("#plane"), path: path
             , pathOffset: this.planeOffset
