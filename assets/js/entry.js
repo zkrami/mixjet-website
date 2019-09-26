@@ -1,9 +1,9 @@
 
 import $ from 'jquery';
-import * as IScroll from './iscroll-probe';
+//import * as IScroll from './iscroll-probe';
 import { TweenMax, TimelineMax, Power3, Power0, Power2 } from 'gsap';
 
-
+import Scrollbar from 'smooth-scrollbar';
 
 function makeCloudsTimeLine() {
 
@@ -143,8 +143,9 @@ class Plane {
 class ScrollController {
 
     get totalScroll() {
-        return -this.iscroll.maxScrollY;
+        return 1000;
     }
+
 
     get planeOffset() {
 
@@ -171,7 +172,7 @@ class ScrollController {
 
 
 
-        window.dispatchEvent(new Event("resize"));
+        //   window.dispatchEvent(new Event("resize"));
 
 
 
@@ -180,7 +181,7 @@ class ScrollController {
     init() {
 
 
-        this.iscroll.off("scroll", this.onScroll.bind(this));
+        // this.iscroll.off("scroll", this.onScroll.bind(this));
 
         let scenes = [];
 
@@ -238,7 +239,8 @@ class ScrollController {
 
         this.resize();
 
-        this.iscroll.on("scroll", this.onScroll.bind(this));
+        this.scrollbar.addListener(this.onScroll.bind(this));
+        //  this.iscroll.on("scroll", this.onScroll.bind(this));
 
     }
     constructor() {
@@ -249,28 +251,12 @@ class ScrollController {
         this.scrolLHeightElement = $("#scroller-height");
         this.planeLocation = document.getElementById("plane-2-location");
 
+        this.scrollbar = new Scrollbar(document.getElementById("scroller"),
+            {
+                delegateTo: document.getElementById("scroll-container")
+            });
 
-        this.iscroll = new IScroll('#scroller-wrapper', {
-            scrollX: false,
-            scrollY: true,
-            scrollbars: true,
-            useTransform: true,
-            useTransition: true,
-            keyBindings: true,
-            bounce: false,
-            probeType: 3,
-            click: true,
-            mouseWheel: true,
-            mouseWheelSpeed: 20,
-            eventListener: document.getElementById("scroll-container")
-        });
-
-
-        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, {
-            capture: false,
-            passive: false
-        });
-
+        this.scrollbar.scrollTop
 
         this.init();
 
@@ -278,12 +264,14 @@ class ScrollController {
 
 
     }
-    onScroll() {
+    onScroll(e) {
 
 
         let deferer = [];
 
-        let y = -this.iscroll.y;
+        let y = e.offset.y;
+        console.log("over here");
+        console.log(y);
 
         let pinDuration = 0;
         for (let scene of this.scenes) {
@@ -386,7 +374,7 @@ window.onload = function () {
         $("body").removeClass("loading");
 
 
-    }, 500);
+    }, 0);
 
 
 
