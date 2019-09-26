@@ -136,7 +136,9 @@ body {
     width: 100%;
     height: 100vh;
     z-index: 10;
+    overflow: visible;
 
+    transform-style: flat;
 
 }
 
@@ -192,7 +194,7 @@ body {
 }
 
 .cloud-logo-wrapper {
-    transform: translateZ(500px) scale(0.75);
+    transform: translateX(10%) translateZ(800px) scale(0.60);
 }
 
 
@@ -523,6 +525,9 @@ body {
 }
 
 .antonov {
+    z-index:10;
+    transform-style: preserve-3d;
+
     .runway {
         transform: translateX(-200%);
     }
@@ -608,7 +613,16 @@ html {
 
 }
 
+.service {
+    transform-style: preserve-3d;
+
+    .row , .container-fluid {
+        transform-style: preserve-3d;
+    }
+}
+
 .service-1 {
+
     .service-column-1 {
         transform: translateX(80%);
     }
@@ -619,6 +633,8 @@ html {
 
     .service-column-3 {
         position: relative;
+        transform-style: preserve-3d;
+
         transform: translateZ(100px) translateX(-25%) translateY(0%) scale(0.5);
     }
 }
@@ -691,27 +707,38 @@ html {
     top: 100%;
     left: 0;
     overflow: visible;
+    transform-style: preserve-3d;
+
+    div,
+    img {
+        transform-style: preserve-3d;
+    }
 
     img {
         width: 100%;
 
         &:nth-child(1) {
-            transform: translateZ(-50px) scale(1.25) translateY(20%);
-        }
-
-        &:nth-child(2) {
+            z-index: 20;
             position: absolute;
             top: 0;
             left: 0;
-            transform: scaleX(-1) translateZ(50px) scale(0.75) translateY(-15%);
+            transform: translateZ(50px) scale(0.75) translateY(30%);
+        }
+
+        &:nth-child(2) {
+         
+            z-index: -1;
+            transform: scaleX(-1) translateZ(-50px) scale(1.25) translateY(-15%);
         }
 
         &:nth-child(3) {
+          
+            z-index: 25;
             position: absolute;
-            top: -50%;
+
+            top: 0;
             left: 0;
-            transform: translateZ(100px) scale(0.5);
-            display: none;
+            transform: scaleX(-1) translateZ(100px) scale(0.5) translateY(-20%);
         }
     }
 
@@ -778,8 +805,8 @@ html {
     width: 100%;
     height: 100%;
     overflow: auto;
-    
-    z-index: 0;
+    display: none;
+    z-index: -1;
 }
 
 .scroll-container {
@@ -792,8 +819,7 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    
-
+    display: none;
     transform-style: preserve-3d;
 
     div {
@@ -801,7 +827,14 @@ html {
     }
 }
 
-.home-page{
-    //transform:translateZ(-100px) ; 
+.home-page {
+    transform: translateZ(0px);
+    transform-style: preserve-3d;
+
 }
 
+
+#page-1 {
+    //transform: scale(0.5) translateZ(100px);
+
+}

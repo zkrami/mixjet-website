@@ -352,26 +352,37 @@ class PageNavigator {
     }
     start() {
         this.navigating = true;
-        TweenMax.set("#clouds-navigation", { zIndex: 10 });
+        TweenMax.set("#clouds-navigation", { zIndex: 10, display: "block" });
 
     }
     complete(destinationPage) {
         this.navigating = false;
-        TweenMax.set("#clouds-navigation", { zIndex: -1 });
+        TweenMax.set("#clouds-navigation", { zIndex: -1, display: "none" });
 
+        if (destinationPage != "#home-page") {
+            TweenMax.set(destinationPage, { z: 0, scale: 1 });
+        }
     }
     changePage(destinationPage) {
-
-        TweenMax.set(destinationPage, { zIndex: 20 });
-        TweenMax.set(this.cur, { zIndex: -1 });
-        this.current = destinationPage;
-
+        TweenMax.set(destinationPage, { zIndex: 2, display: "block" });
+        TweenMax.set(this.current, { zIndex: -1, display: "none" });
 
         if (destinationPage == "#home-page") {
-            TweenMax.to("#home-page", this.navigationTime, {
+
+            console.log("teeeeeeeest");
+            TweenMax.fromTo("#home-page", this.navigationTime, {
+                z: -4000
+            }, {
                 z: 0
             });
         }
+        if (destinationPage != "#home-page") {
+            TweenMax.set(destinationPage, { z: 100, scale: 0.5 });
+        }
+
+
+        this.current = destinationPage;
+
 
         TweenMax.to("#body", this.navigationTime, {
             perspective: 200,
@@ -386,8 +397,10 @@ class PageNavigator {
 
         if (this.current == "#home-page") {
             TweenMax.to("#home-page", this.navigationTime, {
-                z: -2000
+                z: -4000
             });
+        } else {
+            TweenMax.set(this.current, { z: 100, scale: 0.5 });
         }
         TweenMax.to("#body", this.navigationTime, {
             perspective: 2000,
