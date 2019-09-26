@@ -281,6 +281,8 @@ class ScrollController {
     onScroll() {
 
 
+        let deferer = [];
+
         let y = -this.iscroll.y;
 
         let pinDuration = 0;
@@ -314,7 +316,7 @@ class ScrollController {
                     // scene.timeline.tweenTo(0 * scene.timeline.duration());
                 }
 
-            } else {
+            } else { // not pin 
                 if (yAbsolute > scene.offset) {
 
 
@@ -333,9 +335,12 @@ class ScrollController {
 
                     if (Math.abs(cur - toDuration) > 1) {
                         scene.timeline.tweenTo(toDuration).duration(0.8);
-                    } else {
-                        scene.timeline.tweenTo(toDuration);
+                    } else if (Math.abs(cur - toDuration) > 0.6) {
                         //scene.timeline.progress(progress); 
+                        //console.log(scene.timeline.endTime()); 
+                        //scene.timeline.kill();
+                        scene.timeline.tweenTo(toDuration);
+
                     }
 
                 } else {
@@ -348,9 +353,12 @@ class ScrollController {
         //this.scrollCotainer.css("transform", `translateY(${yAbsolute}px)`);
 
 
-        TweenMax.to(this.scrollCotainer, 0.1, {
+        TweenMax.set(this.scrollCotainer, {
             y: yAbsolute
         });
+
+
+
 
         //console.log({ yAbsolute });
 
