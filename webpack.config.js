@@ -66,7 +66,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname),
         compress: false,
-        hot: false,
+        hot: true,
         open: true
     },
     plugins: [

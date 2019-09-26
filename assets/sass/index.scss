@@ -1,9 +1,11 @@
-@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css" ; 
-@import "../../node_modules/font-awesome/css/font-awesome.css" ; 
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../node_modules/font-awesome/css/font-awesome.css";
 
 @import "reset";
 @import "fonts";
 // vars 
+
+
 
 $primary-color:#cda868;
 $black-color:#333;
@@ -20,13 +22,69 @@ h6 {
 
 body {
     color: #777777;
-    background: #e7e7e7 !important;
     font-family: "primary-font", helvetica, arial !important;
 
 }
 
 html {
     font-size: 20px !important;
+}
+
+
+
+body {
+    overflow: hidden;
+    background: #e7e7e7 !important;
+
+}
+
+
+#scroller {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+
+
+#scroll-container {
+
+
+    position: absolute;
+    overflow: visible;
+    will-change: bottom, top;
+    bottom: 0;
+    transform-style: preserve-3d;
+    /*transition: transform 0.1s linear;*/
+}
+
+.svg-plane-path {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.svg-plane-path svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+#test {
+    display: none;
+    width: 100px;
+    height: 100px;
+    background: peru;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 100;
 }
 
 .title {
@@ -417,7 +475,7 @@ html {
     }
 
     .plane-word {
-        font-family: 'secondary-font'; 
+        font-family: 'secondary-font';
         font-size: 3rem;
         position: absolute;
         bottom: -4%;
@@ -444,7 +502,7 @@ html {
     overflow: hidden;
 
     .antonov-title {
-        font-family: 'secondary-font'; 
+        font-family: 'secondary-font';
         font-size: 3.7rem;
         color: rgba($black-color, 0.3);
         width: 116%;
@@ -489,7 +547,7 @@ section.airfield {
 .service-details-column {
     background: #fff;
     align-self: stretch;
-    padding:2rem !important;
+    padding: 2rem !important;
 }
 
 .serivce-details {
@@ -503,7 +561,7 @@ section.airfield {
 
 section.service {
     margin-bottom: 150px;
-    margin-top:50vh;
+    margin-top: 50vh;
 }
 
 html {
@@ -517,30 +575,35 @@ html {
 .service-0 {
     .service-column-1 {
         //transform: translateX(80%);
-        
-        background-image: url("../imgs/clocks-background.jpg"); 
-        background-size:contain; 
+
+        background-image: url("../imgs/clocks-background.jpg");
+        background-size: contain;
         background-repeat: no-repeat;
-        transform: translate(15%, 0%)  translateZ(30px )  scale(0.7);
-        z-index:10;
+        transform: translate(15%, 0%) translateZ(60px) scale(0.7);
+        z-index: 10;
 
     }
 
     .service-column-2 {
-        transform: translateZ(-30px) translateX(-15%) translateY(0%) scale(1.3);
-        padding-right:1rem;
-        .serivce-details{
-            padding-left:28% !important;
+
+        //transform: translateZ(-30px) translateX(-15%) translateY(0%) scale(1.3);
+        transform: translateX(-30%);
+        padding-right: 1rem;
+
+        .serivce-details {
+            padding-left: 28% !important;
         }
     }
-    .clock-1{
-        transform:rotate(-15deg) translate(-20%, -30%) scale(1.1);
+
+    .clock-1 {
+        transform: rotate(-15deg) translate(-20%, -30%) scale(1.1);
 
     }
-    .clock-2{
-        transform:rotate(15deg);
+
+    .clock-2 {
+        transform: rotate(15deg);
     }
-    
+
 
 
 }
@@ -551,19 +614,20 @@ html {
     }
 
     .service-column-2 {
-        transform: translateZ(30px) translateX(22%) translateY(-10%) scale(0.7);
+        transform: translateZ(60px) translateX(22%) translateY(-10%) scale(0.7);
     }
 
     .service-column-3 {
-        position: relative;       
-        transform: translateZ(50px) translateX(-25%) translateY(0%) scale(0.5);
+        position: relative;
+        transform: translateZ(100px) translateX(-25%) translateY(0%) scale(0.5);
     }
 }
 
 .service-2 {
-    margin-top:200px !important;
+    margin-top: 200px !important;
+
     .service-column-1 {
-        transform: translate(150%, 5%)  translateZ(30px )  scale(0.7);
+        transform: translate(150%, 5%) translateZ(60px) scale(0.7);
         z-index: 5;
     }
 
@@ -573,22 +637,23 @@ html {
     }
 
     .service-column-3 {
-        transform: translate(14%, 0%)  translateZ(-30px )  scale(1.3);
+        transform: translate(14%, 0%) translateZ(-60px) scale(1.3);
     }
 }
 
 
 
 .service-3 {
-    margin-top:200px !important;
+    margin-top: 200px !important;
+
     .service-column-1 {
         transform: translateY(0%) translateX(120%);
     }
 
     .service-column-2 {
-        transform: translateZ(30px) translateX(22%) translateY(-5%) scale(0.7);
+        transform: translateZ(60px) translateX(22%) translateY(-5%) scale(0.7);
 
-        
+
 
         .serivce-details {
             padding-right: 20%;
@@ -598,14 +663,14 @@ html {
 
     .service-column-3 {
         margin-top: 10%;
-        transform: translateZ(50px) translateX(-50%) translateY(0%) scale(0.7);
+        transform: translateZ(100px) translateX(-50%) translateY(0%) scale(0.7);
 
 
     }
 }
 
 .parallax-perspective {
-    perspective: 100px;
+    perspective: 200px;
 }
 
 
@@ -631,21 +696,21 @@ html {
         width: 100%;
 
         &:nth-child(1) {
-            transform: translateZ(-25px) scale(1.25) translateY(20%);
+            transform: translateZ(-50px) scale(1.25) translateY(20%);
         }
 
         &:nth-child(2) {
             position: absolute;
             top: 0;
             left: 0;
-            transform: scaleX(-1) translateZ(25px) scale(0.75) translateY(-15%);
+            transform: scaleX(-1) translateZ(50px) scale(0.75) translateY(-15%);
         }
 
         &:nth-child(3) {
             position: absolute;
             top: -50%;
             left: 0;
-            transform: translateZ(50px) scale(0.5);
+            transform: translateZ(100px) scale(0.5);
             display: none;
         }
     }
@@ -684,7 +749,7 @@ html {
 
 
 .service-2 {
-   
+
 
     .arrow-path {
         height: 60vh;
@@ -693,8 +758,9 @@ html {
         top: -110%;
     }
 }
+
 .service-3 {
-   
+
 
     .arrow-path {
         height: 50vh;
@@ -704,3 +770,38 @@ html {
         display: none;
     }
 }
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    
+    z-index: 0;
+}
+
+.scroll-container {
+    z-index: 1;
+}
+
+.clouds-navigation {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+
+    transform-style: preserve-3d;
+
+    div {
+        transform-style: preserve-3d;
+    }
+}
+
+.home-page{
+    //transform:translateZ(-100px) ; 
+}
+

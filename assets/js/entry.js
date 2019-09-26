@@ -143,7 +143,7 @@ class Plane {
 class ScrollController {
 
     get totalScroll() {
-        return 1000;
+        return this.scrollbar.limit.y;
     }
 
 
@@ -165,23 +165,16 @@ class ScrollController {
     resize() {
 
         let height = this.scrollCotainer.height();
-        let total = height + this.totalPinDuration - 0;
+        let total = height + this.totalPinDuration;
         this.scrolLHeightElement.height(total);
         this.total = total;
         this.maxScrollY = height - window.innerHeight;
-
-
-
-        //   window.dispatchEvent(new Event("resize"));
-
-
 
     }
 
     init() {
 
 
-        // this.iscroll.off("scroll", this.onScroll.bind(this));
 
         let scenes = [];
 
@@ -215,7 +208,6 @@ class ScrollController {
 
         let [planeTimeLine1, planeTimeLine2] = plane.makeTimeLine();
 
-        console.log(this.antonovTimeLineOffset);
 
         scenes.push({
             timeline: planeTimeLine1,
@@ -240,7 +232,6 @@ class ScrollController {
         this.resize();
 
         this.scrollbar.addListener(this.onScroll.bind(this));
-        //  this.iscroll.on("scroll", this.onScroll.bind(this));
 
     }
     constructor() {
@@ -256,7 +247,6 @@ class ScrollController {
                 delegateTo: document.getElementById("scroll-container")
             });
 
-        this.scrollbar.scrollTop
 
         this.init();
 
@@ -266,12 +256,9 @@ class ScrollController {
     }
     onScroll(e) {
 
-
         let deferer = [];
 
         let y = e.offset.y;
-        console.log("over here");
-        console.log(y);
 
         let pinDuration = 0;
         for (let scene of this.scenes) {
@@ -321,18 +308,11 @@ class ScrollController {
                     let toDuration = progress * scene.timeline.duration();
                     let cur = scene.timeline.time();
 
-                    if (Math.abs(cur - toDuration) > 1) {
-                        scene.timeline.tweenTo(toDuration).duration(0.8);
-                    } else if (Math.abs(cur - toDuration) > 0.6) {
-                        //scene.timeline.progress(progress); 
-                        //console.log(scene.timeline.endTime()); 
-                        //scene.timeline.kill();
-                        scene.timeline.tweenTo(toDuration);
+                    scene.timeline.seek(toDuration);
 
-                    }
 
                 } else {
-                    scene.timeline.tweenTo(0);
+                    scene.timeline.seek(0);
                 }
             }
         }
@@ -348,8 +328,71 @@ class ScrollController {
 
 
 
-        //console.log({ yAbsolute });
 
+
+
+    }
+}
+
+class PageNavigator {
+
+
+
+    constructor() {
+
+        this.navigating = false;
+        this.current = "#home-page";
+        this.navigationTime = 1;
+        $("a[data-page]").on("click", this.anchorClick.bind(this));
+    }
+    anchorClick(e) {
+        let page = $(e.target).data("page");
+        console.log(page);
+        this.navigateTo(page);
+    }
+    start() {
+        this.navigating = true;
+        TweenMax.set("#clouds-navigation", { zIndex: 10 });
+
+    }
+    complete(destinationPage) {
+        this.navigating = false;
+        TweenMax.set("#clouds-navigation", { zIndex: -1 });
+
+    }
+    changePage(destinationPage) {
+
+        TweenMax.set(destinationPage, { zIndex: 20 });
+        TweenMax.set(this.cur, { zIndex: -1 });
+        this.current = destinationPage;
+
+
+        if (destinationPage == "#home-page") {
+            TweenMax.to("#home-page", this.navigationTime, {
+                z: 0
+            });
+        }
+
+        TweenMax.to("#body", this.navigationTime, {
+            perspective: 200,
+            onComplete: this.complete.bind(this, destinationPage)
+        });
+
+
+    }
+    navigateTo(destinationPage) {
+
+        this.start();
+
+        if (this.current == "#home-page") {
+            TweenMax.to("#home-page", this.navigationTime, {
+                z: -2000
+            });
+        }
+        TweenMax.to("#body", this.navigationTime, {
+            perspective: 2000,
+            onComplete: this.changePage.bind(this, destinationPage)
+        });
 
 
     }
@@ -364,7 +407,7 @@ window.onload = function () {
     setTimeout(() => {
 
         let controller = new ScrollController();
-
+        let navigator = new PageNavigator();
 
         // TweenMax.to($("#scroll-container"), 0.0, {
         //     y: 1032
@@ -375,7 +418,6 @@ window.onload = function () {
 
 
     }, 0);
-
 
 
 
