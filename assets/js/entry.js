@@ -86,10 +86,11 @@ class Plane {
 
     }
 
-    constructor({ path, plane, pathOffset }) {
+    constructor({ path, plane, planeLocation, pathOffset }) {
         this.path = path;
         this.pathLength = this.path.getTotalLength();
         this.plane = plane;
+        this.planeLocation = planeLocation;
         this.pathOffset = pathOffset;
     }
     makePath() {
@@ -104,6 +105,11 @@ class Plane {
         return values;
     }
     makeTimeLine() {
+
+
+        let y = getOffsetTop(this.planeLocation);
+        $("#svg-plane-path").css("height", y);
+
 
         let planePath = this.makePath();
 
@@ -165,6 +171,7 @@ class ScrollController {
     resize() {
 
         let height = this.scrollCotainer.height();
+
         let total = height + this.totalPinDuration;
         this.scrolLHeightElement.height(total);
         this.total = total;
@@ -172,12 +179,20 @@ class ScrollController {
 
     }
 
+    dispose() {
+
+        for (let { timeline } of this.scenes) {
+            timeline.progress(0);
+            timeline.kill();
+            timeline.clear();
+        }
+    }
     init() {
 
-
+        this.dispose();
+        this.scrollbar.removeListener(this.onScroll.bind(this));
 
         let scenes = [];
-
 
         scenes.push({
             timeline: makeCloudsTimeLine(),
@@ -194,17 +209,9 @@ class ScrollController {
         });
 
 
-        let path = $("#svg-plane-path path")[0];
-
-        let y = getOffsetTop(document.getElementById("plane-2-location"));
-
-        $("#svg-plane-path").css("height", y);
         //$("#test").css({ display: "block", top: y });
 
-        let plane = new Plane({
-            plane: $("#plane"), path: path
-            , pathOffset: this.planeOffset
-        });
+        let plane = this.plane;
 
         let [planeTimeLine1, planeTimeLine2] = plane.makeTimeLine();
 
@@ -224,7 +231,7 @@ class ScrollController {
             pin: false
         });
 
-        this.pin = document.getElementById("airfield");
+
         this.totalPinDuration = scenes.reduce((pre, cur, i) => pre + (cur.pin ? cur.duration : 0), 0);
 
         this.scenes = scenes.sort((a, b) => a.offset - b.offset);
@@ -242,20 +249,30 @@ class ScrollController {
         this.scrolLHeightElement = $("#scroller-height");
         this.planeLocation = document.getElementById("plane-2-location");
 
-        this.scrollbar = new Scrollbar(document.getElementById("scroller"),
-            {
-                delegateTo: document.getElementById("scroll-container")
-            });
+        this.plane = new Plane({
+            plane: $("#plane"),
+            path: $("#svg-plane-path path")[0],
+            pathOffset: this.planeOffset,
+            planeLocation: document.getElementById("plane-2-location")
+        });
+        this.scrollbar = new Scrollbar(document.getElementById("scroller"), {
+            delegateTo: document.getElementById("scroll-container")
+        });
 
 
+        this.scenes = [];
         this.init();
 
+        $(window).on("resize", this.windowResize.bind(this));
 
 
 
     }
+    windowResize() {
+        this.init();
+        this.onScroll({ offset: this.scrollbar.offset });
+    }
     onScroll(e) {
-
         let deferer = [];
 
         let y = e.offset.y;
@@ -347,7 +364,6 @@ class PageNavigator {
     }
     anchorClick(e) {
         let page = $(e.target).data("page");
-        console.log(page);
         this.navigateTo(page);
     }
     start() {
@@ -369,7 +385,6 @@ class PageNavigator {
 
         if (destinationPage == "#home-page") {
 
-            console.log("teeeeeeeest");
             TweenMax.fromTo("#home-page", this.navigationTime, {
                 z: -4000
             }, {
