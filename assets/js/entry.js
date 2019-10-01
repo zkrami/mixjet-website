@@ -134,6 +134,9 @@ class Plane {
 
         tl2.to($("#arrows-2"), 1.5, { ease: Power2.easeOut, top: "10%" }, 10.4);
         tl2.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 10.6);
+
+        tl2.to($("#arrows-4"), 1.5, { ease: Power2.easeOut, left: "10%" }, 11.7);
+        
         tl2.to($("#clock-1"), 2, { ease: Power2.easeInOut, rotation: "+=50deg" }, 12.7);
         tl2.to($("#clock-2"), 2, { ease: Power2.easeInOut, rotation: "-=50deg" }, 12.7);
         return [tl1, tl2];
@@ -353,82 +356,110 @@ class ScrollController {
 
 class PageNavigator {
 
+    end() {
+        TweenMax.set(this.destinationPage, { zIndex: -1, display: "none" });
+        TweenMax.set("#clouds-navigation", { zIndex: -1, display: "none" });
+        this.navigating = false;
+    }
+    get destinationPagePart() {
+        return `${this.destinationPage} .part2`;
+    }
+
+    back() {
 
 
+        TweenMax.to("#home-page", this.navigationTime, {
+            z: 0,
+            ease: Power0.easeNone
+        });
+        TweenMax.to("#body", this.navigationTime, {
+            perspective: 200,
+            ease: Power0.easeNone,
+            onComplete: this.end.bind(this, this.destinationPage),
+        });
+
+        this.destinationOut();
+
+
+
+    }
     constructor() {
 
         this.navigating = false;
         this.current = "#home-page";
-        this.navigationTime = 1;
+        this.navigationTime = 2;
+        this.pageTime = 0.5;
         $("a[data-page]").on("click", this.anchorClick.bind(this));
+        $(".back-button").on("click", this.back.bind(this));
     }
     anchorClick(e) {
         let page = $(e.target).data("page");
         this.navigateTo(page);
     }
-    start() {
-        this.navigating = true;
-        TweenMax.set("#clouds-navigation", { zIndex: 10, display: "block" });
 
+    navigated(destinationPage) {
+        $(this.destinationPage).addClass("active");
     }
-    complete(destinationPage) {
-        this.navigating = false;
-        TweenMax.set("#clouds-navigation", { zIndex: -1, display: "none" });
-
-        if (destinationPage != "#home-page") {
-            TweenMax.set(destinationPage, { z: 0, scale: 1 });
-        }
-    }
-    changePage(destinationPage) {
-        TweenMax.set(destinationPage, { zIndex: 2, display: "block" });
-        TweenMax.set(this.current, { zIndex: -1, display: "none" });
-
-        if (destinationPage == "#home-page") {
-
-            TweenMax.fromTo("#home-page", this.navigationTime, {
-                z: -4000
-            }, {
-                z: 0
-            });
-        }
-        if (destinationPage != "#home-page") {
-            TweenMax.set(destinationPage, { z: 100, scale: 0.5 });
-        }
-
-
-        this.current = destinationPage;
-
-
-        TweenMax.to("#body", this.navigationTime, {
-            perspective: 200,
-            onComplete: this.complete.bind(this, destinationPage)
+    destinationOut() {
+        $(this.destinationPage).removeClass("active");
+        TweenMax.to(this.destinationPage, this.pageTime, {
+            opacity: 0,
+            y: 200,
+        });
+        TweenMax.to(this.destinationPagePart, this.pageTime, {
+            y: -400,
         });
 
+    }
+
+    destinationIn() {
+
+
+        TweenMax.set(this.destinationPage, {
+            opacity: 0,
+            y: 200,
+            zIndex: 20,
+            display: "block"
+        });
+        TweenMax.set(this.destinationPagePart, {
+            y: -400,
+        });
+
+        TweenMax.to(this.destinationPage, this.pageTime, {
+            opacity: 1,
+            y: 0,
+            delay: this.navigationTime - 0.5
+        });
+        TweenMax.to(this.destinationPagePart, this.pageTime, {
+            y: 0,
+            delay: this.navigationTime - 0.5
+        });
 
     }
     navigateTo(destinationPage) {
 
-        this.start();
+        if (this.navigating) return;
+        this.navigating = true;
+        this.destinationPage = destinationPage;
 
-        if (this.current == "#home-page") {
-            TweenMax.to("#home-page", this.navigationTime, {
-                z: -4000
-            });
-        } else {
-            TweenMax.set(this.current, { z: 100, scale: 0.5 });
-        }
-        TweenMax.to("#body", this.navigationTime, {
-            perspective: 2000,
-            onComplete: this.changePage.bind(this, destinationPage)
+        TweenMax.set("#clouds-navigation", { zIndex: 10, display: "block" });
+
+        TweenMax.to("#home-page", this.navigationTime, {
+            z: -1000,
+            ease: Power0.easeNone,
         });
 
+        TweenMax.to("#body", this.navigationTime, {
+            perspective: 2000,
+            ease: Power0.easeNone,
+            onComplete: this.navigated.bind(this, destinationPage)
+        });
 
+        this.destinationIn();
     }
 }
+
 window.onload = function () {
-
-
-
 
 
 

@@ -765,15 +765,18 @@ html {
     }
 
     &.horizontal {
-        height: 2px;
+        height: 1px;
         width: 50vw;
-        position: relative;
-        margin: auto;
-        transform: translateZ(50px) translateY(24vh) scale(0.75);
+        position: absolute;
+        //transform: translateZ(50px) translateY(24vh) scale(0.75);
+        right: 0;
+        left: unset;
+        top:100px;
+
 
         img {
-            transform: translateY(-50%) rotate(90deg);
-            left: 10%;
+            transform: translateY(-50%) rotate(-90deg);
+            left: 95%;
             top: 0;
         }
     }
@@ -941,5 +944,28 @@ html {
     }
 
 
+
+}
+
+
+.page {
+
+    .back-button {
+        display: none;
+    }
+
+    .page-wrapper {
+        overflow: visible;
+    }
+
+    &.active {
+        .back-button {
+            display: block;
+        }
+
+        .page-wrapper {
+            overflow: auto;
+        }
+    }
 
 }
