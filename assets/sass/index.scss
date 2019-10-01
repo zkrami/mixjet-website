@@ -525,7 +525,7 @@ body {
 }
 
 .antonov {
-    z-index:10;
+    z-index: 10;
     transform-style: preserve-3d;
 
     .runway {
@@ -616,7 +616,8 @@ html {
 .service {
     transform-style: preserve-3d;
 
-    .row , .container-fluid {
+    .row,
+    .container-fluid {
         transform-style: preserve-3d;
     }
 }
@@ -726,13 +727,13 @@ html {
         }
 
         &:nth-child(2) {
-         
+
             z-index: -1;
             transform: scaleX(-1) translateZ(-50px) scale(1.25) translateY(-15%);
         }
 
         &:nth-child(3) {
-          
+
             z-index: 25;
             position: absolute;
 
@@ -763,7 +764,19 @@ html {
 
     }
 
+    &.horizontal {
+        height: 2px;
+        width: 50vw;
+        position: relative;
+        margin: auto;
+        transform: translateZ(50px) translateY(24vh) scale(0.75);
 
+        img {
+            transform: translateY(-50%) rotate(90deg);
+            left: 10%;
+            top: 0;
+        }
+    }
 }
 
 .service-1 {
@@ -804,7 +817,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+
     display: none;
     z-index: -1;
 }
@@ -836,5 +849,97 @@ html {
 
 #page-1 {
     //transform: scale(0.5) translateZ(100px);
+}
+
+.page-wrapper {
+
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    position: relative;
+
+    .back-button {
+        color: $black-color;
+        padding: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+
+    }
+}
+
+.page-details-wrapper {
+    background: rgba(#fff, .6);
+    padding: 0;
+    @extend .box-shadow;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+
+    .image-wrapper {
+        padding: 0;
+        padding-right: 20px;
+        padding-left: 10px;
+        position: relative;
+        display: block;
+        float: left;
+
+    }
+
+    img {
+        transform: translateY(-12%);
+        width: 100%;
+        @extend .box-shadow;
+    }
+
+
+
+    p {
+        padding: 0px 10px 5px;
+    }
+
+    h6 {
+        padding: 10px 10px 0px;
+        color: $gray-color;
+    }
+
+    h4 {
+        padding: 0 10px;
+    }
+
+    .split {
+        position: relative;
+        width: 100%;
+
+        padding: 10px 0;
+
+        &:before {
+            content: ' ';
+            width: 100%;
+            height: 2px;
+            background: $primary-color;
+            display: block;
+
+
+        }
+
+        &.right {
+            &:before {
+                width: 35%;
+                float: right;
+            }
+        }
+
+        &.left {
+
+            &:before {
+                width: 80%;
+            }
+        }
+
+    }
+
+
 
 }
