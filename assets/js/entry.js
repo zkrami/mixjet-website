@@ -88,12 +88,12 @@ class Plane {
         this.pathOffset = value;
     }
     constructor({ path, plane, planeLocation, pathOffset }) {
-        this.path = $("#svg-plane-path path")[0];         
+        this.path = $("#svg-plane-path path")[0];
         this.pathLength = this.path.getTotalLength();
         this.plane = plane;
         this.planeLocation = planeLocation;
         this.pathOffset = pathOffset;
-        
+
     }
     makePath() {
 
@@ -258,11 +258,11 @@ class ScrollController {
         let plane = this.plane;
 
 
-        if (window.matchMedia("(orientation: portrait)")) {
+        if (0 && window.matchMedia("(orientation: portrait)")) { // todo fix
             // portrait 
-            console.log("portrait"); 
+            console.log("portrait");
             plane.offset = { x: -100, y: 0 };
-            let [planeTimeLine1, planeTimeLine2] = plane.makePortraitTimeLine(); 
+            let [planeTimeLine1, planeTimeLine2] = plane.makePortraitTimeLine();
 
             scenes.push({
                 timeline: planeTimeLine1,

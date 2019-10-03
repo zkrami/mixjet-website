@@ -8,7 +8,7 @@ let prodCss = [
     {
         loader: MiniCssExtractPlugin.loader,
         options: {
-            publicPath: './',
+            publicPath: '../../',
 
         },
     },
