@@ -52,6 +52,12 @@
             animation: loader-animation 1.5s infinite linear;
         }
 
+        @media only screen and (orientation: portrait) {
+            .loader img {
+                width: 50%;
+            }
+        }
+
         body.loading .loader {
             top: 0 !important;
         }
@@ -271,13 +277,10 @@
 
 
             <section class="antonov mt-0" id="antonov-section">
-                <div class="antonov-wrapper">
-                    <img class="full-width" src="assets/imgs/antonov.png" />
 
-                </div>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-4 offset-lg-1 col-10 offset-1">
+                        <div class="col-lg-4 offset-lg-1 col-12 ">
 
                             <div class="clients-container">
                                 <div class="row">
@@ -303,10 +306,16 @@
                                     </div>
 
                                 </div>
+                                <div class="row d-none title-small">
+                                    <h1 class="section-title">Our <span class="highlight">Affiliation</span></h1>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-1">
 
+                        </div>
+                        <div class="antonov-wrapper">
+                            <img class="full-width" src="assets/imgs/antonov.png" />
                         </div>
                         <div class="col-lg-5 p-0 details-column">
                             <div class="antonov-details">
@@ -323,7 +332,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-10 offset-lg-1  ">
+                        <div class="col-lg-10 offset-lg-1 title-big ">
                             <h1 class="section-title">Our <span class="highlight">Affiliation</span></h1>
                         </div>
                     </div>
@@ -335,7 +344,6 @@
                     <img src="assets/imgs/clouds2_1.png" />
                 </div>
 
-                <div class="spacer"></div>
 
             </section>
             <section class="airfield " id="airfield">
