@@ -1305,11 +1305,14 @@ html {
 
     .antonov-details {
         margin: 0; 
+        display: flex;
+        flex-wrap: wrap ; 
         .antonov-title {
             font-size: 3rem;
             width: 100%;
             text-align: center;
-
+            order:1;
+            width:100%; 
         }
 
         .title,
@@ -1317,11 +1320,16 @@ html {
             margin-top: 30px;
             padding: 10px;
             text-align: center;
-
+            width:100%;
+        }
+        .title{
+            order:3;
+            font-size:2.5rem ; 
         }
 
         .description {
             margin-top: 30px;
+            order:2;
         }
 
 

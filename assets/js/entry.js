@@ -84,13 +84,16 @@ class Plane {
         return { x, y };
 
     }
-
+    set offset(value) {
+        this.pathOffset = value;
+    }
     constructor({ path, plane, planeLocation, pathOffset }) {
-        this.path = path;
+        this.path = $("#svg-plane-path path")[0];         
         this.pathLength = this.path.getTotalLength();
         this.plane = plane;
         this.planeLocation = planeLocation;
         this.pathOffset = pathOffset;
+        
     }
     makePath() {
 
@@ -135,7 +138,47 @@ class Plane {
         tl2.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 10.6);
 
         tl2.to($("#arrows-4"), 1.5, { ease: Power2.easeOut, left: "10%" }, 11.7);
-        
+
+        tl2.to($("#clock-1"), 2, { ease: Power2.easeInOut, rotation: "+=50deg" }, 12.7);
+        tl2.to($("#clock-2"), 2, { ease: Power2.easeInOut, rotation: "-=50deg" }, 12.7);
+        return [tl1, tl2];
+
+
+    }
+
+    makePortraitTimeLine() {
+        // todo portrait timeline
+
+        let y = getOffsetTop(this.planeLocation);
+        $("#svg-plane-path").css("height", y);
+
+
+        let planePath = this.makePath();
+
+        //let values = planePath.map(e => XYtoTopLeftPercent(e));
+        let tl1 = new TimelineMax({ paused: true });
+
+        let tl2 = new TimelineMax({ paused: true });
+
+        let part2 = planePath.splice(Math.ceil(0.15 * planePath.length));
+
+        TweenMax.set(this.plane, {
+            ...planePath[0],
+            rotation: "57.5deg",
+        })
+        tl1.to(this.plane, 1.5, { ease: Power3.easeInOut, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
+
+        tl1.to(".plane-location-wrapper .background", 1., { ease: Power2.easeInOut, opacity: 1 }, 0);
+
+
+
+        tl2.to(this.plane, 15, { ease: Power0.easeNone, bezier: { curviness: 2, values: part2, autoRotate: ["x", "y", "rotation", 90, false] } });
+
+        tl2.to($("#arrows-2"), 1.5, { ease: Power2.easeOut, top: "10%" }, 10.4);
+        tl2.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 10.6);
+
+        tl2.to($("#arrows-4"), 1.5, { ease: Power2.easeOut, left: "10%" }, 11.7);
+
         tl2.to($("#clock-1"), 2, { ease: Power2.easeInOut, rotation: "+=50deg" }, 12.7);
         tl2.to($("#clock-2"), 2, { ease: Power2.easeInOut, rotation: "-=50deg" }, 12.7);
         return [tl1, tl2];
@@ -211,27 +254,54 @@ class ScrollController {
         });
 
 
-        //$("#test").css({ display: "block", top: y });
 
         let plane = this.plane;
 
-        let [planeTimeLine1, planeTimeLine2] = plane.makeTimeLine();
+
+        if (window.matchMedia("(orientation: portrait)")) {
+            // portrait 
+            console.log("portrait"); 
+            plane.offset = { x: -100, y: 0 };
+            let [planeTimeLine1, planeTimeLine2] = plane.makePortraitTimeLine(); 
+
+            scenes.push({
+                timeline: planeTimeLine1,
+                duration: 1000,
+                offset: this.planeTimeLineOffset,
+                pin: true
+            });
+
+            scenes.push({
+                timeline: planeTimeLine2,
+                duration: "100%",
+                offset: this.planeTimeLineOffset + 200,
+                tag: 'debug',
+                pin: false
+            });
+
+        } else {
 
 
-        scenes.push({
-            timeline: planeTimeLine1,
-            duration: 1000,
-            offset: this.planeTimeLineOffset,
-            pin: true
-        });
+            let [planeTimeLine1, planeTimeLine2] = plane.makeTimeLine();
 
-        scenes.push({
-            timeline: planeTimeLine2,
-            duration: "100%",
-            offset: this.planeTimeLineOffset + 200,
-            tag: 'debug',
-            pin: false
-        });
+
+            scenes.push({
+                timeline: planeTimeLine1,
+                duration: 1000,
+                offset: this.planeTimeLineOffset,
+                pin: true
+            });
+
+            scenes.push({
+                timeline: planeTimeLine2,
+                duration: "100%",
+                offset: this.planeTimeLineOffset + 200,
+                tag: 'debug',
+                pin: false
+            });
+        }
+
+
 
 
         this.totalPinDuration = scenes.reduce((pre, cur, i) => pre + (cur.pin ? cur.duration : 0), 0);
@@ -253,10 +323,10 @@ class ScrollController {
 
         this.plane = new Plane({
             plane: $("#plane"),
-            path: $("#svg-plane-path path")[0],
             pathOffset: this.planeOffset,
             planeLocation: document.getElementById("plane-2-location")
         });
+
         this.scrollbar = new Scrollbar(document.getElementById("scroller"), {
             delegateTo: document.getElementById("scroll-container")
         });
