@@ -1,4 +1,4 @@
-
+import "../sass/index.scss"; // main style 
 import $ from 'jquery';
 //import * as IScroll from './iscroll-probe';
 import { TweenMax, TimelineMax, Power3, Power0, Power2 } from 'gsap';
@@ -8,7 +8,6 @@ import Scrollbar from 'smooth-scrollbar';
 function makeCloudsTimeLine() {
 
     let tl = new TimelineMax({ paused: true });
-
 
     tl.add("cloud-action");
 

@@ -3,7 +3,7 @@ var path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var isDev = process.env.NODE_ENV !== 'production' // true or false
-let devCss = ['style-loader', 'css-loader', 'sass-loader'];
+let devCss = ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'];
 let prodCss = [
     {
         loader: MiniCssExtractPlugin.loader,
@@ -12,7 +12,7 @@ let prodCss = [
 
         },
     },
-    'css-loader', 'sass-loader',
+    'css-loader', 'postcss-loader', 'sass-loader',
 ];
 
 var cssConfig = isDev ? devCss : prodCss
@@ -20,7 +20,6 @@ var cssConfig = isDev ? devCss : prodCss
 module.exports = {
     entry: {
         entry: __dirname + '/assets/js/entry.js',
-        style: __dirname + '/assets/sass/index.scss',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -35,11 +34,11 @@ module.exports = {
             {
                 // HTML LOADER
                 test: /\.html$/,
-                use :  {
-                    loader: 'html-loader' , 
-                    options : {
-                        interpolate : true , 
-                        attrs: ['img:src'] ,
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        interpolate: true,
+                        attrs: ['img:src'],
 
                     }
                 }
@@ -67,7 +66,8 @@ module.exports = {
         contentBase: path.join(__dirname),
         compress: false,
         hot: true,
-        open: true
+        open: false,
+        host: "0.0.0.0"
     },
     plugins: [
 
@@ -82,10 +82,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './index.html',
             filename: './dist.html'
-        }) , 
+        }),
         new HtmlWebpackPlugin({
             template: './temp.html',
             filename: './temp.html'
-        }) 
+        })
     ]
 }
