@@ -185,23 +185,59 @@ body {
 
 .logo-wrapper {
     position: absolute;
-    top: 22%;
-    left: 15%;
+    top: 15%;
+    left: 20%;
     z-index: 20;
     height: auto;
-    width: 30%;
+    width: 22%;
+    overflow: visible;
+
+    img {
+        width: 100%;
+        z-index: 2;
+        position: relative;
+    }
+
+    .logo-frame {
+        z-index: 1;
+        border: solid 9px #1A1918;
+        position: absolute;
+        top: 3%;
+        left: 28%;
+        width: 100%;
+        padding-bottom: 100%;
+
+    }
+
+    h4 {
+        position: relative;
+        top: 30px;
+        left: 30%;
+        width: 400px;
+    }
+
+
+
+}
+
+.mouse-scroll {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
 
     img {
         width: 100%;
     }
+
+    z-index: 200;
 }
 
 .cloud-logo-wrapper {
     transform: translateX(10%) translateZ(800px) scale(0.60);
+    position: relative;
 }
-
-
-
 
 
 
@@ -362,14 +398,81 @@ body {
 
 /*footer*/
 .footer {
-    background: #3F3E3D;
-    padding: 10px;
-    padding-top: 50px;
+    overflow: visible;
+    margin-bottom: 35%;
+    .footer-airport{
+        width:30%; 
+        position: absolute;
+        right:0; 
+        top:0;
+    }
+    .contact-form {
+        background: #fff;
+        text-align: left;
+        transform: translate(-20%, 15%);
 
-    padding-bottom: 80px;
+        h6 {
+            color: $gray-color;
+        }
+
+        input,
+        textarea {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            color: $primary-color;
+        }
+
+        input,
+        textarea {
+            border: none;
+            font-size: 0.85rem;
+            padding: 5px;
+            border-bottom: solid 2px $primary-color;
+
+            &:focus {
+                box-shadow: none;
+                outline: none;
+                border-bottom: solid 2px lighten($primary-color, 10%);
+
+            }
+        }
+
+
+        textarea {
+            margin-top: 15px;
+            resize: none;
+        }
+
+        
+        input[type=submit] {
+            width: auto;
+            background: rgba(207, 168, 101, 1);
+            background: linear-gradient(90deg, rgba(207, 168, 101, 1) 31%, rgba(187, 140, 62, 1) 100%);
+            padding: 8px 40px;
+            border:none;
+            color:#fff;
+
+        }
+
+        padding:20px;
+    }
 
     h5 {
-        color: #fff;
+        color: #7C8486;
+        margin:15px 0;
+    }
+    h6{
+        color:#fff;
+    }
+    .social-links{
+        span{
+            color:#fff !important;
+            font-size:1.5rem;
+        }
+        display: flex;
+        justify-content: space-between;
+
     }
 
     .copyright {
@@ -384,6 +487,10 @@ body {
         list-style: none;
         font-size: 0.9rem;
         padding-left: 5px;
+    }
+
+    .footer-details {
+        background: #3F3E3D
     }
 }
 
@@ -1304,15 +1411,16 @@ html {
     }
 
     .antonov-details {
-        margin: 0; 
+        margin: 0;
         display: flex;
-        flex-wrap: wrap ; 
+        flex-wrap: wrap;
+
         .antonov-title {
             font-size: 3rem;
             width: 100%;
             text-align: center;
-            order:1;
-            width:100%; 
+            order: 1;
+            width: 100%;
         }
 
         .title,
@@ -1320,16 +1428,17 @@ html {
             margin-top: 30px;
             padding: 10px;
             text-align: center;
-            width:100%;
+            width: 100%;
         }
-        .title{
-            order:3;
-            font-size:2.5rem ; 
+
+        .title {
+            order: 3;
+            font-size: 2.5rem;
         }
 
         .description {
             margin-top: 30px;
-            order:2;
+            order: 2;
         }
 
 
@@ -1376,4 +1485,77 @@ html {
     }
 
 
+}
+
+.testimonials {
+    
+}
+
+.testimonial {
+    margin-top:50px;
+    width: 100%;
+    display: flex;
+
+    background: rgba(207, 168, 101, 1);
+    background: linear-gradient(90deg, rgba(207, 168, 101, 1) 31%, rgba(187, 140, 62, 1) 100%);
+    .side {
+        img {
+            position: relative;
+            width: 80%;
+            margin-left: 10%;
+        }
+
+        background-image:url("../imgs/runway.png");
+        background-size:100% auto;
+    }
+
+    .details {
+        color: #F3F9FA;
+        padding: 10px;
+    }
+
+    .testimonial-logo {
+        max-width: 50%;
+        align-self: flex-end;
+    }
+
+    .quote {
+        width: 20%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateX(20%) translateY(-40%);
+    }
+}
+
+.swiper-container {
+    width: 100%;
+    height: auto;
+}
+
+.swiper-button-prev-mixjet {
+    background-image: url("../imgs/arrows-left.png") !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    bottom: -100px;
+    left: 10px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.swiper-button-next-mixjet {
+
+    background-image: url("../imgs/arrows-right.png") !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    bottom: -100px;
+    right: 10px;
+    z-index: 10;
+    cursor: pointer;
 }

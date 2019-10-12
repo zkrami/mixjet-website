@@ -1,5 +1,8 @@
-import "../sass/index.scss"; // main style 
+import "../sass/index.scss"; // main style
+import "swiper/css/swiper.min.css";
 import $ from 'jquery';
+import Swiper from 'swiper';
+
 //import * as IScroll from './iscroll-probe';
 import { TweenMax, TimelineMax, Power3, Power0, Power2 } from 'gsap';
 
@@ -10,11 +13,11 @@ function makeCloudsTimeLine() {
     let tl = new TimelineMax({ paused: true });
 
     tl.add("cloud-action");
-
+    tl.to(".mouse-scroll", 1, { display: "none" });
     tl.to(".viewport", 7, {
         perspective: 250,
         ease: Power3.easeOut
-    });
+    }, 0);
 
 
 
@@ -22,7 +25,9 @@ function makeCloudsTimeLine() {
 
 }
 function makeAntonovTimeLine() {
+
     let tl = new TimelineMax({ paused: true });
+
     tl.to(".antonov-wrapper", 1, {
         y: 0,
         z: 0,
@@ -120,13 +125,15 @@ class Plane {
 
         let tl2 = new TimelineMax({ paused: true });
 
-        let part2 = planePath.splice(Math.ceil(0.15 * planePath.length));
+        let part2 = planePath.splice(Math.ceil(0.1 * planePath.length));
 
         TweenMax.set(this.plane, {
             ...planePath[0],
             rotation: "57.5deg",
+            scale : 0.7 ,
         })
         tl1.to(this.plane, 1.5, { ease: Power3.easeInOut, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
+        tl1.to(this.plane, 1.5, { ease: Power3.easeInOut , scale : 1 } , 0);
 
         tl1.to(".plane-location-wrapper .background", 1., { ease: Power2.easeInOut, opacity: 1 }, 0);
 
@@ -233,7 +240,7 @@ class ScrollController {
         }
     }
     init() {
-
+        // todo make scene class 
         this.dispose();
         this.scrollbar.removeListener(this.onScroll.bind(this));
 
@@ -245,6 +252,8 @@ class ScrollController {
             offset: 0,
             pin: true
         });
+
+
         scenes.push({
             timeline: makeAntonovTimeLine(),
             duration: 700,
@@ -296,8 +305,11 @@ class ScrollController {
                 timeline: planeTimeLine2,
                 duration: "100%",
                 offset: this.planeTimeLineOffset + 200,
-                tag: 'debug',
-                pin: false
+                pin: false,
+                onStart: function () {
+                    let audio = document.getElementById("airplane_mp3");
+                    audio.play();
+                }
             });
         }
 
@@ -383,6 +395,10 @@ class ScrollController {
             } else { // not pin 
                 if (yAbsolute > scene.offset) {
 
+                    if (!scene.started) {
+                        scene.started = true;
+                        if (scene.onStart) scene.onStart();
+                    }
 
                     let yScene = yAbsolute - scene.offset;
                     let totalSceneScroll = scene.duration;
@@ -401,6 +417,7 @@ class ScrollController {
 
 
                 } else {
+                    scene.started = false;
                     scene.timeline.seek(0);
                 }
             }
@@ -530,16 +547,32 @@ class PageNavigator {
 
 window.onload = function () {
 
+    function initSwiper() {
 
+        var mySwiper = new Swiper('.swiper-container', {
+            // Optional parameters
+            loop: true,
+
+            slidesPerView: 3,
+            spaceBetween: 30,
+
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next-mixjet',
+                prevEl: '.swiper-button-prev-mixjet',
+            },
+
+        })
+    }
 
     setTimeout(() => {
 
         let controller = new ScrollController();
         let navigator = new PageNavigator();
+        initSwiper();
 
-        // TweenMax.to($("#scroll-container"), 0.0, {
-        //     y: 1032
-        // });
+       
 
 
         $("body").removeClass("loading");
@@ -555,6 +588,9 @@ window.onload = function () {
 
 
 };
+
+
+
 
 
 
