@@ -45,7 +45,7 @@ function round2(x) {
 
 
 function getOffsetTop(elem) {
-    var offsetTop = 0;
+    var offsetTop = elem.offsetTop;
 
     do {
         if (!isNaN(elem.offsetTop)) {
@@ -113,9 +113,9 @@ class Plane {
     }
     makeTimeLine() {
 
-
         let y = getOffsetTop(this.planeLocation);
         $("#svg-plane-path").css("height", y);
+        //$("#test").css({ top: y, height: "100px", width: "100px", "background": "blue" , "display" : "block"  });
 
 
         let planePath = this.makePath();
@@ -125,11 +125,11 @@ class Plane {
 
         let tl2 = new TimelineMax({ paused: true });
 
-        let part2 = planePath.splice(Math.ceil(0.1 * planePath.length));
+        let part2 = planePath.splice(Math.ceil(0.12 * planePath.length));
 
         TweenMax.set(this.plane, {
             ...planePath[0],
-            rotation: "57.5deg",
+            rotation: "160.5deg",
             scale: 0.7,
         })
         tl1.to(this.plane, 1.5, { ease: Power3.easeInOut, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
@@ -138,6 +138,8 @@ class Plane {
         tl1.to(".plane-location-wrapper .background", 1., { ease: Power2.easeInOut, opacity: 1 }, 0);
 
 
+        let part3 = part2.splice(Math.ceil(0.95 * part2.length));
+        
 
         tl2.to(this.plane, 15, { ease: Power0.easeNone, bezier: { curviness: 2, values: part2, autoRotate: ["x", "y", "rotation", 90, false] } });
 
@@ -148,6 +150,7 @@ class Plane {
 
         tl2.to($("#clock-1"), 2, { ease: Power2.easeInOut, rotation: "+=50deg" }, 12.7);
         tl2.to($("#clock-2"), 2, { ease: Power2.easeInOut, rotation: "-=50deg" }, 12.7);
+        tl2.to(this.plane, 0.4, { ease: Power0.easeNone, bezier: { curviness: 2, values: part3, autoRotate: ["x", "y", "rotation", 90, false] } } , 15.01);
         return [tl1, tl2];
 
 
@@ -213,7 +216,7 @@ class ScrollController {
 
     get planeTimeLineOffset() {
 
-        return getOffsetBottom(document.getElementById("plane-2-location")) + $(window).height() / 2;
+        return getOffsetBottom(document.getElementById("plane-2-location")) ;
     }
     get antonovTimeLineOffset() {
         return getOffsetBottom(document.getElementById("antonov-marker"));
@@ -575,20 +578,20 @@ window.onload = function () {
 
     setTimeout(() => {
 
-        let controller = new ScrollController();
-        let navigator = new PageNavigator();
         initSwiper();
 
 
+        let controller = new ScrollController();
+        let navigator = new PageNavigator();
 
 
         $("body").removeClass("loading");
-        this.setTimeout( ()=> {
+        this.setTimeout(() => {
             $(".loader").remove();
-        } , 2000 ); 
+        }, 2000);
 
 
-    }, 0);
+    }, 10);
 
 
 

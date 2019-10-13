@@ -18,6 +18,7 @@
         .scroll-container{
             height: 100%;
             overflow: auto !important;
+            overflow-x: hidden  !important;
         }
         .loader {
             position: fixed;
@@ -69,44 +70,44 @@
 </head>
 
 <body id="body" class="parallax-perspective loading">
-    <div class="hidden position-absolute">
-        <audio preload="auto" id="airplane_mp3" >
+        <div class="hidden position-absolute">
+            <audio preload="auto" id="airplane_mp3">
                 <source src="assets/audio/avion.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-    <div class="loader">
-        <img src="assets/imgs/loader.jpg" />
-    </div>
-    <div class="scroll-container " id="scroll-container">
-        <div class="home-page" id="home-page">
-            <div id="test"></div>
-            <div class="svg-plane-path" id="svg-plane-path">
-                ${ require("!!raw-loader!./path.svg").default}
-            </div>
-
-
-            <div class="main-plane-wrapper" id="plane">
-                <img src="assets/imgs/plane2.png" />
-            </div>
-            <section class="footer">
-
-
+            </audio>
+        </div>
+        <div class="loader">
+            <img src="assets/imgs/loader.svg" />
+        </div>
+        <div class="scroll-container " id="scroll-container">
+            <div class="home-page" id="home-page">
+                <div id="test"></div>
+                <div class="svg-plane-path" id="svg-plane-path">
+                    ${ require("!!raw-loader!./path.svg").default}
+                </div>
+    
+    
+                <div class="main-plane-wrapper" id="plane">
+                    <img src="assets/imgs/plane2.png" />
+                </div>
+                <section class="footer">
+    
+    
                     <div class="container-fluid">
-            
+    
                         <div class="row p-0">
                             <div class="col-lg-11 offset-lg-1 footer-details p-0">
                                 <img class="footer-airport" src="assets/imgs/footer-airport.png" />
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-lg-3 offset-lg-1 mt-4  mb-4">
-                                            <img src="assets/imgs/logo.svg" class="full-width" />
+                                        <div class="col-lg-3  mt-4  mb-4 ml-3">
+                                            <img src="assets/imgs/logo.svg" class="full-width footer-logo" />
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="contact-form-wrapper">
                                                 <form class="contact-form">
-            
+    
                                                     <h6>Need Flight Supper</h6>
                                                     <h3>Let's get in <span class="highlight">Touch</span></h3>
                                                     <input type="email" placeholder="Your Email" />
@@ -116,8 +117,8 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2">
-                                            <div class="footer-info">
+                                        <div class="col-lg-2 d-flex align-items-end">
+                                            <div class="footer-info mb-4">
                                                 <h5>Contact info</h5>
                                                 <h6>+971 6 552 9577</h6>
                                                 <h6>ops@mixjet.aero</h6>
@@ -126,8 +127,8 @@
                                                 <h6>ops@mixjet.aero</h6>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
-                                            <div class="footer-info">
+                                        <div class="col-lg-3 d-flex align-items-end">
+                                            <div class="footer-info mb-4">
                                                 <h5>Find us on</h5>
                                                 <div class="social-links col-lg-6 p-0">
                                                     <a target="_blank" href="https://www.facebook.com"><span
@@ -144,484 +145,558 @@
                                                 </h6>
                                             </div>
                                         </div>
-            
+    
                                     </div>
                                 </div>
-            
+    
                             </div>
                         </div>
                     </div>
                 </section>
                 <section class="testimonials">
                     <div class="container-fluid">
-            
+    
                         <div class="row">
-                            <div class="col-lg-10 offset-lg-1 mt-5">
+                            <div class="col-lg-10 offset-lg-1 ">
                                 <div class="swiper-container">
                                     <!-- Additional required wrapper -->
                                     <div class="swiper-wrapper">
                                         <!-- Slides -->
                                         <div class="swiper-slide">
-            
-                                            <div class="testimonial row">
-                                                <div class="side col-2 p-0">
-                                                    <img src="assets/imgs/elon.jpeg" />
-                                                </div>
-                                                <div class="details col-10">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat explicabo
-                                                        magni et
-                                                        nisi
-                                                        consectetur unde autem rem, est repellendus quis tenetur minima, quod
-                                                        praesentium
-                                                        repellat
-                                                        accusamus quibusdam cum velit. Culpa.
-            
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <h6>Elon Musk <br /> CEO - SpaceX</h6>
-                                                        <img src="assets/imgs/testimonial-logo.png" class="testimonial-logo" />
-            
+                                            <div class="testimonial-wrapper">
+                                                <div class="testimonial row">
+                                                    <div class="side col-2 p-0">
+                                                        <img src="assets/imgs/elon.jpeg" />
                                                     </div>
-                                                    <img src="assets/imgs/quote.png" class="quote" />
+                                                    <div class="details col-10">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                                            Placeat
+                                                            explicabo
+                                                            magni et
+                                                            nisi
+                                                            consectetur unde autem rem, est repellendus quis tenetur minima,
+                                                            quod
+                                                            praesentium
+                                                            repellat
+                                                            accusamus quibusdam cum velit. Culpa.
+    
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <h6>Elon Musk <br /> CEO - SpaceX</h6>
+                                                            <img src="assets/imgs/testimonial-logo.png"
+                                                                class="testimonial-logo" />
+    
+                                                        </div>
+                                                        <img src="assets/imgs/quote.png" class="quote" />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
-            
-                                            <div class="testimonial row">
-                                                <div class="side col-2 p-0">
-                                                    <img src="assets/imgs/elon.jpeg" />
-                                                </div>
-                                                <div class="details col-10">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat explicabo
-                                                        magni et
-                                                        nisi
-                                                        consectetur unde autem rem, est repellendus quis tenetur minima, quod
-                                                        praesentium
-                                                        repellat
-                                                        accusamus quibusdam cum velit. Culpa.
-            
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <h6>Elon Musk <br /> CEO - SpaceX</h6>
-                                                        <img src="assets/imgs/testimonial-logo.png" class="testimonial-logo" />
-            
+                                            <div class="testimonial-wrapper">
+                                                <div class="testimonial row">
+                                                    <div class="side col-2 p-0">
+                                                        <img src="assets/imgs/elon.jpeg" />
                                                     </div>
-                                                    <img src="assets/imgs/quote.png" class="quote" />
+                                                    <div class="details col-10">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                                            Placeat
+                                                            explicabo
+                                                            magni et
+                                                            nisi
+                                                            consectetur unde autem rem, est repellendus quis tenetur minima,
+                                                            quod
+                                                            praesentium
+                                                            repellat
+                                                            accusamus quibusdam cum velit. Culpa.
+    
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <h6>Elon Musk <br /> CEO - SpaceX</h6>
+                                                            <img src="assets/imgs/testimonial-logo.png"
+                                                                class="testimonial-logo" />
+    
+                                                        </div>
+                                                        <img src="assets/imgs/quote.png" class="quote" />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
-            
-                                            <div class="testimonial row">
-                                                <div class="side col-2 p-0">
-                                                    <img src="assets/imgs/elon.jpeg" />
-                                                </div>
-                                                <div class="details col-10">
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat explicabo
-                                                        magni et
-                                                        nisi
-                                                        consectetur unde autem rem, est repellendus quis tenetur minima, quod
-                                                        praesentium
-                                                        repellat
-                                                        accusamus quibusdam cum velit. Culpa.
-            
-                                                    </p>
-                                                    <div class="d-flex justify-content-between">
-                                                        <h6>Elon Musk <br /> CEO - SpaceX</h6>
-                                                        <img src="assets/imgs/testimonial-logo.png" class="testimonial-logo" />
-            
+                                            <div class="testimonial-wrapper">
+                                                <div class="testimonial row">
+                                                    <div class="side col-2 p-0">
+                                                        <img src="assets/imgs/elon.jpeg" />
                                                     </div>
-                                                    <img src="assets/imgs/quote.png" class="quote" />
+                                                    <div class="details col-10">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                                            Placeat
+                                                            explicabo
+                                                            magni et
+                                                            nisi
+                                                            consectetur unde autem rem, est repellendus quis tenetur minima,
+                                                            quod
+                                                            praesentium
+                                                            repellat
+                                                            accusamus quibusdam cum velit. Culpa.
+    
+                                                        </p>
+                                                        <div class="d-flex justify-content-between">
+                                                            <h6>Elon Musk <br /> CEO - SpaceX</h6>
+                                                            <img src="assets/imgs/testimonial-logo.png"
+                                                                class="testimonial-logo" />
+    
+                                                        </div>
+                                                        <img src="assets/imgs/quote.png" class="quote" />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-            
-            
+    
+    
                                 </div> <!-- col -->
-            
+    
                                 <!-- If we need navigation buttons -->
                                 <div class="swiper-button-prev-mixjet"></div>
                                 <div class="swiper-button-next-mixjet"></div>
-            
+                                <div class="swiper-card"></div>
+    
                             </div>
                         </div>
                     </div>
-            
-            
+    
+    
                 </section>
-            <section class="service service-0 ">
-                <div class="container-fluid">
-                    <div class="row align-items-center ">
-
-
-                        <div class="offset-lg-2 col-12  col-lg-4 p-0 service-column  service-column-1 ">
-                            <div class="row flex-nowrap">
-                                <div class="col-lg-5">
-                                    <img src="assets/imgs/clock.png" class="full-width clock-1" id="clock-1" />
+                <section class="service service-0 ">
+                    <div class="container-fluid">
+                        <div class="row align-items-center ">
+    
+    
+                            <div class="offset-lg-2 col-12  col-lg-4 p-0 service-column  service-column-1 ">
+                                <div class="row flex-nowrap">
+                                    <div class="col-lg-5">
+                                        <img src="assets/imgs/clock.png" class="full-width clock-1" id="clock-1" />
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <img src="assets/imgs/clock.png" class="full-width clock-2" id="clock-2" />
+                                    </div>
                                 </div>
-                                <div class="col-lg-7">
-                                    <img src="assets/imgs/clock.png" class="full-width clock-2" id="clock-2" />
+    
+                            </div>
+    
+                            <div
+                                class="col-lg-6 col-10 offset-1 offset-lg-0    service-column-2 service-column   box-shadow  service-details-column">
+                                <div class="serivce-details">
+                                    <h6 class="mini-title">Flight Planning</h6>
+                                    <h4 class="title">With <span class="highlight">over</span> 1000 trips planned </h4>
+                                    <p class="description pr-lg-3 mt-4">
+                                        Yes we Handle the biggest aircraft made. <br />
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus
+                                        sequi
+                                        fugiat
+                                        omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque
+                                        officiis
+                                        dicta
+                                        recusandae eum eos, facere nobis quod aut.
+                                    </p>
+                                    <br />
+                                    <a class="primary-anchor " href="javascript:void(0)" data-page="#page-1">Checkout more
+                                        bbb</a>
                                 </div>
                             </div>
-
+    
                         </div>
-
-                        <div
-                            class="col-lg-6 col-10 offset-1 offset-lg-0    service-column-2 service-column   box-shadow  service-details-column">
-                            <div class="serivce-details">
-                                <h6 class="mini-title">Flight Planning</h6>
-                                <h4 class="title">With <span class="highlight">over</span> 1000 trips planned </h4>
-                                <p class="description pr-lg-3 mt-4">
-                                    Yes we Handle the biggest aircraft made. <br />
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus
-                                    sequi
-                                    fugiat
-                                    omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque
-                                    officiis
-                                    dicta
-                                    recusandae eum eos, facere nobis quod aut.
-                                </p>
-                                <br />
-                                <a class="primary-anchor " href="javascript:void(0)" data-page="#page-1">Checkout more
-                                    bbb</a>
+                        <div class="row">
+                            <div class="col-12 col p-0">
+                                <div class="arrow-path horizontal">
+                                    <img src="assets/imgs/arrows.jpg" id="arrows-4" />
+                                </div>
                             </div>
+    
                         </div>
-
                     </div>
-                    <div class="row">
-                        <div class="col-12 col p-0">
-                            <div class="arrow-path horizontal">
-                                <img src="assets/imgs/arrows.jpg" id="arrows-4" />
+                </section>
+                <section class="service service-1 ">
+                    <div class="container-fluid">
+                        <div class="row align-items-center ">
+    
+    
+                            <div class="arrow-path">
+    
+                                <img src="assets/imgs/arrows.jpg" id="arrows-1" />
                             </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <section class="service service-1 ">
-                <div class="container-fluid">
-                    <div class="row align-items-center ">
-
-
-                        <div class="arrow-path">
-
-                            <img src="assets/imgs/arrows.jpg" id="arrows-1" />
-                        </div>
-                        <div class="offset-lg-1 col-lg-1 p-0 service-column  service-column-1 ">
-
-                            <div class="">
-                                <img src="assets/imgs/runway.png" class="full-width" />
+                            <div class="offset-lg-1 col-lg-1 p-0 service-column  service-column-1 ">
+    
+                                <div class="">
+                                    <img src="assets/imgs/runway.png" class="full-width" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 p-0 service-column  service-column-2">
-                            <div class="">
-                                <img src="assets/imgs/businessman.jpg" class="full-width" />
+                            <div class="col-lg-4 p-0 service-column  service-column-2">
+                                <div class="">
+                                    <img src="assets/imgs/businessman.jpg" class="full-width" />
+                                </div>
                             </div>
-                        </div>
-                        <div
-                            class="col-lg-4  col-10 offset-1  offset-lg-0 service-column-3 service-column   box-shadow  service-details-column">
-                            <div class="serivce-details">
-                                <h6 class="mini-title">Business services</h6>
-                                <h4 class="title">Concirge <span class="highlight">services</span> </h4>
-                                <p class="description pr-lg-3 mt-4">
-                                    Yes we Handle the biggest aircraft made. <br />
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus
-                                    sequi
-                                    fugiat
-                                    omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque
-                                    officiis
-                                    dicta
-                                    recusandae eum eos, facere nobis quod aut.
-                                </p>
-                                <br />
-                                <a class="primary-anchor " href="javascript:void(0)">Checkout more</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <section class="service service-2">
-                <div class="arrow-path">
-
-                    <img src="assets/imgs/arrows.jpg" id="arrows-2" />
-                </div>
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-
-
-                        <div class="offset-lg-1 col-lg-1 p-0 service-column service-column-1 ">
-                            <img src="assets/imgs/runway.png" class="full-width" />
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-10 offset-1 offset-lg-0 service-details-column box-shadow  service-column service-column-2">
-                            <div class="serivce-details pb-5">
-                                <h6 class="mini-title">Business services</h6>
-                                <h4 class="title">Concirge <span class="highlight">services</span> </h4>
-                                <p class="description pr-lg-3 mt-4">
-                                    Yes we Handle the biggest aircraft made. <br />
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus
-                                    sequi
-                                    fugiat
-                                    omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque
-                                    officiis
-                                    dicta
-                                    recusandae eum eos, facere nobis quod aut.
-                                </p>
-                                <br />
-                                <div class="text-right">
+                            <div
+                                class="col-lg-4  col-10 offset-1  offset-lg-0 service-column-3 service-column   box-shadow  service-details-column">
+                                <div class="serivce-details">
+                                    <h6 class="mini-title">Business services</h6>
+                                    <h4 class="title">Concirge <span class="highlight">services</span> </h4>
+                                    <p class="description pr-lg-3 mt-4">
+                                        Yes we Handle the biggest aircraft made. <br />
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus
+                                        sequi
+                                        fugiat
+                                        omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque
+                                        officiis
+                                        dicta
+                                        recusandae eum eos, facere nobis quod aut.
+                                    </p>
+                                    <br />
                                     <a class="primary-anchor " href="javascript:void(0)">Checkout more</a>
                                 </div>
                             </div>
+    
                         </div>
-                        <div class="col-lg-6 p-0 service-column service-column-3">
-                            <img src="assets/imgs/conciergBG.jpg" class="full-width" />
-                        </div>
-
                     </div>
-                </div>
-            </section>
-            <section class="service service-3 ">
-                <div class="container-fluid">
-                    <div class="row align-items-center ">
-
-
-                        <div class="arrow-path">
-
-                            <img src="assets/imgs/arrows.jpg" id="arrows-3" />
-                        </div>
-                        <div class="offset-lg-1 col-0 col-lg-1 p-0 service-column  service-column-1 ">
-                            <div class="">
+                </section>
+                <section class="service service-2">
+                    <div class="arrow-path">
+    
+                        <img src="assets/imgs/arrows.jpg" id="arrows-2" />
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+    
+    
+                            <div class="offset-lg-1 col-lg-1 p-0 service-column service-column-1 ">
                                 <img src="assets/imgs/runway.png" class="full-width" />
                             </div>
-                        </div>
-
-                        <div
-                            class="col-lg-5  col-10 offset-1 offset-lg-0   service-column-2 service-column   box-shadow  service-details-column">
-                            <div class="serivce-details ">
-                                <h6 class="mini-title">Flight Permits</h6>
-                                <h4 class="title">We handle the <span class="highlight">paper</span> so you can fly
-                                </h4>
-                                <p class="description pr-lg-3 mt-4">
-                                    Yes we Handle the biggest aircraft made. <br />
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus
-                                    sequi
-                                    fugiat
-                                    omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque
-                                    officiis
-                                    dicta
-                                    recusandae eum eos, facere nobis quod aut.
-                                </p>
-                                <br />
-                                <a class="primary-anchor " href="javascript:void(0)">Checkout more</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 p-0 service-column  service-column-3">
-                            <img src="assets/imgs/conciergBG.jpg" class="full-width" />
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-10 offset-lg-1 mt-5 ">
-                            <h1 class="section-title">Our <span class="highlight">Services</span></h1>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-            <section class="antonov mt-0" id="antonov-section">
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-4 offset-lg-1 col-12 ">
-
-                            <div class="clients-container">
-                                <div class="row">
-                                    <div class="col-lg-6 col-6 client">
-                                        <img src="assets/imgs/client-1.png" />
+    
+                            <div
+                                class="col-lg-4 col-10 offset-1 offset-lg-0 service-details-column box-shadow  service-column service-column-2">
+                                <div class="serivce-details pb-5">
+                                    <h6 class="mini-title">Business services</h6>
+                                    <h4 class="title">Concirge <span class="highlight">services</span> </h4>
+                                    <p class="description pr-lg-3 mt-4">
+                                        Yes we Handle the biggest aircraft made. <br />
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus
+                                        sequi
+                                        fugiat
+                                        omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque
+                                        officiis
+                                        dicta
+                                        recusandae eum eos, facere nobis quod aut.
+                                    </p>
+                                    <br />
+                                    <div class="text-right">
+                                        <a class="primary-anchor " href="javascript:void(0)">Checkout more</a>
                                     </div>
-
-                                    <div class="col-lg-6 col-6 client">
-                                        <img src="assets/imgs/client-3.png" />
-                                    </div>
-                                    <div class="col-lg-6 col-6 client">
-                                        <img src="assets/imgs/client-2.png" />
-                                    </div>
-
-                                    <div class="col-lg-6 col-6 client">
-                                        <img src="assets/imgs/client-5.png" />
-                                    </div>
-                                    <div class="col-lg-6 col-6 client">
-                                        <img src="assets/imgs/client-4.png" />
-                                    </div>
-                                    <div class="col-lg-6 col-6 client">
-                                        <img src="assets/imgs/client-6.png" />
-                                    </div>
-
-                                </div>
-                                <div class="row d-none title-small">
-                                    <h1 class="section-title">Our <span class="highlight">Affiliation</span></h1>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-1">
-
-                        </div>
-                        <div class="antonov-wrapper">
-                            <img class="full-width" src="assets/imgs/antonov2.png" />
-                        </div>
-                        <div class="col-lg-5 p-0 details-column">
-                            <div class="antonov-details">
-                                <h4 class="antonov-title">ANTONOV <br /> An-225 MRIYA.</h4>
-                                <h4 class="title">Proud of our <span class="highlight">clients</span></h4>
-                                <p class="description">
-                                    MixJet Handle the Biggest aircraft made. <br />
-                                    no matter how big or small your aircraft is we've got you covered.
-                                </p>
+                            <div class="col-lg-6 p-0 service-column service-column-3">
+                                <img src="assets/imgs/conciergBG.jpg" class="full-width" />
                             </div>
-                        </div>
-                        <div class="col-lg-1 runway-column">
-                            <img class="full-width runway" src="assets/imgs/runway.png" />
+    
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-10 offset-lg-1 title-big ">
-                            <h1 class="section-title">Our <span class="highlight">Affiliation</span></h1>
+                </section>
+                <section class="service service-3">
+                    <div class="arrow-path">
+    
+                        <img src="assets/imgs/arrows.jpg" id="arrows-2" />
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+    
+    
+                            <div class="offset-lg-1 col-lg-1 p-0 service-column service-column-1 ">
+                                <img src="assets/imgs/runway.png" class="full-width" />
+                            </div>
+    
+                            <div
+                                class="col-lg-4 col-10 offset-1 offset-lg-0 service-details-column box-shadow  service-column service-column-2">
+                                <div class="serivce-details pb-5">
+                                    <h6 class="mini-title">Business services</h6>
+                                    <h4 class="title">Concirge <span class="highlight">services</span> </h4>
+                                    <p class="description pr-lg-3 mt-4">
+                                        Yes we Handle the biggest aircraft made. <br />
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus
+                                        sequi
+                                        fugiat
+                                        omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque
+                                        officiis
+                                        dicta
+                                        recusandae eum eos, facere nobis quod aut.
+                                    </p>
+                                    <br />
+                                    <div class="text-right">
+                                        <a class="primary-anchor " href="javascript:void(0)">Checkout more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 p-0 service-column service-column-3">
+                                <img src="assets/imgs/conciergBG.jpg" class="full-width" />
+                            </div>
+    
                         </div>
                     </div>
-                </div>
-                <div class="antonov-marker" id="antonov-marker"></div>
-                <div class="antonov-clouds ">
-                    <img src="assets/imgs/clouds2_1.png" />
-                    <img src="assets/imgs/clouds2_1.png" />
-                    <img src="assets/imgs/clouds2_1.png" />
-                </div>
-
-
-            </section>
-            <section class="airfield " id="airfield">
-
-                <div class="container-fluid ">
-
-                    <div class="row align-items-end airfield-row ">
-                        <div class="col-lg-6 ">
-                            <div class="airfield-description">
-
-                                <h4 class="title">No <span class="highlight">Matter</span> what are your needs</h4>
-                                <p class="description">
-                                    A business man or a an airline
-                                </p>
+                </section>
+                <section class="service service-4 ">
+                    <div class="container-fluid">
+                        <div class="row align-items-center ">
+    
+    
+                            <div class="arrow-path">
+    
+                                <img src="assets/imgs/arrows.jpg" id="arrows-3" />
                             </div>
-                            <div class="planes-container">
-                                <div class=" plane-location-wrapper">
+                            <div class="offset-lg-1 col-0 col-lg-1 p-0 service-column  service-column-1 ">
+                                <div class="">
+                                    <img src="assets/imgs/runway.png" class="full-width" />
+                                </div>
+                            </div>
+    
+                            <div
+                                class="col-lg-5  col-10 offset-1 offset-lg-0   service-column-2 service-column   box-shadow  service-details-column">
+                                <div class="serivce-details ">
+                                    <h6 class="mini-title">Flight Permits</h6>
+                                    <h4 class="title">We handle the <span class="highlight">paper</span> so you can fly
+                                    </h4>
+                                    <p class="description pr-lg-3 mt-4">
+                                        Yes we Handle the biggest aircraft made. <br />
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus
+                                        sequi
+                                        fugiat
+                                        omnis rem rerum similique corrupti, distinctio accusantium eveniet? Neque
+                                        officiis
+                                        dicta
+                                        recusandae eum eos, facere nobis quod aut.
+                                    </p>
+                                    <br />
+                                    <a class="primary-anchor " href="javascript:void(0)">Checkout more</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 p-0 service-column  service-column-3">
+                                <img src="assets/imgs/conciergBG.jpg" class="full-width" />
+                            </div>
+    
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1 mt-5 ">
+                                <h1 class="section-title">Our <span class="highlight">Services</span></h1>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+    
+    
+                <section class="antonov mt-0" id="antonov-section">
+    
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-4 offset-lg-1 col-12 ">
+    
+                                <div class="clients-container">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-6 client">
+                                            <img src="assets/imgs/client-1.png" />
+                                        </div>
+    
+                                        <div class="col-lg-6 col-6 client">
+                                            <img src="assets/imgs/client-3.png" />
+                                        </div>
+                                        <div class="col-lg-6 col-6 client">
+                                            <img src="assets/imgs/client-2.png" />
+                                        </div>
+    
+                                        <div class="col-lg-6 col-6 client">
+                                            <img src="assets/imgs/client-5.png" />
+                                        </div>
+                                        <div class="col-lg-6 col-6 client">
+                                            <img src="assets/imgs/client-4.png" />
+                                        </div>
+                                        <div class="col-lg-6 col-6 client">
+                                            <img src="assets/imgs/client-6.png" />
+                                        </div>
+    
+                                    </div>
+                                    <div class="row d-none title-small">
+                                        <h1 class="section-title">Our <span class="highlight">Affiliation</span></h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+    
+                            </div>
+                            <div class="antonov-wrapper">
+                                <img class="full-width" src="assets/imgs/antonov2.png" />
+                            </div>
+                            <div class="col-lg-5 p-0 details-column">
+                                <div class="antonov-details">
+                                    <h4 class="antonov-title">ANTONOV <br /> An-225 MRIYA.</h4>
+                                    <h4 class="title">Proud of our <span class="highlight">clients</span></h4>
+                                    <p class="description">
+                                        MixJet Handle the Biggest aircraft made. <br />
+                                        no matter how big or small your aircraft is we've got you covered.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 runway-column">
+                                <img class="full-width runway" src="assets/imgs/runway.png" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 offset-lg-1 title-big ">
+                                <h1 class="section-title">Our <span class="highlight">Affiliation</span></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="antonov-marker" id="antonov-marker"></div>
+                    <div class="antonov-clouds ">
+                        <img src="assets/imgs/clouds2_1.png" />
+                        <img src="assets/imgs/clouds2_1.png" />
+                        <img src="assets/imgs/clouds2_1.png" />
+                    </div>
+    
+    
+                </section>
+                <section class="airfield " id="airfield">
+    
+                    <div class="container-fluid ">
+    
+                        <div class="row align-items-end airfield-row ">
+                            <div class="col-12 p-0">
+                                <img src="assets/imgs/temp.jpg" class="full-width" />
+                                <div class="plane-location-wrapper">
                                     <div class="plane-2-location plane-location" id="plane-2-location">
-
+    
                                         <div class="plane-wrapper">
                                             <img class="hidden" src="assets/imgs/plane2.png" />
-
+    
                                         </div>
                                         <span class="plane-word">
-                                            Jet
+                                            MixJet
                                         </span>
                                         <div class="background"></div>
-
-                                    </div>
-                                </div>
-                                <div class=" plane-location-wrapper">
-                                    <div class="plane-1-location plane-location">
-                                        <div class="plane-wrapper">
-                                            <img src="assets/imgs/plane1.png" />
-
-                                        </div>
-                                        <span class="plane-word">
-                                            Airplane
-                                        </span>
-                                        <div class="background"></div>
+    
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <img class="full-width" src="assets/imgs/airport.png" />
+                            <!-- <div class="col-lg-6 ">
+                                <div class="airfield-description">
+    
+                                    <h4 class="title">No <span class="highlight">Matter</span> what are your needs</h4>
+                                    <p class="description">
+                                        A business man or a an airline
+                                    </p>
+                                </div>
+                                <div class="planes-container">
+                                    <div class=" plane-location-wrapper">
+                                        <div class="plane-2-location plane-location" id="plane-2-location">
+    
+                                            <div class="plane-wrapper">
+                                                <img class="hidden" src="assets/imgs/plane2.png" />
+    
+                                            </div>
+                                            <span class="plane-word">
+                                                MixJet
+                                            </span>
+                                            <div class="background"></div>
+    
+                                        </div>
+                                    </div>
+                                    <div class=" plane-location-wrapper">
+                                        <div class="plane-1-location plane-location">
+                                            <div class="plane-wrapper">
+                                                <img src="assets/imgs/plane1.png" />
+    
+                                            </div>
+                                            <span class="plane-word">
+                                                Airplane
+                                            </span>
+                                            <div class="background"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <img class="full-width" src="assets/imgs/airport.png" />
+                            </div>-->
                         </div>
                     </div>
-                </div>
-
-            </section>
-
-
-            <section class="section header" id="header">
-
-                <div class="airpot-viewport viewport">
-
-                    <div class="airport">
-
-                        <div class="airport-background-wrapper">
-                            <picture>
-                                <source srcset="assets/imgs/office-portrait.jpg" media=" (orientation: portrait)" />
-                                <img src="assets/imgs/office.jpg" />
-
-                            </picture>
+    
+                </section>
+    
+    
+                <section class="section header" id="header">
+    
+                    <div class="airpot-viewport viewport">
+    
+                        <div class="airport">
+    
+                            <div class="airport-background-wrapper">
+                                <picture>
+                                    <source srcset="assets/imgs/office-portrait.jpg" media=" (orientation: portrait)" />
+                                    <img src="assets/imgs/office.jpg" />
+    
+                                </picture>
+                            </div>
+    
+    
                         </div>
-
-
+    
+    
                     </div>
-
-
-                </div>
-
-            </section>
-            <section class="clouds section">
-                <div class="clouds-world-wrapper viewport">
-
-
-                    <div class="mouse-scroll col-lg-1 ">
-                        <img src="assets/imgs/scroll-down.gif" />
-                    </div>
-                    <div class="clouds-world" id="clouds-world">
-
-                        <div class="logo-wrapper cloud-logo-wrapper">
-                            <img src="assets/imgs/logo-square.svg" />
-                            <div class="logo-frame"></div>
-                            <h4>Helping people fly  <span class="highlight">since 2009</span></h4>
+    
+                </section>
+                <section class="clouds section">
+                    <div class="clouds-world-wrapper viewport">
+    
+    
+                        <div class="mouse-scroll col-lg-1 ">
+                            <img src="assets/imgs/scroll-down.gif" />
                         </div>
-                        ${require("./clouds.html")}
+                        <div class="clouds-world" id="clouds-world">
+    
+                            <div class="logo-wrapper cloud-logo-wrapper">
+                                <img src="assets/imgs/logo-square.svg" />
+                                <div class="logo-frame"></div>
+                                <h4>Helping people fly <span class="highlight">since 2009</span></h4>
+                            </div>
+                            ${require("./clouds.html")}
+                        </div>
                     </div>
-                </div>
-            </section>
-
-
-
-
+                </section>
+    
+    
+    
+    
+            </div>
         </div>
-    </div>
-    <div id="scroller">
-        <div id="scroller-height"></div>
-    </div>
-    <div class="pages-wrapper">
-        <div class="page" id="page-1">
-            ${require("./service.html")}
+        <div id="scroller">
+            <div id="scroller-height"></div>
         </div>
-        <div class="page">
-
+        <div class="pages-wrapper">
+            <div class="page" id="page-1">
+                ${require("./service.html")}
+            </div>
+            <div class="page">
+    
+            </div>
         </div>
-    </div>
-
-
-    <div class="clouds-navigation" id="clouds-navigation">
-        ${require("./clouds.html")}
-    </div>
-
-
-
-</body>
+    
+    
+        <div class="clouds-navigation" id="clouds-navigation">
+            ${require("./clouds.html")}
+        </div>
+    
+    
+    
+    </body>
 
 </html>

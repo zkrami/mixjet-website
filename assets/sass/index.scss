@@ -400,15 +400,19 @@ body {
 .footer {
     overflow: visible;
     margin-bottom: 13%;
-    .footer-airport{
-        width:30%; 
+    
+
+    .footer-airport {
+        width: 30%;
         position: absolute;
-        right:0; 
-        top:0;
+        right: 0;
+        top: 0;
     }
-    .footer-logo{
-        transform:translateY(50%);
+
+    .footer-logo {
+        transform: translateY(50%);
     }
+
     .contact-form {
         background: #fff;
         text-align: left;
@@ -447,14 +451,14 @@ body {
             min-height: 100px;
         }
 
-        
+
         input[type=submit] {
             width: auto;
             background: rgba(207, 168, 101, 1);
             background: linear-gradient(90deg, rgba(207, 168, 101, 1) 31%, rgba(187, 140, 62, 1) 100%);
             padding: 8px 40px;
-            border:none;
-            color:#fff;
+            border: none;
+            color: #fff;
 
         }
 
@@ -463,24 +467,29 @@ body {
 
     h5 {
         color: #7C8486;
-        margin:15px 0;
+        margin: 15px 0;
     }
-    h6{
-        color:#fff;
+
+    h6 {
+        color: #fff;
     }
-    .footer-info{
-        h5{
-            font-size:1rem;
+
+    .footer-info {
+        h5 {
+            font-size: 1rem;
         }
-        h6{
-            font-size:0.8rem;
+
+        h6 {
+            font-size: 0.8rem;
         }
     }
-    .social-links{
-        span{
-            color:#fff !important;
-            font-size:1rem;
+
+    .social-links {
+        span {
+            color: #fff !important;
+            font-size: 1rem;
         }
+
         display: flex;
         justify-content: space-between;
 
@@ -545,6 +554,12 @@ body {
     }
 }
 
+.plane-location-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 28%;
+}
+
 .planes-container {
     display: flex;
     justify-content: space-between;
@@ -552,6 +567,8 @@ body {
 
     .plane-location {
         position: relative;
+        position: absolute;
+
     }
 
     .plane-1-location {
@@ -1520,31 +1537,33 @@ html {
 }
 
 .testimonials {
-    .swiper-card{
+    .swiper-card {
         position: absolute;
-        top:-50px; 
-        left:0;
-        width:52%; 
-        background:#fff; 
+        top: -50px;
+        left: 0;
+        width: 52%;
+        background: #fff;
         height: calc(100% + 200px);
-        z-index:-1; 
+        z-index: -1;
     }
 }
 
 .testimonial {
-    margin-top:50px;
+    margin-top: 50px;
     width: 100%;
     display: flex;
-    padding-left:5px;
+    padding-left: 5px;
     background: rgba(207, 168, 101, 1);
     background: linear-gradient(90deg, rgba(207, 168, 101, 1) 31%, rgba(187, 140, 62, 1) 100%);
+
     .side {
         img {
             position: relative;
             width: 100%;
             margin-left: 00%;
-            top:5%;
+            top: 5%;
         }
+
         padding-left:20px;
         background-image:url("../imgs/runway_lines_white.png");
         background-size:100% 100%;
@@ -1569,9 +1588,11 @@ html {
         transform: translateX(20%) translateY(-40%);
     }
 }
-.testimonial-wrapper{
-    padding:20px;
+
+.testimonial-wrapper {
+    padding: 20px;
 }
+
 .swiper-container {
     width: 100%;
     height: auto;
@@ -1588,8 +1609,8 @@ html {
     left: 10px;
     z-index: 10;
     cursor: pointer;
-    outline:none; 
-}   
+    outline: none;
+}
 
 .swiper-button-next-mixjet {
 
