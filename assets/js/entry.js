@@ -130,10 +130,10 @@ class Plane {
         TweenMax.set(this.plane, {
             ...planePath[0],
             rotation: "57.5deg",
-            scale : 0.7 ,
+            scale: 0.7,
         })
         tl1.to(this.plane, 1.5, { ease: Power3.easeInOut, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
-        tl1.to(this.plane, 1.5, { ease: Power3.easeInOut , scale : 1 } , 0);
+        tl1.to(this.plane, 1.5, { ease: Power3.easeInOut, scale: 1 }, 0);
 
         tl1.to(".plane-location-wrapper .background", 1., { ease: Power2.easeInOut, opacity: 1 }, 0);
 
@@ -553,9 +553,16 @@ window.onload = function () {
             // Optional parameters
             loop: true,
 
-            slidesPerView: 3,
-            spaceBetween: 30,
+            slidesPerView: 2,
+            spaceBetween: 10,
+            centeredSlides: true,
+            breakpoints: {
 
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 0,
+                }
+            },
 
             // Navigation arrows
             navigation: {
@@ -572,10 +579,13 @@ window.onload = function () {
         let navigator = new PageNavigator();
         initSwiper();
 
-       
+
 
 
         $("body").removeClass("loading");
+        this.setTimeout( ()=> {
+            $(".loader").remove();
+        } , 2000 ); 
 
 
     }, 0);

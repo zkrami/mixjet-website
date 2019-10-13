@@ -399,12 +399,15 @@ body {
 /*footer*/
 .footer {
     overflow: visible;
-    margin-bottom: 35%;
+    margin-bottom: 13%;
     .footer-airport{
         width:30%; 
         position: absolute;
         right:0; 
         top:0;
+    }
+    .footer-logo{
+        transform:translateY(50%);
     }
     .contact-form {
         background: #fff;
@@ -419,7 +422,7 @@ body {
         textarea {
             display: block;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 30px;
             color: $primary-color;
         }
 
@@ -440,8 +443,8 @@ body {
 
 
         textarea {
-            margin-top: 15px;
             resize: none;
+            min-height: 100px;
         }
 
         
@@ -465,10 +468,18 @@ body {
     h6{
         color:#fff;
     }
+    .footer-info{
+        h5{
+            font-size:1rem;
+        }
+        h6{
+            font-size:0.8rem;
+        }
+    }
     .social-links{
         span{
             color:#fff !important;
-            font-size:1.5rem;
+            font-size:1rem;
         }
         display: flex;
         justify-content: space-between;
@@ -781,8 +792,29 @@ html {
 }
 
 
-
 .service-3 {
+    margin-top: 200px !important;
+
+    .service-column-1 {
+        transform: translate(150%, 5%) translateZ(60px) scale(0.7);
+        z-index: 5;
+    }
+
+    .service-column-2 {
+        z-index: 4;
+
+    }
+
+    .service-column-3 {
+        transform: translate(14%, 0%) translateZ(-60px) scale(1.3);
+    }
+}
+
+
+
+
+
+.service-4 {
     margin-top: 200px !important;
 
     .service-column-1 {
@@ -851,7 +883,7 @@ html {
         &:nth-child(2) {
 
             z-index: -1;
-            transform: scaleX(-1) translateZ(-50px) scale(1.25) translateY(-15%);
+            transform: scaleX(-1) translateZ(-50px) scale(1.25) translateY(3%);
         }
 
         &:nth-child(3) {
@@ -1488,30 +1520,40 @@ html {
 }
 
 .testimonials {
-    
+    .swiper-card{
+        position: absolute;
+        top:-50px; 
+        left:0;
+        width:52%; 
+        background:#fff; 
+        height: calc(100% + 200px);
+        z-index:-1; 
+    }
 }
 
 .testimonial {
     margin-top:50px;
     width: 100%;
     display: flex;
-
+    padding-left:5px;
     background: rgba(207, 168, 101, 1);
     background: linear-gradient(90deg, rgba(207, 168, 101, 1) 31%, rgba(187, 140, 62, 1) 100%);
     .side {
         img {
             position: relative;
-            width: 80%;
-            margin-left: 10%;
+            width: 100%;
+            margin-left: 00%;
+            top:5%;
         }
-
-        background-image:url("../imgs/runway.png");
-        background-size:100% auto;
+        padding-left:20px;
+        background-image:url("../imgs/runway_lines_white.png");
+        background-size:100% 100%;
+        background-repeat: no-repeat;
     }
 
     .details {
         color: #F3F9FA;
-        padding: 10px;
+        padding: 22px;
     }
 
     .testimonial-logo {
@@ -1527,7 +1569,9 @@ html {
         transform: translateX(20%) translateY(-40%);
     }
 }
-
+.testimonial-wrapper{
+    padding:20px;
+}
 .swiper-container {
     width: 100%;
     height: auto;
@@ -1544,7 +1588,8 @@ html {
     left: 10px;
     z-index: 10;
     cursor: pointer;
-}
+    outline:none; 
+}   
 
 .swiper-button-next-mixjet {
 
