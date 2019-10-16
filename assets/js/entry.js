@@ -216,7 +216,7 @@ class ScrollController {
 
     get planeTimeLineOffset() {
 
-        return getOffsetBottom(document.getElementById("plane-2-location")) ;
+        return getOffsetBottom(document.getElementById("plane-2-location")) + $(window).height()/1.7 ;
     }
     get antonovTimeLineOffset() {
         return getOffsetBottom(document.getElementById("antonov-marker"));
