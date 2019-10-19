@@ -38,7 +38,7 @@ module.exports = {
                     loader: 'html-loader',
                     options: {
                         interpolate: true,
-                        attrs: ['img:src' , 'source:src'],
+                        attrs: ['img:src' , 'source:src' ,'image:xlink:href'],
 
                     }
                 }
