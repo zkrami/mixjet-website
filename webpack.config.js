@@ -38,13 +38,13 @@ module.exports = {
                     loader: 'html-loader',
                     options: {
                         interpolate: true,
-                        attrs: ['img:src'],
+                        attrs: ['img:src' , 'source:src'],
 
                     }
                 }
             },
             {
-                test: /\.(jpe?g|png|gif|otf|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+                test: /\.(jpe?g|mp3|png|gif|otf|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
                 use: {
                     loader: 'url-loader',
 
@@ -56,15 +56,6 @@ module.exports = {
                                 name: '[path][name].[ext]',
                             },
                         }
-                    }
-                }
-            },
-            {
-                test: /\.mp3/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[path][name].[ext]',
                     }
                 }
             }

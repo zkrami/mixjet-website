@@ -92,11 +92,12 @@ body {
 }
 
 .primary-anchor {
+    cursor: pointer;
     background: rgba(207, 168, 101, 1);
     background: linear-gradient(90deg, rgba(207, 168, 101, 1) 31%, rgba(187, 140, 62, 1) 100%);
     padding: 13px 25px;
     font-size: 0.9rem;
-    color: #fff;
+    color: #fff !important;
 
     &:hover {
         color: #fff;
@@ -400,17 +401,13 @@ body {
 .footer {
     overflow: visible;
     margin-bottom: 13%;
-    
 
-    .footer-airport {
-        width: 30%;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
+
+   
 
     .footer-logo {
         transform: translateY(50%);
+        margin-top: 50%;
     }
 
     .contact-form {
@@ -511,6 +508,26 @@ body {
 
     .footer-details {
         background: #3F3E3D
+    }
+    .footer-airport-wrapper{
+        width: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        img{
+            width:100%;
+            z-index: 2;
+            position: relative;
+        }
+    }
+    .airplane-place-holder {
+        position: absolute;
+        width: 13%;
+        height: 20%;
+        
+        left: 42.5%;
+        top: 11%;
+        z-index: 1;
     }
 }
 
@@ -794,7 +811,7 @@ html {
     margin-top: 200px !important;
 
     .service-column-1 {
-        transform: translate(150%, 5%) translateZ(60px) scale(0.7);
+        transform: translate(175%, 0%) translateZ(60px) scale(0.7);
         z-index: 5;
     }
 
@@ -804,7 +821,7 @@ html {
     }
 
     .service-column-3 {
-        transform: translate(14%, 0%) translateZ(-60px) scale(1.3);
+        transform: translate(10%, 0%) translateZ(-60px) scale(1.3);
     }
 }
 
@@ -970,6 +987,21 @@ html {
         right: 10%;
         left: unset;
         top: -110%;
+
+    }
+
+    .arrow-path.horizontal {
+        height: 1px;
+        right: unset;
+        left: 1%;
+        top: -100px;
+
+        img {
+            transform: translateY(-50%) rotate(90deg);
+            left: 5%;
+            top: 0;
+        }
+
     }
 }
 
@@ -1624,4 +1656,22 @@ html {
     right: 10px;
     z-index: 10;
     cursor: pointer;
+}
+
+
+.service-2 {
+
+    #truck {
+        position: absolute;
+        width: 80%;
+        left: -50%;
+        top: 30%;
+
+    }
+
+}
+
+.about-us-anchor {
+    cursor: pointer;
+    color: $primary-color !important;
 }

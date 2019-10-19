@@ -92,7 +92,11 @@
 
                     <div class="row p-0">
                         <div class="col-lg-11 offset-lg-1 footer-details p-0">
-                            <img class="footer-airport" src="assets/imgs/footer-airport.png" />
+                            <div class="footer-airport-wrapper" >
+                                    <div class="airplane-place-holder" id="airplane-place-holder"></div>
+                                    <img class="footer-airport" src="assets/imgs/footer3.png" />
+                            </div>
+                            
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-3  mt-4  mb-4 ml-3">
@@ -125,6 +129,7 @@
                                     </div>
                                     <div class="col-lg-3 d-flex align-items-end">
                                         <div class="footer-info mb-4">
+                                            <h5><a class="about-us-anchor"  data-page="#page-2">About Us</a></h5>
                                             <h5>Find us on</h5>
                                             <div class="social-links col-lg-6 p-0">
                                                 <a target="_blank" href="https://www.facebook.com"><span
@@ -300,7 +305,7 @@
                                     recusandae eum eos, facere nobis quod aut.
                                 </p>
                                 <br />
-                                <a class="primary-anchor " href="javascript:void(0)" data-page="#page-1">Checkout more
+                                <a class="primary-anchor "  data-page="#page-1">Checkout more
                                     bbb</a>
                             </div>
                         </div>
@@ -360,6 +365,16 @@
                 </div>
             </section>
             <section class="service service-2">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col p-0">
+                            <div class="arrow-path horizontal">
+                                <img src="assets/imgs/arrows.jpg" id="arrows-5" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 <div class="arrow-path">
 
                     <img src="assets/imgs/arrows.jpg" id="arrows-2" />
@@ -368,15 +383,15 @@
                     <div class="row align-items-center">
 
 
-                        <div class="offset-lg-1 col-lg-1 p-0 service-column service-column-1 ">
+                        <div class=" col-lg-1 p-0 service-column service-column-1 ">
                             <img src="assets/imgs/runway.png" class="full-width" />
                         </div>
 
                         <div
                             class="col-lg-4 col-10 offset-1 offset-lg-0 service-details-column box-shadow  service-column service-column-2">
                             <div class="serivce-details pb-5">
-                                <h6 class="mini-title">Business services</h6>
-                                <h4 class="title">Concirge <span class="highlight">services</span> </h4>
+                                <h6 class="mini-title">Ground Handling</h6>
+                                <h4 class="title">Ground <span class="highlight">Handling</span> services </h4>
                                 <p class="description pr-lg-3 mt-4">
                                     Yes we Handle the biggest aircraft made. <br />
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis necessitatibus
@@ -394,13 +409,35 @@
                             </div>
                         </div>
                         <div class="col-lg-6 p-0 service-column service-column-3">
-                            <img src="assets/imgs/conciergBG.jpg" class="full-width" />
+                            <img src="assets/imgs/truck-bg.jpg" class="full-width" />
+                            <svg id="truck" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 890 326"
+                                style="enable-background:new 0 0 890 326;" xml:space="preserve">
+                                <image style="overflow:visible;" width="940" height="326"
+                                    xlink:href="assets/imgs/truck.png">
+                                </image>
+                                <image id="wheel-1" style="overflow:visible;" width="135" height="135"
+                                    xlink:href="assets/imgs/truck-wheel.png"
+                                    transform="matrix(0.8667 0 0 0.8667 68 214)">
+                                </image>
+                                <image id="wheel-2" style="overflow:visible;" width="135" height="135"
+                                    xlink:href="assets/imgs/truck-wheel.png"
+                                    transform="matrix(0.8519 0 0 0.8519 199 208)">
+                                </image>
+                                <image id="wheel-3" style="overflow:visible;" width="135" height="135"
+                                    xlink:href="assets/imgs/truck-wheel.png"
+                                    transform="matrix(0.8667 0 0 0.8667 720 206)">
+                                </image>
+                            </svg>
+
+
                         </div>
 
                     </div>
                 </div>
             </section>
             <section class="service service-3">
+
                 <div class="arrow-path">
 
                     <img src="assets/imgs/arrows.jpg" id="arrows-2" />
@@ -477,7 +514,7 @@
                             </div>
                         </div>
                         <div class="col-lg-5 p-0 service-column  service-column-3">
-                            <img src="assets/imgs/conciergBG.jpg" class="full-width" />
+                            <img src="assets/imgs/paper-plane.png" class="full-width" />
                         </div>
 
                     </div>
@@ -553,14 +590,15 @@
                     </div>
                 </div>
                 <div class="antonov-marker" id="antonov-marker"></div>
+
                 <div class="antonov-clouds ">
                     <img src="assets/imgs/clouds2_1.png" />
                     <img src="assets/imgs/clouds2_1.png" />
                     <img src="assets/imgs/clouds2_1.png" />
                 </div>
 
-
             </section>
+
             <section class="airfield " id="airfield">
 
                 <div class="container-fluid ">
@@ -681,8 +719,8 @@
         <div class="page" id="page-1">
             ${require("./service.html")}
         </div>
-        <div class="page">
-
+        <div class="page" id="page-2">
+            ${require("./about.html")}
         </div>
     </div>
 

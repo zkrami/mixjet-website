@@ -60,10 +60,24 @@ function getOffsetTop(elem) {
 
 function getOffsetBottom(elem) {
     var offsetBottom = getOffsetTop(elem);
-    offsetBottom = -document.getElementById("scroll-container").offsetTop - offsetBottom;
+    offsetBottom = document.getElementById("scroll-container").offsetHeight - offsetBottom;
     return offsetBottom;
 }
 
+function makeTruckTimeLine() {
+
+    let tl = new TimelineMax({});
+    tl.to("#truck", 1, {
+        left: "0%"
+    });
+
+    tl.to("#wheel-1 , #wheel-3 ", 1, {
+        rotation: "+=720deg",
+        transformOrigin: "50% 50%"
+    }, 0);
+    return tl;
+
+}
 
 class Plane {
 
@@ -130,27 +144,48 @@ class Plane {
         TweenMax.set(this.plane, {
             ...planePath[0],
             rotation: "160.5deg",
-            scale: 0.7,
+            scale: 0.6,
         })
         tl1.to(this.plane, 1.5, { ease: Power3.easeInOut, bezier: { curviness: 2, values: planePath, autoRotate: ["x", "y", "rotation", 90, false] } });
-        tl1.to(this.plane, 1.5, { ease: Power3.easeInOut, scale: 1 }, 0);
+
 
         tl1.to(".plane-location-wrapper .background", 1., { ease: Power2.easeInOut, opacity: 1 }, 0);
 
 
         let part3 = part2.splice(Math.ceil(0.95 * part2.length));
-        
+        let placeHolder = document.getElementById("airplane-place-holder");
+
+        // destination 
+
+
+
 
         tl2.to(this.plane, 15, { ease: Power0.easeNone, bezier: { curviness: 2, values: part2, autoRotate: ["x", "y", "rotation", 90, false] } });
+
+        // scale 
+        tl2.to(this.plane, 2, { ease: Power3.easeIn, scale: 0.8 }, 0.1);
+
+
 
         tl2.to($("#arrows-2"), 1.5, { ease: Power2.easeOut, top: "10%" }, 10.4);
         tl2.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 10.6);
 
-        tl2.to($("#arrows-4"), 1.5, { ease: Power2.easeOut, left: "10%" }, 11.7);
+        tl2.to($("#arrows-4"), 1.5, { ease: Power2.easeOut, left: "10%" }, 11);
+
+        tl2.to($("#arrows-5"), 2, { ease: Power2.easeOut, left: "95%" }, 9.07);
 
         tl2.to($("#clock-1"), 2, { ease: Power2.easeInOut, rotation: "+=50deg" }, 12.7);
         tl2.to($("#clock-2"), 2, { ease: Power2.easeInOut, rotation: "-=50deg" }, 12.7);
-        tl2.to(this.plane, 0.4, { ease: Power0.easeNone, bezier: { curviness: 2, values: part3, autoRotate: ["x", "y", "rotation", 90, false] } } , 15.01);
+        let truckTimeLine = makeTruckTimeLine();
+        truckTimeLine.timeScale(0.6);
+
+        tl2.add(truckTimeLine, 8.4);
+
+        // latest curve 
+        part3.push({ x: placeHolder.offsetLeft, y: placeHolder.offsetTop });
+
+        tl2.to(this.plane, 0.4, { ease: Power0.easeNone, bezier: { curviness: 2, values: part3, autoRotate: ["x", "y", "rotation", 90, false] } }, 15.01);
+        tl2.to(this.plane, 0.1, { rotation: 0 });
         return [tl1, tl2];
 
 
@@ -191,6 +226,7 @@ class Plane {
 
         tl2.to($("#clock-1"), 2, { ease: Power2.easeInOut, rotation: "+=50deg" }, 12.7);
         tl2.to($("#clock-2"), 2, { ease: Power2.easeInOut, rotation: "-=50deg" }, 12.7);
+
         return [tl1, tl2];
 
 
@@ -216,9 +252,11 @@ class ScrollController {
 
     get planeTimeLineOffset() {
 
-        return getOffsetBottom(document.getElementById("plane-2-location")) + $(window).height()/1.7 ;
+        return getOffsetBottom(document.getElementById("plane-2-location")) - $(window).height() / 3;
     }
     get antonovTimeLineOffset() {
+
+
         return getOffsetBottom(document.getElementById("antonov-marker"));
 
     }
@@ -417,6 +455,9 @@ class ScrollController {
                     let cur = scene.timeline.time();
 
                     scene.timeline.seek(toDuration);
+                    if (scene.duration == "100%") {
+                        console.log(cur);
+                    }
 
 
                 } else {
