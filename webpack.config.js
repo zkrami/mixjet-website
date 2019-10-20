@@ -44,7 +44,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.(jpe?g|mp3|png|gif|otf|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+                test: /\.(jpe?g|mp3|png|gif|wav|ogg|otf|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
                 use: {
                     loader: 'url-loader',
 

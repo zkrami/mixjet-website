@@ -37,6 +37,15 @@ function makeAntonovTimeLine() {
     return tl;
 }
 
+function setTest(offset, attr) {
+    attr = attr | "top";
+    console.log("offset " + offset);
+    $("#test").css({ "display": "block" });
+    if (attr == "top")
+        $("#test").css("top", offset);
+    else
+        $("#test").css("bottom", offset);
+}
 
 
 function round2(x) {
@@ -66,7 +75,7 @@ function getOffsetBottom(elem) {
 
 function makeTruckTimeLine() {
 
-    let tl = new TimelineMax({});
+    let tl = new TimelineMax({ paused: true });
     tl.to("#truck", 1, {
         left: "0%"
     });
@@ -75,6 +84,31 @@ function makeTruckTimeLine() {
         rotation: "+=720deg",
         transformOrigin: "50% 50%"
     }, 0);
+    return tl;
+
+}
+
+function makeArrowsTimeLine() {
+
+    let tl = new TimelineMax({ paused: true });
+    tl.to($("#arrows-2"), 1.5, { ease: Power2.easeOut, top: "10%" });
+    tl.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 0.2);
+    tl.to($("#arrows-4"), 1.5, { ease: Power2.easeOut, left: "10%" }, 0.6);
+    return tl;
+
+}
+
+function makeClockTimeLine() {
+    let tl = new TimelineMax({ paused: true });
+    tl.to($("#clock-1"), 2, { ease: Power2.easeInOut, rotation: "+=50deg" }, 0);
+    tl.to($("#clock-2"), 2, { ease: Power2.easeInOut, rotation: "-=50deg" }, 0);
+    return tl;
+}
+function makeArrow5TimeLine() {
+    let tl = new TimelineMax({ paused: true });
+
+    tl.to($("#arrows-5"), 2, { ease: Power2.easeOut, left: "95%" });
+
     return tl;
 
 }
@@ -129,7 +163,7 @@ class Plane {
 
         let y = getOffsetTop(this.planeLocation);
         $("#svg-plane-path").css("height", y);
-        //$("#test").css({ top: y, height: "100px", width: "100px", "background": "blue" , "display" : "block"  });
+
 
 
         let planePath = this.makePath();
@@ -167,19 +201,9 @@ class Plane {
 
 
 
-        tl2.to($("#arrows-2"), 1.5, { ease: Power2.easeOut, top: "10%" }, 10.4);
-        tl2.to($("#arrows-1"), 2, { ease: Power0.easeNone, top: "5%" }, 10.6);
 
-        tl2.to($("#arrows-4"), 1.5, { ease: Power2.easeOut, left: "10%" }, 11);
 
-        tl2.to($("#arrows-5"), 2, { ease: Power2.easeOut, left: "95%" }, 9.07);
 
-        tl2.to($("#clock-1"), 2, { ease: Power2.easeInOut, rotation: "+=50deg" }, 12.7);
-        tl2.to($("#clock-2"), 2, { ease: Power2.easeInOut, rotation: "-=50deg" }, 12.7);
-        let truckTimeLine = makeTruckTimeLine();
-        truckTimeLine.timeScale(0.6);
-
-        tl2.add(truckTimeLine, 8.4);
 
         // latest curve 
         part3.push({ x: placeHolder.offsetLeft, y: placeHolder.offsetTop });
@@ -235,7 +259,20 @@ class Plane {
 
 }
 
+let audioProgress = { progress: 0 };
+function makeAudioTimeLine() {
 
+    //audio.play();
+
+    let tl = new TimelineMax({
+        paused: true,
+    });
+
+    tl.to(audioProgress, 1, { progress: 1, ease: Power2.easeIn });
+    tl.to(audioProgress, 1, { progress: 0, ease: Power2.easeOut });
+
+    return tl;
+}
 
 class ScrollController {
 
@@ -256,11 +293,26 @@ class ScrollController {
     }
     get antonovTimeLineOffset() {
 
-
         return getOffsetBottom(document.getElementById("antonov-marker"));
 
     }
 
+    get arrowsTimeLineOffset() {
+        return getOffsetBottom(document.getElementById("service-2-place-holder"));
+
+    }
+    get arrow5TimeLineOffset() {
+        return getOffsetBottom(document.getElementById("service-3-place-holder"));
+
+    }
+
+    get clocksTimeLineOffset() {
+        return getOffsetBottom(document.getElementById("service-1-place-holder")) - $(window).height() / 3;
+
+    }
+    get truckTimeLineOffset() {
+        return getOffsetBottom(document.getElementById("service-3-place-holder")) - $(window).height() / 2;
+    }
     resize() {
 
         let height = this.scrollCotainer.height();
@@ -296,10 +348,55 @@ class ScrollController {
 
 
         scenes.push({
+            timeline: makeAudioTimeLine(),
+            duration: 2200,
+            offset: this.antonovTimeLineOffset - 1000,
+            pin: false,
+            onSeek: () => {
+                let audio = document.getElementById("airplane_mp3");
+                let {progress} = audioProgress; 
+                
+                if(progress > 0 ){
+                    audio.play(); 
+                }else{
+                    audio.pause(); 
+                }
+                audio.volume = progress ; 
+                
+
+            }
+        })
+
+        scenes.push({
             timeline: makeAntonovTimeLine(),
             duration: 700,
             offset: this.antonovTimeLineOffset + 105,
             tag: 'antonov', // for debug purposes 
+            pin: false
+        });
+
+        scenes.push({
+            timeline: makeArrowsTimeLine(),
+            duration: 700,
+            offset: this.arrowsTimeLineOffset,
+            pin: false
+        });
+        scenes.push({
+            timeline: makeClockTimeLine(),
+            duration: 700,
+            offset: this.clocksTimeLineOffset,
+            pin: false
+        });
+        scenes.push({
+            timeline: makeArrow5TimeLine(),
+            duration: 700,
+            offset: this.arrow5TimeLineOffset,
+            pin: false
+        });
+        scenes.push({
+            timeline: makeTruckTimeLine(),
+            duration: 700,
+            offset: this.truckTimeLineOffset,
             pin: false
         });
 
@@ -348,10 +445,10 @@ class ScrollController {
                 offset: this.planeTimeLineOffset + 200,
                 pin: false,
                 onStart: function () {
-                    let audio = document.getElementById("airplane_mp3");
-                    audio.play();
+
                 }
             });
+
         }
 
 
@@ -455,9 +552,10 @@ class ScrollController {
                     let cur = scene.timeline.time();
 
                     scene.timeline.seek(toDuration);
-                    if (scene.duration == "100%") {
-                        console.log(cur);
+                    if (scene.onSeek) {
+                        scene.onSeek.call(scene);
                     }
+
 
 
                 } else {
