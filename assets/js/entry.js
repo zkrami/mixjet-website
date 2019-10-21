@@ -208,7 +208,7 @@ class Plane {
         // latest curve 
         part3.push({ x: placeHolder.offsetLeft, y: placeHolder.offsetTop });
         tl2.to(this.plane, 0.4, { ease: Power0.easeNone, bezier: { curviness: 2, values: part3, autoRotate: ["x", "y", "rotation", 90, false] } }, 15.01);
-        tl2.to(this.plane, 0.0, { rotation: 0 });
+        tl2.to(this.plane, 0.01, { rotation: 0 } , "-=0.01");
         return [tl1, tl2];
 
 
