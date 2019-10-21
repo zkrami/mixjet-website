@@ -692,7 +692,7 @@ body {
     transform-style: preserve-3d;
 
     .runway {
-        transform: translateX(-200%);
+        transform: translateX(-200%) ;
     }
 
     .details-column {
@@ -702,6 +702,8 @@ body {
 
     .runway-column {
         z-index: 1;
+        transform:translateZ(-1px);
+        
     }
 }
 
