@@ -207,9 +207,8 @@ class Plane {
 
         // latest curve 
         part3.push({ x: placeHolder.offsetLeft, y: placeHolder.offsetTop });
-
         tl2.to(this.plane, 0.4, { ease: Power0.easeNone, bezier: { curviness: 2, values: part3, autoRotate: ["x", "y", "rotation", 90, false] } }, 15.01);
-        tl2.to(this.plane, 0.1, { rotation: 0 });
+        tl2.to(this.plane, 0.0, { rotation: 0 });
         return [tl1, tl2];
 
 
@@ -269,7 +268,7 @@ function makeAudioTimeLine() {
     });
 
     tl.to(audioProgress, 1, { progress: 1, ease: Power2.easeIn });
-    tl.to(audioProgress, 1, { progress: 0, ease: Power2.easeOut });
+    tl.to(audioProgress, 1, { progress: 0, ease: Power2.easeOut }, 2);
 
     return tl;
 }
@@ -349,20 +348,20 @@ class ScrollController {
 
         scenes.push({
             timeline: makeAudioTimeLine(),
-            duration: 2200,
-            offset: this.antonovTimeLineOffset - 1000,
+            duration: 1500,
+            offset: this.antonovTimeLineOffset - $(window).height()/2,
             pin: false,
             onSeek: () => {
                 let audio = document.getElementById("airplane_mp3");
-                let {progress} = audioProgress; 
-                
-                if(progress > 0 ){
-                    audio.play(); 
-                }else{
-                    audio.pause(); 
+                let { progress } = audioProgress;
+
+                if (progress > 0) {
+                    audio.play();
+                } else {
+                    audio.pause();
                 }
-                audio.volume = progress ; 
-                
+                audio.volume = progress;
+
 
             }
         })
